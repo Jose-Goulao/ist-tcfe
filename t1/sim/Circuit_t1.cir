@@ -1,0 +1,45 @@
+
+R1 N002 N003 1.00359089673
+R2 N001 N002 2.04298963569
+R3 N004 N002 3.02503141993
+R4 0 N004 4.05647775356
+R5 N004 N005 3.07781188185
+R6 0 N006 2.01277040929
+R7 N008 N007 1.01993304256
+
+Va N003 0 5.11402517827
+Id N008 N005 1.03896393154
+
+G1 N005 N001 N002 N004 8.33526265782
+
+H1 N004 N008 V2 7.23768458527
+
+V2 N006 N007 0
+
+
+.model P2model NPN(Bf=200, CJE=12pF, CJC=2pF)
+
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+op
+
+echo  "op_TAB"
+echo ""
+print all
+echo ""
+echo  "op_END"
+
+quit
+.endc
+
+.end
