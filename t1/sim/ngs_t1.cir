@@ -1,5 +1,7 @@
 CIRCUIT_T1
 
+.options savecurrents
+
 *********************************************
 *	declaracao das componentes
 *********************************************
@@ -24,11 +26,10 @@ H1	N4	N8	Vaux	8.33526265782
 
 
 *********************************************
-*		    setup
+*		 setup graphs
 *********************************************
 *
 *.model P2model NPN(Bf=200, CJE=12pF, CJC=2pF)
-.control
 
 *set hcopypscolor=0
 *set color0=white
@@ -43,6 +44,7 @@ H1	N4	N8	Vaux	8.33526265782
 *********************************************
 *		'corre' e mostra
 *********************************************
+.control
 
 op
 
@@ -53,9 +55,8 @@ echo "+---------------------------------------------------+"
 echo ""
 echo "op_TAB"
 print all
-print n2-n4
-print n4-n8
-print I(vaux)
+print v(n2,n4)
+print v(n4,n8)
 echo "op_END"
 echo ""
 echo "______________________________________________________"

@@ -6,10 +6,11 @@
 % Intro
 
 
-In this section, the Circuit T1 is analysed theoretically.
+In this section, the circuit in Figure \ref{fig:Desenho_t1} is analysed theoretically.
 
 A precise description of the procedure used to compute all the values is presented.
 Furthermore, the equations that were aplied and the attained results are also shown.
+
 
 
 %-----------------------------------------------------------------------
@@ -19,6 +20,7 @@ Furthermore, the equations that were aplied and the attained results are also sh
 % ----------------------------------------------------------------------
 
 \subsection{Methodology}
+
 
 % ----------------------------------------------------------------------
 % Text
@@ -32,17 +34,20 @@ Furthermore, the equations that were aplied and the attained results are also sh
 \end{equation}
 
 
+
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
 % 			     Results - subsec
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 
-\subsection{Obtained results} 
+\subsection{Computed results}
+\label{subsec:res_ana}
 
+% ----------------------------------------------------------------------
+% Text
 
-
-
+All the results are organized and displayed in Table \ref{tab:teste}.
 
 % ----------------------------------------------------------------------
 % Table - OCTAVE
@@ -54,10 +59,10 @@ Furthermore, the equations that were aplied and the attained results are also sh
     		{\bf Name} & {\bf Value [A or V]} \\ \hline
     		\input{Tabela-OCT}
   	\end{tabular}
-  	
-  	\caption{Values computed by Octave}
+  	\caption{Values computed by Octave. Variables identified with a '$@$' have a
+  	corresponding value in Ampere (A). The others are expressed in Volts (V).}
  
-\label{tab:teste}
+\label{tab:oct}
 \end{table}
 
 

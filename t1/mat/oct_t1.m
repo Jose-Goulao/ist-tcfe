@@ -50,8 +50,11 @@ Ib = V_R(3)*Kb
 
 
 fid = fopen("Tabela-OCT.tex", "w");
-fprintf(fid, "vc & %e \\\\ \\hline \n", Vc);
-fprintf(fid, "ic & %e \\\\ \\hline", i3);
+fprintf(fid, "$V_{b}$ & %e \\\\ \\hline \n", Vib);
+fprintf(fid, "$V_{c}$ & %e \\\\ \\hline \n", Vc);
+fprintf(fid, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
+fprintf(fid, "$@I_{c}$ & %e \\\\ \\hline \n", i3);
+fprintf(fid, "$@I_{d}$ & %e \\\\ \\hline", Id);
 fclose(fid);
 
 
