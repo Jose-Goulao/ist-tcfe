@@ -16,8 +16,6 @@
 \usepackage{listings}
 \usepackage[all]{nowidow}
 
-%blind text
-\usepackage{lipsum}
 
 \usepackage{graphicx}
 \graphicspath{ {./} {../../figlib/} }
@@ -80,41 +78,21 @@
 
 
 \begin{document}
-
-% Set plain page style (no headers, footer with centered page number)
 \pagestyle{plain}
 
 
 % ----------------------------------------------------------------------
-%  Cover page
 % ----------------------------------------------------------------------
+%  Cover page
+
 \input{frontcover}
 
+
 % ----------------------------------------------------------------------
-%  Table of contents, list of tables, list of figures and nomenclature
 % ----------------------------------------------------------------------
-% Table of contents
-%
+% Table of contents & Body
+
 \tableofcontents
-
-% List of tables
-%\addcontentsline{toc}{section}{\listtablename}
-%\listoftables
-%\cleardoublepage 
-
-% List of figures
-%\addcontentsline{toc}{section}{\listfigurename}
-%\listoffigures
-%\cleardoublepage 
-
-% Set arabic numbering (1,2,...) after preface
-%
-%\setcounter{page}{1}
-%\pagenumbering{arabic}
-
-% ----------------------------------------------------------------------
-%  Body
-% ----------------------------------------------------------------------
 
 \vspace{2cm}
 
@@ -128,6 +106,7 @@
 
 
 % ----------------------------------------------------------------------
-\end{document}
 % ----------------------------------------------------------------------
+\end{document}
+
 

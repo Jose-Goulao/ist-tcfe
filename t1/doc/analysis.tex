@@ -1,8 +1,8 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-%----------------------------------------------------------------------
-%----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
 % Intro
 
 
@@ -12,37 +12,52 @@ A precise description of the procedure used to compute all the values is present
 Furthermore, the equations that were aplied and the attained results are also shown.
 
 
-%----------------------------------------------------------------------
-%----------------------------------------------------------------------
-% Description and Eqs
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 		     Description and Eqs - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
 
 \subsection{Methodology}
 
-The circuit consists of a single V-R-C loop where a current $i(t)$ circulates. The
-voltage source $v_I(t)$ drives its input, and the output voltage $v_O(t)$ is taken from
-the capacitor terminals. Applying the Kirchhoff Voltage Law (KVL), a single
-equation for the single loop in the circuit can be written as
+% ----------------------------------------------------------------------
+% Text
+
+% ----------------------------------------------------------------------
+% Eqs
 
 \begin{equation}
-  Ri(t) + v_O(t) = v_I(t).
-  \label{eq:kvl}
+	Ri(t) + v_O(t) = v_I(t).
+	\label{eq:kvl}
 \end{equation}
 
-%----------------------------------------------------------------------
-%----------------------------------------------------------------------
-% Results
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			     Results - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
 
 \subsection{Obtained results} 
 
+
+
+
+
+% ----------------------------------------------------------------------
+% Table - OCTAVE
+
 \begin{table}[h]
-  \centering
-  \begin{tabular}{|l|r|}
-    \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{Tabela-OCT}
-  \end{tabular}
-  \caption{Values computed by Octave}
-  \label{tab:teste}
+	\centering
+	\begin{tabular}{|l|r|}
+    		\hline    
+    		{\bf Name} & {\bf Value [A or V]} \\ \hline
+    		\input{Tabela-OCT}
+  	\end{tabular}
+  	
+  	\caption{Values computed by Octave}
+ 
+\label{tab:teste}
 \end{table}
 
 
