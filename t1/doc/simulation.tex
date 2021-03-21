@@ -1,8 +1,13 @@
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Sec & Label
+
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
 % Intro
 
 In this section, Circuit T1 is reproduced with the help of Ngspice.
@@ -55,8 +60,8 @@ Table \ref{tab:op} shows the simulated operating point results for Circuit T1.
     		\input{op_tab}
 	\end{tabular}
 	
-	\caption{Values provided by Ngspice. Variables identified with a '$@$' have a
-  	corresponding value in Ampere (A). The others are expressed in Volts (V).}
+	\caption{Values provided by Ngspice. Variables identified with a '$@$' or are of the type
+	$i(...)$ have a corresponding value in Ampere (A). The others are expressed in Volts (V).}
     
 \label{tab:op}
 \end{table}
@@ -71,6 +76,10 @@ Table \ref{tab:op} shows the simulated operating point results for Circuit T1.
 
 \subsection{Comparison}
 
+
+% ----------------------------------------------------------------------
+% Text
+
 By comparing both Tables, we confirm that all the absolute values displayed in Table \ref{tab:op}
 are identical to the ones shown in Table \ref{tab:oct}, including all decimal digits.
 
@@ -79,12 +88,9 @@ equal to the simulated values, wich are presented in Table \ref{tab:op} as $v(n2
 $v(n4,n8)$, respectively. Finally, theoretical $I_d$ is also the same as the one obtained
 via Ngspice ('$@g1[i]$'). \\
 
-
 It is also worth noting that all theoretical calculations consider every element of the
 circuit to be ideal (without energy loss nor self-inductance nor any other phenomena that could
 alter the results). Similarly, Ngspice also considers all components to be ideal. Therefore
 every source of discrepancies between theoretical and simulated results are removed (apart from
 the small limitations concerning calculations and the rounding of values).
-
-
 

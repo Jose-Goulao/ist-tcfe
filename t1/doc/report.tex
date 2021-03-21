@@ -1,21 +1,21 @@
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Doc class
 
-% ----------------------------------------------------------------------
-%  Set the document class
-% ----------------------------------------------------------------------
 \documentclass[11pt,a4paper,twoside]{article}
 
-% ----------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
 % Define external packages, language, margins, fonts and new commands
-% ----------------------------------------------------------------------
-%\input{preamble} 
-\usepackage[utf8]{inputenc}   % <<<<< Linux
-\usepackage[english]{babel} % <<<<< English
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \usepackage{notoccite}
 \usepackage[skip=0.5\baselineskip]{caption}
 \hyphenation{GTKWave}
 \usepackage{listings}
 \usepackage[all]{nowidow}
-
 
 \usepackage{graphicx}
 \graphicspath{ {./} {../../figlib/} }
@@ -25,20 +25,17 @@
   \usefont{T1}{phv}{b}{n}\fontsize{16pt}{16pt}\selectfont}
 \def\FontMn{% 14 pt normal
   \usefont{T1}{phv}{m}{n}\fontsize{14pt}{14pt}\selectfont}
-\def\FontMb{% 14 pt bold
-  \usefont{T1}{phv}{b}{n}\fontsize{14pt}{14pt}\selectfont}
+\def\FontMb{% 12 pt bold
+  \usefont{T1}{phv}{b}{n}\fontsize{12pt}{12pt}\selectfont}
 \def\FontSn{% 12 pt normal
   \usefont{T1}{phv}{m}{n}\fontsize{12pt}{12pt}\selectfont}
 
-% Use Arial font as default
-%
+
 \renewcommand{\rmdefault}{phv}
 \renewcommand{\sfdefault}{phv}
 \usepackage{geometry}	
 \geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
 
-%\usepackage{setspace}
-%\renewcommand{\baselinestretch}{1.5}
 
 \usepackage[pdftex]{hyperref} % enhance documents that are to be
                               % output as HTML and PDF
@@ -73,7 +70,7 @@
 \usepackage{mdframed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     Begin Document                                                   %
+%     			    Begin Document                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -81,34 +78,29 @@
 \pagestyle{plain}
 
 
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
 %  Cover page
 
 \input{frontcover}
 
 
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
-% Table of contents & Body
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Contents & Body
 
 \tableofcontents
 
-\vspace{2cm}
+	\vspace{2cm}
+	\input{intro}
 
-\input{intro}
+	\vspace{2cm}
+	\input{analysis}
 
-\vspace{2cm}
+	\input{simulation}
 
-\input{analysis}
-
-\input{simulation}
-
-\input{conclusion}
+	\input{conclusion}
 
 
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
 \end{document}
-
 

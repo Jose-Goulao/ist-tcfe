@@ -3,7 +3,7 @@ CIRCUIT_T1
 .options savecurrents
 
 *********************************************
-*	declaracao das componentes
+*	declaracion of components
 *********************************************
 *nome	entr	saida	valor
 
@@ -21,99 +21,34 @@ Id	N8	N5	1.03896393154
 Vaux	N6	N7	0
 
 G1	N5	N1	N2	N4	7.23768458527
-
 H1	N4	N8	Vaux	8.33526265782
 
 
 *********************************************
-*		 setup graphs
-*********************************************
-*
-*.model P2model NPN(Bf=200, CJE=12pF, CJC=2pF)
-
-*set hcopypscolor=0
-*set color0=white
-*set color1=black
-*set color2=red
-*set color3=blue
-*set color4=violet
-*set color5=rgb:3/8/0
-*set color6=rgb:4/0/0
-
-
-*********************************************
-*		'corre' e mostra
+*		'runs' & shows
 *********************************************
 .control
 
 op
 
-echo ""
-echo "+---------------------------------------------------+"
-echo "|     VALORES DE VOLTAGENS E CURRENTES(#branch)     |"
-echo "+---------------------------------------------------+"
-echo ""
 echo "op_TAB"
+
+print i(vaux)
+print i(h1)
 print all
 print v(n2,n4)
 print v(n4,n8)
+
 echo "op_END"
-echo ""
-echo "______________________________________________________"
-echo ""
 
-*echo "A currente em Ic é a mesma que passa em Vaux e em Vc (H1) e:"
-*print i(vaux)
- 
-*echo ""
-*echo "A diferenca de potencial em Ib (G1) é a mesma em R3 e:"
-*print n4-n2
 
 
 *********************************************
-*		analise trans
-*********************************************
-*como este circuito nao varia com o tempo
-*os valores no infinito são iguais aos iniciais
-*
-*primeiro valor é o passo e o ultimo o tempo final
-*vão aparecer os valores iniciais
-*
-*tran 1 2
-*
-*hardcopy trans.ps v(n001) v(n005)
-*echo trans_FIG
-*
-*para ver um valor a variar no tempo,
-*escrever print ... depois de tran ...
-*
-*echo "______________________________________________________"
-*echo ""
-*
-*********************************************
-*		analise ac
-*********************************************
-*
-*ac dec <nº passos> <vlr minimo> <vlr maximo>
-*ac dec 10 1 100
-*
-*hardcopy ....
-*hardcopy acm.ps v(n001)  v(n005)
-*echo acm_FIG
-*hardcopy acp.ps v(n001)
-*echo acp_FIG 
-*
-*hardcopy zim.ps abs(i(va))
-*echo zim_FIG
-*
-*echo "______________________________________________________"
-*echo ""
-*
-*********************************************
-*		encerrar
+*		    close
 *********************************************
 
 quit
 .endc
 
 .end
+
