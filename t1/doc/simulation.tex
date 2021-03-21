@@ -9,7 +9,7 @@ In this section, Circuit T1 is reproduced with the help of Ngspice.
 
 Firstly, the outcome of the simulation is shown, as well as a brief explanation
 on how it was achived. Afterwards, a comparison is done between those values and
-the ones attained in Subsection \ref{subsec:res_ana}.
+the ones attained in Section \ref{sec:analysis}.
 
 
 
@@ -20,15 +20,28 @@ the ones attained in Subsection \ref{subsec:res_ana}.
 % ----------------------------------------------------------------------
 
 \subsection{Simulated results}
-\label{sim_res}
+\label{subsec:sim_res}
 
 
 % ----------------------------------------------------------------------
 % Text
 
-Table ~\ref{tab:op} shows the simulated operating point results for the circuit
-under analysis. Compared to the theoretical analysis results, one notices the
-following differences: describe and explain the differences.
+Ngspice is a simulator for eletronic circuits that can output a variety of results.
+This emulator computes the voltages in every node, as well as the potential difference
+between two given nodes. Apart from that, the group made use of the command
+{\em .options savecurrents} wich also enables the output of the currents that pass
+trough all branches.
+
+With the limitation that Ngspice only provides the current in the components and not through
+the nodes, an aditional voltage source ($Vaux$) was added so that the current in $R_6$ ($I_c$)
+is known. This source (not displayed in Figure \ref{fig:Desenho_t1}) as a voltage of 0V and it 
+was implemented between $R_6$ and $R_7$. Therefore an aditional node had to be added (node $N7$).
+
+As previously stated, $I_b$ is refered to as $G_1$. This is because, in Ngspice, a
+voltage-controlled current source is identified with capital 'g' ($G$). In the case of
+$V_c$, all current-controlled voltage source are identified with $H$.
+
+Table \ref{tab:op} shows the simulated operating point results for Circuit T1.
 
 
 % ----------------------------------------------------------------------
@@ -42,11 +55,12 @@ following differences: describe and explain the differences.
     		\input{op_tab}
 	\end{tabular}
 	
-	\caption{Values given by Ngspice. Variables identified with a '$@$' have a
+	\caption{Values provided by Ngspice. Variables identified with a '$@$' have a
   	corresponding value in Ampere (A). The others are expressed in Volts (V).}
     
 \label{tab:op}
 \end{table}
+
 
 
 %-----------------------------------------------------------------------
@@ -55,10 +69,22 @@ following differences: describe and explain the differences.
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 
-\subsection{Values comparison}
+\subsection{Comparison}
 
-For this comparison, note that
+With all that was previously considered, we observe that all the absolute values displayed
+in Table \ref{tab:op} are identical to the ones shown in Table \ref{tab:oct}.
 
-With all that considered, we observe that all the absolute values displayed in Table
-\ref{tab:op} are identical to the ones shown in Table \ref{tab:oct}.
+All the voltages in every node match with high precision. Moreover, $V_b$ and $V_c$ are
+equal to the simulated values, wich are presented in Table \ref{tab:op} as $v(n2,n4)$ and
+$v(n4,n8)$, respectively. Finally, theoretical $I_d$ is also the same as the one obtained
+by Ngspice ('$@g1[i]$'). \\
+
+
+It is also worth noting that all theoretical calculations consider every element of the
+circuit to be ideal (without energy loss nor self-inductance nor any other phenomena that could
+alter the results). Similarly, Ngspice also considers all components to be ideal. Therefore
+every source of discrepancies between theoretical and simulated results are removed (apart from
+the small limitations concerning calculations and the rounding of values).
+
+
 
