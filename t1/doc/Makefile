@@ -18,7 +18,7 @@ octave.log:
 	octave ../mat/oct_nos_t1.m > octave.log
 
 octave.log:
-	octave ../mat/oct_t1.m > octave.log
+	octave ../mat/oct_malhas_t1.m > octave.log
 
 ngspice: ngspice.log
 	$(eval NGSFIGS=$(shell grep _FIG $< | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))

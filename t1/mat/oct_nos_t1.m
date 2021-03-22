@@ -28,7 +28,7 @@ G6 = 1/R6;
 G7 = 1/R7;
 
 
-#Forma matricial da equações de kirchhoff de circuito
+#Forma matricial da equações de kirchhof
 
 A = [0 0 1 0 0 0 0 0 ;...
          G2 -(G1+G2+G3) G1 G3 0 0 0 0;...
@@ -78,6 +78,5 @@ fprintf(fid, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
 fprintf(fid, "$@I_{c}$ & %e \\\\ \\hline \n", Ic);
 fprintf(fid, "$@I_{H1}$ & %e \\\\ \\hline", Ih1);
 fclose(fid);
-
 
 
