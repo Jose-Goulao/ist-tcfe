@@ -12,12 +12,13 @@
 
 In this section, the circuit in Figure \ref{fig:Desenho_t1} is analysed theoretically.
 
-Two methods were used and both will be presented and explained. In Subsection \ref{subsec:mesh_met}
+Two methods were used and both will be explained and presented. In Subsection \ref{subsec:mesh_met}
 the aplication of the mesh method and its results are shown. In Subsection \ref{subsec:node_met} the
-same is done with the  node method. \\
+same is done with the node method. \\
 
 In both of these methods, three important equations were used: both Kirchhoff's laws (Kirchhof's
-current law - eq(\ref{eq:kcl}) and Kirchhoff's voltage law - eq(\ref{eq:kvl})); Ohm's law (eq(\ref{eq:ohm})).
+current law (KCL) - eq.(\ref{eq:kcl}) and Kirchhoff's voltage law (KVL)- eq.(\ref{eq:kvl}));
+Ohm's law (eq.(\ref{eq:ohm})).
 
 The algebraic sum of all the currents in any given node is zero:
 \begin{equation}
@@ -49,8 +50,62 @@ passes through the resistor multiplied by the its resistance.
 \subsection{Mesh method}
 \label{subsec:mesh_met}
 
+To correclty use the mesh method, firstly, four currents must be considered, one for each simple mesh.
+They were identidied as follows: $I_1$ - associated with the top left mesh; $I_2$ - associated with
+the top right mesh; $I_3$ - associated with the bottom left mesh; $I_4$ - associated with the bottom
+right mesh. Every one of these currents is assumed to run counter clockwise. \\
 
+Afterwards, eq. \ref{eq:kvl} needs to be applied in the meshes not containing any type of current
+sources (eq.(\ref{eq:kvl_m1}) and eq.(\ref{eq:kvl_m3})) . Moreover, it is essential to relate the
+remaing mesh current with those created by the current sources (eq.(\ref{eq:rel_cur1}) and
+eq.(\ref{eq:rel_cur2})). Likewise, eq.(\ref{eq:rel_cur3}) is also obtained.
 
+\begin{equation}
+	V_a = I_1(R_1+R_3+R_4)-I_2(R_3)-I_3(R_4)
+	\label{eq:kvl_m1}
+\end{equation}
+
+\begin{equation}
+	-V_c = I_3(R_4+R_6+R_7)-I_1(R_4)
+	\label{eq:kvl_m3}
+\end{equation}
+
+\begin{equation}
+	I_2 = -I_b
+	\label{eq:rel_cur1}
+\end{equation}
+
+\begin{equation}
+	I_4 = -I_d
+	\label{eq:rel_cur2}
+\end{equation}
+
+\begin{equation}
+	I_3 = -I_c
+	\label{eq:rel_cur3}
+\end{equation}
+
+Further realtions need to be made in order to solve the circuit. We must not forget the two equations
+from the linear dependent sources (eq.(\ref{eq:depsrc1}) and eq.(\ref{eq:depsrc2})). In adition, by
+making use of eq.(\ref{eq:ohm}), one more equation is acquired, eq. \ref{eq:rel_ohm1}.
+
+\begin{equation}
+	I_b = K_bV_b
+	\label{eq:depsrc1}
+\end{equation}
+
+\begin{equation}
+	V_c = K_cI_b
+	\label{eq:depsrc2}
+\end{equation}
+
+\begin{equation}
+	I_1(R_3)-I_2(R_3) = V_b
+	\label{eq:rel_ohm1}
+\end{equation}
+
+With eight equations and eight unkown variables, the sistem can be solved.
+The results were computed by Octave and organized in Table \ref{tab:mesh}
 
 \begin{table}[h]
 	\centering
@@ -79,7 +134,9 @@ passes through the resistor multiplied by the its resistance.
 
 Similarly to the previous subsection, for the node method, ground was considered to be where it is identified in
 Figure \ref{fig:Desenho_t1}. In adition, assume $V_{Ni}$ to be the voltage in node $Ni$ (every node position can
-also be found in Figure \ref{fig:Desenho_t1}).
+also be found in Figure \ref{fig:Desenho_t1}). \\
+
+
 
 The results were computed by Octave and organized in Table \ref{tab:node}
 

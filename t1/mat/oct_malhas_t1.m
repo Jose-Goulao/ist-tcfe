@@ -59,10 +59,10 @@ Vb = res(7)
 Vc = res(8)
 
 fid = fopen("Table_Malhas-OCT.tex", "w");
-fprintf(fid, "$I_{1}$ & %e \\\\ \\hline \n", i1);
-fprintf(fid, "$I_{2}$ & %e \\\\ \\hline \n", i2);
-fprintf(fid, "$I_{3}$ & %e \\\\ \\hline \n", i3);
-fprintf(fid, "$I_{4}$ & %e \\\\ \\hline \n", i4);
+fprintf(fid, "$@I_{1}$ & %e \\\\ \\hline \n", i1);
+fprintf(fid, "$@I_{2}$ & %e \\\\ \\hline \n", i2);
+fprintf(fid, "$@I_{3}$ & %e \\\\ \\hline \n", i3);
+fprintf(fid, "$@I_{4}$ & %e \\\\ \\hline \n", i4);
 
 
 fprintf(fid, "$V_{b}$ & %e \\\\ \\hline \n", Vb);
