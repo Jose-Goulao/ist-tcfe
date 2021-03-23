@@ -33,7 +33,7 @@ The algebraic sum of all the voltages in any given closed-loop circuit (mesh) is
 \end{equation}
 
 The potential difference between the two nodes connected to a resistor is equal to the current that 
-passes through the resistor multiplied by the its resistance.
+passes through the resistor multiplied by its resistance.
 \begin{equation}
 	V_i = R_iI_i
 	\label{eq:ohm}
@@ -53,11 +53,11 @@ passes through the resistor multiplied by the its resistance.
 To correclty use the mesh method, firstly, four currents must be considered, one for each simple mesh.
 They were identified as follows: $I_1$ - associated with the top left mesh; $I_2$ - associated with
 the top right mesh; $I_3$ - associated with the bottom left mesh; $I_4$ - associated with the bottom
-right mesh. Every one of these currents is assumed to run counter clockwise. \\
+right mesh. Each one of these currents is assumed to run counterclockwise. \\
 
 Afterwards, eq.(\ref{eq:kvl}) needs to be applied in the meshes not containing any type of current
 sources (eq.(\ref{eq:kvl_m1}) and eq.(\ref{eq:kvl_m3})) . Moreover, it is essential to relate the
-remaing mesh current with those created by the current sources (eq.(\ref{eq:rel_cur1}) and
+remaining mesh current with those created by the current sources (eq.(\ref{eq:rel_cur1}) and
 eq.(\ref{eq:rel_cur2})). Likewise, eq.(\ref{eq:rel_cur3}) is also obtained.
 
 \begin{equation}
@@ -85,7 +85,7 @@ eq.(\ref{eq:rel_cur2})). Likewise, eq.(\ref{eq:rel_cur3}) is also obtained.
 	\label{eq:rel_cur3}
 \end{equation}
 
-Further realtions need to be composed in order to solve the circuit. We must not forget the two equations
+Further relations need to be composed in order to solve the circuit. We must not forget the two equations
 from the linear dependent sources (eq.(\ref{eq:depsrc1}) and eq.(\ref{eq:depsrc2})). In adition, by
 making use of eq.(\ref{eq:ohm}), one more equation is acquired, eq.(\ref{eq:rel_ohm1}).
 

@@ -18,7 +18,7 @@ Kb = 7.23768458527/1000;
 Kc = 8.33526265782*1000;
 
 
-#Forma matricial da equações de kirchhoff
+# Matrix
 
 A = [(R1 + R3 + R4) -R3 R4 0 0 0 0 0 ;...
          0 1 0 0 1 0 0 0;...
@@ -32,7 +32,7 @@ A = [(R1 + R3 + R4) -R3 R4 0 0 0 0 0 ;...
           
 B = [Va;0; 0; 0; -Id; 0; 0; 0]
 
-#Solução da equação matricial
+# Solution
 
 
 res = inv(A)*B
@@ -47,6 +47,8 @@ Ic = res(6)
 
 Vb = res(7)
 Vc = res(8)
+
+# Create file
 
 fid = fopen("Table_Malhas-OCT.tex", "w");
 fprintf(fid, "$@I_{1}$ & %e \\\\ \\hline \n", i1);

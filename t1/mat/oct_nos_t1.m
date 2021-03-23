@@ -17,7 +17,7 @@ Id = 1.03896393154/1000;
 Kb = 7.23768458527/1000;
 Kc = 8.33526265782*1000;
 
-
+# Conductance
 
 G1 = 1/R1;
 G2 = 1/R2;
@@ -28,7 +28,7 @@ G6 = 1/R6;
 G7 = 1/R7;
 
 
-#Forma matricial da equações de kirchhof
+# Matrix
 
 A = [0 0 1 0 0 0 0 0 ;...
          G2 -(G1+G2+G3) G1 G3 0 0 0 0;...
@@ -42,7 +42,7 @@ A = [0 0 1 0 0 0 0 0 ;...
           
 B = [Va;0; 0; 0; Id; Id; 0; 0]
 
-#Solução da equação matricial
+# Solution
 
 
 res = inv(A)*B
@@ -61,6 +61,8 @@ Ic = Vc/Kc
 
 Vb = n4 - n2
 Ib = Kb*Vb
+
+# Create file
 
 fid = fopen("Table_Nos-OCT.tex", "w");
 fprintf(fid, "$V_{N1}$ & %e \\\\ \\hline \n", n1);
