@@ -138,7 +138,64 @@ also be found in Figure \ref{fig:Desenho_t1}). \\
 
 
 
-The results were computed by Octave and organized in Table \ref{tab:node}
+
+The node method uses KCL in conjunction with Ohm’s law to define equations that when solved give the voltage value 
+of each nove in relation to ground (Node 0, $V_0 = 0$). In this circuit we defined six equations that equate the 
+currents entering a particular node with the currents leaving said node. 
+
+In order to have equations that solve for the node’s voltage, a relation between curent and voltage is made using 
+Ohm’s law (given a resistance between two nodes, the current that passes the resistance can be written as 
+$I=\frac{V_2-V_1}{R_1}$)
+
+To simplify the equations it is useful to use the conductance $G_n$ which is the inverse of the resistance $R_n$ 
+($G_n=\frac{1}{R_n}$)
+
+\begin{equation}
+	G_2(V_1-V_2)+G_1(V_3-V_2) - G3(V_2-V_4) = 0
+	\label{}
+\end{equation}
+
+\begin{equation}
+	G_2(V_1-V_2)+K_b(V_4-V_2) = 0
+	\label{}
+\end{equation}
+
+\begin{equation}
+	G3(V_2-V_4)+G_5(V_5-V_4)-G_4V_4)+I_c=0
+	\label{}
+\end{equation} 
+
+\begin{equation}
+	K_b(V_2-V_4)-G_5(V_5-V_4)=-I_d
+	\label{}
+\end{equation}
+
+\begin{equation}
+	G_7(V_6-V_7)-I_c=I_d
+	\label{}
+\end{equation}
+
+\begin{equation}
+	G_6(-V_6)-G_7(V_6-V_7)=0
+	\label{}
+\end{equation}
+
+In order to solve the circuit two more equations are used to relate the voltage difference between the nodes that 
+are conected to the voltage sources.
+
+\begin{equation}
+	V_3 = V_a
+	\label{}
+\end{equation}
+
+\begin{equation}
+	K_c\frac{(-V_6)}{G_6}-(V_4-V_7)=0
+	\label{}
+\end{equation}
+
+
+With these 8 equations it is possible to solve the system using Octave.
+The results were organized in Table \ref{tab:node}
 
 \begin{table}[h]
 	\centering
