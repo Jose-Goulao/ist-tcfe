@@ -1,0 +1,54 @@
+CIRCUIT_T1
+
+.options savecurrents
+
+
+*********************************************
+*	declaracion of components
+*********************************************
+*nome	entr	saida	valor
+
+R1	N2	N3	1.00359089673kOhm
+R2	N1	N2	2.04298963569kOhm
+R3 	N4	N2	3.02503141993kOhm
+R4 	0	N4	4.05647775356kOhm
+R5 	N4	N5	3.07781188185kOhm
+R6 	0	N6	2.01277040929kOhm
+R7 	N8	N7	1.01993304256kOhm
+
+Va	N3	0	5.11402517827V
+Id	N8	N5	1.03896393154mA
+
+Vaux	N6	N7	0V
+
+G1	N5	N1	N2	N4	7.23768458527m
+H1	N4	N8	Vaux	8.33526265782k
+
+
+*********************************************
+*		'runs' & shows
+*********************************************
+.control
+
+op
+
+echo "op_TAB"
+
+print i(vaux)
+print i(h1)
+print all
+print v(n4,n2)
+print v(n4,n8)
+
+echo "op_END"
+
+
+*********************************************
+*		    close
+*********************************************
+
+quit
+.endc
+
+.end
+
