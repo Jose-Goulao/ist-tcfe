@@ -11,19 +11,17 @@
 The objective of this laboratory assignment is to study a circuit containing:
 \begin{itemize}
 	\item seven resistors ($R_1$-$R_7$)
-	\item one voltage source ($V_a$)
-	\item one current source ($I_d$)
+	\item one voltage source ($V_s$) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\item one capacitor ($C$)
 	\item one voltage-controlled current source ($I_b$)
-	\item one current-controlled voltage source ($V_c$)
+	\item one current-controlled voltage source ($V_d$)
 \end{itemize}
 
 
-Circuit T1 is presented in Figure \ref{fig:Desenho_t1}. All components, including nodes
+Circuit T1 is presented in Figure \ref{fig:Desenho_t2}. All components, including nodes
 ($N1$-$N8$) and ground($GND$ or $0$), are identified with their respective names. Note
-that $I_b$ is also refered to as $G_1$ and $V_c$ as $H_1$ (explanation can be found in 
-Subsection \ref{subsec:sim_res}). Furthermore, the existence of $N6$ and $N7$ is also
-explained in Subsection \ref{subsec:sim_res}, however, consider the voltages in both nodes
-to be equal. \\
+that $I_b$ is also refered to as $G_1$ and $V_d$ as $H_1$ (explanation can be found in 
+Subsection \ref{subsec:sim_res}). \\
 
 In Section \ref{sec:analysis}, a theoretical analysis (using two distinct methods) of
 the circuit is presented. In Section \ref{sec:simulation} , the circuit is analysed by
@@ -35,7 +33,7 @@ simulation, and the results are compared to the theoretical results obtained in 
 	\centering
 	\includegraphics[width=0.85\linewidth]{dsnh_t2.pdf}
 	\caption{Circuit T2}
-\label{fig:Desenho_t1}
+\label{fig:Desenho_t2}
 \end{figure}
 
 %-------------------------------------------------------------------------------------------------------
@@ -55,7 +53,7 @@ generates random values.
     		\input{given_vls}
 	\end{tabular}
 	
-	\caption{Values provided by the Python sript. Units for the values: kOhm, V, mA and mS}
+	\caption{Values provided by the Python sript. Units for the values: V, mA, kOhm, mS and uF}
     
 \label{tab:given_vls}
 \end{table}
