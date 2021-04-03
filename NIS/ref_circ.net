@@ -79,7 +79,7 @@ echo ""
 *primeiro valor é o passo e o ultimo o tempo final
 *vão aparecer os valores iniciais
 *
-*tran 1 2
+*tran 1ms 20ms
 *
 *hardcopy trans.ps v(n001) v(n005)
 *echo trans_FIG

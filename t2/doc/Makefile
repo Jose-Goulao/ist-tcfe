@@ -6,19 +6,30 @@
 FILE=report
 LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 
+#------------------------------------------------------------
+
 all: $(FILE).pdf
 	evince $< &
 
-$(FILE).pdf: $(wildcard *.tex) $(LODFIGS) octave.log ngspice
+$(FILE).pdf: $(wildcard *.tex) $(LODFIGS) python oct-t2 ngspice
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
+	
 
-octave.log:
-	octave ../mat/oct_nos_t1.m > octave.log
+#############################################################
+#------------------------------------------------------------
+#############################################################
 
-octave.log:
-	octave ../mat/oct_malhas_t1.m > octave.log
+python:
+	python2.7 ../DADOS/t2_datagen.py 95814 > data.txt
+
+#------------------------------------------------------------
+
+oct-t2:
+	octave ../mat/oct_nos_t2.m > octave.log
+
+#------------------------------------------------------------
 
 ngspice: ngspice.log
 	$(eval NGSFIGS=$(shell grep _FIG $< | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))
@@ -27,17 +38,22 @@ ngspice: ngspice.log
 	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
 	$(foreach i, $(NGSFIGPS), ps2pdf $i;)
 
-ngspice.log: ../sim/ngs_t2.cir
+ngspice.log: ../sim/ngs_t2_1.cir
 	ngspice -b $< -o $@
-
-
+	
+	
+	
+#############################################################
+#------------------------------------------------------------
+#############################################################
 #convert libreoffice draw figures to pdf
+
 %.pdf: %.odg
 	soffice --headless --convert-to pdf $<
 
 clean:
 	@rm -rf *.aux *.bbl *.blg *.glg *.glo *.gls *.ilg *.ist *.lof
-	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps
+	@rm -rf *.log *.lot *.nlo *.nls *.out *.toc *~ *.*% ./*.pdf ./*.ps ./*.txt
 	@rm -rf *_tab.tex octave-workspace *.eps
 
 .PHONY: all clean ngspice octave
