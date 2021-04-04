@@ -31,7 +31,7 @@ H1	N5	N8	Vaux	8.33526265782k
 
 op
 
-echo "op_TAB-2"
+echo "op-2_TAB"
 
 print i(vaux)
 print i(h1)
@@ -40,7 +40,7 @@ print v(n5,n2)
 print v(n5,n8)
 print v(n6,n8)
 
-echo "op_END-2"
+echo "op-2_END"
 
 
 *********************************************
