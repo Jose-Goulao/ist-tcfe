@@ -8,7 +8,6 @@ No. of Data Rows : 1
 op-1_TAB
 i(vaux) = 9.187367e-04
 i(h1) = -9.18737e-04
-Error: no such function as i.
 @g1[i] = -2.95727e-04
 @r1[i] = -2.82220e-04
 @r2[i] = -2.95727e-04
