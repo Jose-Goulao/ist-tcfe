@@ -18,7 +18,7 @@ CIRCUIT_T2
 op
 
 
-echo "op-1_TAB"
+echo "op_TAB"
 
 print i(vaux)
 print i(h1)
@@ -27,7 +27,7 @@ print v(n5,n2)
 print v(n5,n8)
 print v(n6,n8)
 
-echo "op-1_END"
+echo "op_END"
 
 
 *********************************************

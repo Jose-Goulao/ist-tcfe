@@ -4,43 +4,29 @@ CIRCUIT_T2_2
 
 
 *********************************************
-*	declaracion of components
+*	 	data import
 *********************************************
-*nome	entr	saida	valor
 
-R1	N2	N1	1.00359089673kOhm
-R2	N3	N2	2.04298963569kOhm
-R3 	N5	N2	3.02503141993kOhm
-R4 	0	N5	4.05647775356kOhm
-R5 	N5	N6	3.07781188185kOhm
-R6 	0	N7	2.01277040929kOhm
-R7 	N8	N7.	1.01993304256kOhm
-
-Vs	N1	0	0V
-Vx	N8	N6	8.568097V
-
-Vaux	N7	N7.	0V
-
-G1	N6	N3	N2	N5	7.23768458527m
-H1	N5	N8	Vaux	8.33526265782k
+.include ../doc/Dados_ngs-2.txt
 
 
 *********************************************
-*		'runs' & shows
+*		 op & print
 *********************************************
 
+.control
 op
 
-echo "op-2_TAB"
+
+echo "op_TAB2"
 
 print i(vaux)
 print i(h1)
 print all
 print v(n5,n2)
 print v(n5,n8)
-print v(n6,n8)
 
-echo "op-2_END"
+echo "op_END2"
 
 
 *********************************************
