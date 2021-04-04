@@ -159,7 +159,7 @@ file = fopen("Dados_ngs-2.txt", "w");
 	fprintf(file, "R6	0	N7	%d \n", R6);
 	fprintf(file, "R7	N8	N7.	%d \n", R7);
 
-	fprintf(file, "Vs	N1	0	%d \n", Vs);
+	fprintf(file, "Vs	N1	0	0 \n");
 	fprintf(file, "Vx	N8	N6	%d \n", Vx);
 
 	fprintf(file, "Vaux	N7	N7.	0 \n");
