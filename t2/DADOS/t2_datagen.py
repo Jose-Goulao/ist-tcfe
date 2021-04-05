@@ -5,12 +5,10 @@
 #    FOLLOW THE COMMENTS IN CAPITALS BELOW TO EDIT THIS SCRIPT FOR A NEW QUIZ
 
 
-#Extra
-import sys
-#End Extra
-
 import math
 import random
+import sys
+
 
 class Var:
     def __init__(self, name, val, tol):
@@ -69,16 +67,18 @@ class DataSet:
             self.probList[i].printProb()
 
 def main():
-    if (len(sys.argv) <= 1):
-    	number = input("\n\nPlease enter the lowest student number in your group: \n")
-    if (len(sys.argv) > 1):
-    	number = int(sys.argv[1])
-    print
-    print
-    dataset = DataSet(number)
 
-    #print test
-    dataset.printDataSet()
+	if (len(sys.argv) == 2):
+		number = int(sys.argv[1])
+	if (len(sys.argv) != 2):
+		number = input("\n\nPlease enter the lowest student number in your group: \n")
+	
+    
+  	dataset = DataSet(number)
+
+	#print test
+	dataset.printDataSet()
+
     
 if __name__ == "__main__": main()
 

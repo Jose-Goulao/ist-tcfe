@@ -11,7 +11,7 @@ LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 all: $(FILE).pdf
 	evince $< &
 
-$(FILE).pdf: $(wildcard *.tex) $(LODFIGS) python oct-t2 ngs1 ngs2 ngs3.log ngs4.log ngs5.log
+$(FILE).pdf: $(wildcard *.tex) $(LODFIGS) py-script oct-t2 ngs1 ngs2 ngs3.log ngs4.log ngs5.log
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
@@ -21,7 +21,7 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS) python oct-t2 ngs1 ngs2 ngs3.log ngs4.
 #------------------------------------------------------------
 #############################################################
 
-python:
+py-script:
 	python2.7 ../DADOS/t2_datagen.py 95814 > data.txt
 
 #------------------------------------------------------------

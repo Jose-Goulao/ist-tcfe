@@ -11,7 +11,7 @@
 The objective of this laboratory assignment is to study a circuit containing:
 \begin{itemize}
 	\item seven resistors ($R_1$-$R_7$)
-	\item one voltage source ($V_s$) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\item one voltage source ($V_s$)
 	\item one capacitor ($C$)
 	\item one voltage-controlled current source ($I_b$)
 	\item one current-controlled voltage source ($V_d$)
@@ -20,17 +20,19 @@ The objective of this laboratory assignment is to study a circuit containing:
 
 Circuit T2 is presented in Figure \ref{fig:Desenho_t2}. All components, including nodes
 ($N1$-$N8$) are identified with their respective names (ground is marked with its symbol).
-Note that $I_b$ is also refered to as $G_1$ and $V_d$ as $H_1$ (explanation can be found
-in Subsection \ref{sec:simulation}).
 
-The voltage source $V_s$ obeys the following equations:
-
+The voltage source $v_s$ obeys the following equations:
 \begin{equation}
 	v_s(t) = V_su(-t) + sin(2nfft)u(t)
 \end{equation}
 
+\begin{equation}
+	u(t) = 0, t < 0
+\end{equation}
 
-
+\begin{equation}
+	u(t) = 1, t \geq 0
+\end{equation}
 
 
 In Section \ref{sec:analysis}, a theoretical analysis (using two distinct methods) of
@@ -41,7 +43,7 @@ simulation, and the results are compared to the theoretical results obtained in 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.85\linewidth]{dsnh_t2.pdf}
+	\includegraphics[width=0.75\linewidth]{dsnh_t2.pdf}
 	\caption{Circuit T2}
 \label{fig:Desenho_t2}
 \end{figure}
@@ -49,7 +51,6 @@ simulation, and the results are compared to the theoretical results obtained in 
 %-------------------------------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------------------------------
 
-\vspace{1cm}
 
 For this laboratory assignment, the values considered for all the varibles can be
 found on Table \ref{tab:given_vls}. They were obtained through a Python script that

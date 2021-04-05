@@ -4,8 +4,8 @@
 \label{sec:simulation}
 
 
-In this section, Circuit T2 is reproduced with the help of Ngspice. Each section corresponds
-to each task. Ngspice is a simulator for eletronic circuits that can output a variety of results.
+In this section, Circuit T2 is reproduced with the help of Ngspice (each section corresponds
+to each task). Ngspice is a simulator for eletronic circuits that can output a variety of results.
 This emulator computes the voltages in every node, as well as the potential difference
 between two given nodes. Apart from that, the group made use of the command
 {\em .options savecurrents} which also enables the output of the currents that pass
@@ -22,7 +22,7 @@ $V_c$, all current-controlled voltage source are identified with $H$.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.85\linewidth]{dsnh_sim_t2.pdf}
+	\includegraphics[width=0.75\linewidth]{dsnh_sim_t2.pdf}
 	\caption{Circuit T2, analysed by Ngspice}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
@@ -34,12 +34,12 @@ $V_c$, all current-controlled voltage source are identified with $H$.
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 \subsection{Task 1)}
-\label{subsec:task1}
+\label{subsec:task1_s}
 
 
 In this subsection, the circuit is simulated when $t<0$. There is no need for a
 transient analysis because $v_s(t)$=$V_s$ (according to the data given), therefore
-all values are constante in time. 
+all values are constant in time. 
 
 Table \ref{tab:op1} shows the simulated operating point results for Circuit T2.
 
@@ -67,11 +67,12 @@ branches: $V_b$ = $v(n5,n2)$ and $V_d$ = $v(n5,n8)$.
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 \subsection{Task 2)}
-\label{subsec:task2}
+\label{subsec:task2_s}
 
 
 In this subsection, the circuit is simulated when $t=0$. The capacitor is replaced with a voltage source, 
-with its value being equal to de diference between nodes $n6$ and $n8$, or $V_x$ = $V(n6)-V(n8)$.
+with its value being equal to de diference between the voltages in nodes $n6$ and $n8$ (or $V_x$ = $V(n6)-
+V(n8)$) obtained in subsection \ref{subsec:task1_s}.
 
 Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 
@@ -96,13 +97,16 @@ Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 \subsection{Task 3)}
-\label{subsec:task3}
+\label{subsec:task3_s}
 
+In this subsection, the natural response of the circuit was simulated using the boundary conditions
+$V(n6)$ and $V(n8)$ calculated in subsection \ref{subsec:task2_s}. Thus, $V_{n6}(t)$ was ploted in the 
+interval [0;20]$ms$ (Figure \ref{fig:trans-1}).
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.55\linewidth]{trans-1.eps}
-	\caption{Transient analysis - 1}
+	\caption{Transient analysis - 1: natural response on node $n6$}
 \label{fig:trans-1}
 \end{figure}
 
@@ -113,13 +117,17 @@ Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 \subsection{Task 4)}
-\label{subsec:task4}
+\label{subsec:task4_s}
 
+In this subsection, the total (natural and forced) responde on node $n6$ is simulated. The boundary
+conditions used are the same as subsection \ref{subsec:task3_s} and a frequency of 1kHz (f=1KHz) is
+considered for $v_s(t)$. Figure \ref{fig:trans-2} shows the plot. It is worth noting that node $n1$ has
+the same value as the stimulus ($v_s(t)$), so $V(n1)$ is used instead.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.55\linewidth]{trans-2.eps}
-	\caption{Transient analysis - 2}
+	\caption{Transient analysis - 2: total response on node $n6$}
 \label{fig:trans-2}
 \end{figure}
 
@@ -130,26 +138,27 @@ Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 \subsection{Task 5)}
-\label{subsec:task5}
+\label{subsec:task5_s}
 
+In this subsection, the frequency response on node $n6$ is simulated.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.55\linewidth]{ac-2.eps}
-	\caption{Circuit T2, analysed by Ngspice}
+	\includegraphics[width=0.55\linewidth]{ac-1.eps}
+	\caption{Frequency response - 1}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.55\linewidth]{ac-2.eps}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Frequency response - 1}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.55\linewidth]{ac-3.eps}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Frequency response - 1}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
