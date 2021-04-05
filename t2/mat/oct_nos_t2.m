@@ -98,7 +98,6 @@ file = fopen("Tbl_oct-1.tex", "w");
 	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
 	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id);
 	fprintf(file, "$@I_{Vs}$ & %e \\\\ \\hline \n", IVs);
-	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline", Ih1);
 fclose(file);
 
 #------------------------------------------------------------

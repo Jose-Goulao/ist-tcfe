@@ -37,7 +37,7 @@ set color6=rgb:4/0/0
 
 tran 1u 20ms
 
-hardcopy trans-1.ps v(n6)
+hardcopy trans-1.eps v(n6)
 
 
 

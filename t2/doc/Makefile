@@ -48,6 +48,13 @@ ngs2: ngs2.log
 	$(foreach z, $(NGSTABS2), sed -n '/^$z_TAB2/,/^$z_END2/{p;/^$z_END2/q}' $< | grep -v $z_TAB2 | grep -v $z_END2 | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
 	$(foreach z, $(NGSFIGPS2), ps2pdf $z;)
 	
+ngs3: ngs3.log
+	
+	$(eval NGSFIGS3=$(shell grep _FIG3 $< | sed 's/_FIG3//g' | sed ':a;N;$!ba;s/\n/ /g'))
+	$(eval NGSFIGPS3=$(addsuffix .ps, $(NGSFIGS3)))
+	$(eval NGSTABS3=$(shell grep _TAB3 $< | sed 's/_TAB3//g' | sed ':a;N;$!ba;s/\n/ /g'))
+	$(foreach r, $(NGSTABS3), sed -n '/^$r_TAB3/,/^$r_END3/{p;/^$r_END3/q}' $< | grep -v $r_TAB3 | grep -v $r_END3 | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
+	$(foreach r, $(NGSFIGPS3), ps2pdf $r;)
 	
 ngs1.log: ../sim/ngs_t2_1.cir
 	ngspice -b $< -o $@

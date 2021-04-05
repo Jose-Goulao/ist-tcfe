@@ -1,14 +1,8 @@
 %-------------------------------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------------------------------
-% Sec & Label
-
 \section{Simulation Analysis}
 \label{sec:simulation}
 
-
-%-------------------------------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------------------------------
-% Intro
 
 In this section, Circuit T2 is reproduced with the help of Ngspice. Each section corresponds
 to each task. Ngspice is a simulator for eletronic circuits that can output a variety of results.
@@ -19,13 +13,19 @@ through all branches.
 
 With the limitation that Ngspice only provides the current in the components and not through
 the nodes, an aditional voltage source ($Vaux$) was added so that the current in $R_6$ ($I_d$)
-is known. This source (not displayed in Figure \ref{fig:Desenho_t2}) has a voltage of 0V and it 
+is known. This source (not displayed in Figure \ref{fig:Dsnh_sim_t2}) has a voltage of 0V and it 
 was implemented between $R_6$ and $R_7$. Therefore an aditional node had to be added (node $N7.$).
 
 As previously stated, $I_b$ is refered to as $G_1$. This is because, in Ngspice, a
 voltage-controlled current source is identified with capital 'g' ($G$). In the case of
 $V_c$, all current-controlled voltage source are identified with $H$.
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\linewidth]{dsnh_sim_t2.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
 
 
 %-----------------------------------------------------------------------
@@ -33,7 +33,6 @@ $V_c$, all current-controlled voltage source are identified with $H$.
 % 			      task1 - subsec
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
-
 \subsection{Task 1)}
 \label{subsec:task1}
 
@@ -67,7 +66,6 @@ branches: $V_b$ = $v(n5,n2)$ and $V_d$ = $v(n5,n8)$.
 % 			      task2 - subsec
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
-
 \subsection{Task 2)}
 \label{subsec:task2}
 
@@ -82,7 +80,7 @@ Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 	\begin{tabular}{|l|r|}
 		\hline    
 		{\bf Name} & {\bf Value [A or V]} \\ \hline
-    		\input{op_tab2}
+    		\input{_tab}
 	\end{tabular}
 	
 	\caption{Values from Ngspice. Variables identified with a '$@$' or are of the type
@@ -91,3 +89,67 @@ Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 \label{tab:op2}
 \end{table}
 
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			      task3 - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+\subsection{Task 3)}
+\label{subsec:task3}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.55\linewidth]{trans-1.eps}
+	\caption{Transient analysis - 1}
+\label{fig:trans-1}
+\end{figure}
+
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			      task4 - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+\subsection{Task 4)}
+\label{subsec:task4}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.55\linewidth]{trans-2.eps}
+	\caption{Transient analysis - 2}
+\label{fig:trans-2}
+\end{figure}
+
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			      task5 - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+\subsection{Task 5)}
+\label{subsec:task5}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.55\linewidth]{ac-2.eps}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.55\linewidth]{ac-2.eps}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.55\linewidth]{ac-3.eps}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}

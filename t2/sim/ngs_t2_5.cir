@@ -35,11 +35,11 @@ set color6=rgb:4/0/0
 
 ac dec 1k 0.1 1meg
 
-hardcopy ac-1.ps vdb(n6) vdb(n1)
+hardcopy ac-1.eps vdb(n6) vdb(n1)
 
-hardcopy ac-2.ps cph(n6) cph(n1)
+hardcopy ac-2.eps cph(n6) cph(n1)
 
-hardcopy ac-3.ps (180/PI*cph(n6)+90) (180/PI*cph(n1)+90)
+hardcopy ac-3.eps (180/PI*cph(n6)+90) (180/PI*cph(n1)+90)
 
 *********************************************
 *		    close
