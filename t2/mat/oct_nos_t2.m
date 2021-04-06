@@ -8,19 +8,19 @@ format long
 # Values from the Python script
 #---------------------------------
 
-values = dlmread('data.txt');  
+dados = dlmread('data.txt');  
 
-R1 = values(2,4)*1000;
-R2 = values(3,3)*1000;
-R3 = values(4,3)*1000;
-R4 = values(5,3)*1000;
-R5 = values(6,3)*1000;
-R6 = values(7,3)*1000;
-R7 = values(8,3)*1000;
-Vs= values(9,3);
-C1 = values(10,3)*0.000001;
-Kb = values(11,3)*0.001;
-Kd = values(12,3)*1000;
+R1 = dados(2,4)*1000;
+R2 = dados(3,3)*1000;
+R3 = dados(4,3)*1000;
+R4 = dados(5,3)*1000;
+R5 = dados(6,3)*1000;
+R6 = dados(7,3)*1000;
+R7 = dados(8,3)*1000;
+Vs = dados(9,3);
+C1 = dados(10,3)*0.000001;
+Kb = dados(11,3)*0.001;
+Kd = dados(12,3)*1000;
 
 f1 = 1000;
 
@@ -84,6 +84,8 @@ IVs = I1
 #Vb eVd
 
 
+
+#------------------------------------------------------------
 #------------------------------------------------------------
 #task2
 
@@ -137,6 +139,8 @@ Req = abs(Vx/Ic_i)
 t_c = Req*C1
 
 
+
+#------------------------------------------------------------
 #------------------------------------------------------------
 #task3
 
@@ -148,10 +152,11 @@ plot(t*1000, V6_t_natural, "g");
 
 xlabel("t(ms)");
 ylabel("V");
+print(hf, "plot1.eps", "-depsc");
 
 
 
-
+#------------------------------------------------------------
 #------------------------------------------------------------
 #task4
 
@@ -185,9 +190,7 @@ Vn7_3 = abs(res(6))
 Vn8_3 = abs(res(7))
 
 
-
-
-
+#------------------------------------------------------------
 #------------------------------------------------------------
 #task5
 
@@ -211,8 +214,11 @@ hold on
 plot(t_5*1000, V6_t, "g");
 
 xlabel("t(ms)");
-ylabel("V");  
+ylabel("V");
+print(hf, "plot2.eps", "-depsc");
 
+
+#------------------------------------------------------------
 #------------------------------------------------------------
 #task6
 
@@ -300,6 +306,7 @@ set(ax(2), 'YLim', ylim_ph);
 xlabel("Frequency(HZ)")
 ylabel(ax(1), 'Magnitude (Db)');
 ylabel(ax(2), 'Phase angle (º)');
+print(hf, "plot3.eps", "-depsc");
 
 #############################################################
 #------------------------------------------------------------
@@ -410,76 +417,6 @@ file = fopen("Dados_ngs-1.txt", "w");
 
 	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
 	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
-	
-fclose(file);
-
-#------------------------------------------------------------
-
-file = fopen("Dados_ngs-2.txt", "w");
-
-	fprintf(file, "R1	N2	N1	%f \n", R1);
-	fprintf(file, "R2	N3	N2	%f \n", R2);
-	fprintf(file, "R3 	N5	N2	%f \n", R3);	
-	fprintf(file, "R4	0	N5	%f \n", R4);
-	fprintf(file, "R5	N5	N6	%f \n", R5);
-	fprintf(file, "R6	0	N7	%f \n", R6);
-	fprintf(file, "R7	N8	N7.	%f \n", R7);
-
-	fprintf(file, "Vs	N1	0	0 \n");
-	fprintf(file, "Vx	N6	N8	%f \n", Vx);
-
-	fprintf(file, "Vaux	N7	N7.	0 \n");
-
-	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
-	
-fclose(file);
-
-#------------------------------------------------------------
-
-file = fopen("Dados_ngs-3.txt", "w");
-
-	fprintf(file, "R1	N2	N1	%f \n", R1);
-	fprintf(file, "R2	N3	N2	%f \n", R2);
-	fprintf(file, "R3 	N5	N2	%f \n", R3);	
-	fprintf(file, "R4	0	N5	%f \n", R4);
-	fprintf(file, "R5	N5	N6	%f \n", R5);
-	fprintf(file, "R6	0	N7	%f \n", R6);
-	fprintf(file, "R7	N8	N7.	%f \n", R7);
-
-	fprintf(file, "Vs	N1	0	0  AC	1.0\n");
-	fprintf(file, "C	N6	N8	%f \n", C1);
-
-	fprintf(file, "Vaux	N7	N7.	0 \n");
-
-	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
-	
-	fprintf(file, ".ic v(n6)=%f v(n8)=0V\n", Vx);
-	
-fclose(file);
-
-#------------------------------------------------------------
-
-file = fopen("Dados_ngs-4.txt", "w");
-
-	fprintf(file, "R1	N2	N1	%f \n", R1);
-	fprintf(file, "R2	N3	N2	%f \n", R2);
-	fprintf(file, "R3 	N5	N2	%f \n", R3);	
-	fprintf(file, "R4	0	N5	%f \n", R4);
-	fprintf(file, "R5	N5	N6	%f \n", R5);
-	fprintf(file, "R6	0	N7	%f \n", R6);
-	fprintf(file, "R7	N8	N7.	%f \n", R7);
-
-	fprintf(file, "Vs	N1	0	0.0	AC	1.0	sin(0 1 %f) \n", f1);
-	fprintf(file, "C	N8	N6	%f \n", C1);
-
-	fprintf(file, "Vaux	N7	N7.	0 \n");
-
-	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
-	
-	fprintf(file, ".ic v(n6)=%f v(n8)=0V\n", Vx);
 	
 fclose(file);
 

@@ -20,13 +20,6 @@ As previously stated, $I_b$ is refered to as $G_1$. This is because, in Ngspice,
 voltage-controlled current source is identified with capital 'g' ($G$). In the case of
 $V_c$, all current-controlled voltage source are identified with $H$.
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.75\linewidth]{dsnh_sim_t2.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
-
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
@@ -40,6 +33,13 @@ $V_c$, all current-controlled voltage source are identified with $H$.
 In this subsection, the circuit is simulated when $t<0$. There is no need for a
 transient analysis because $v_s(t)$=$V_s$ (according to the data given), therefore
 all values are constant in time. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al1.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
 
 Table \ref{tab:op1} shows the simulated operating point results for Circuit T2.
 
@@ -74,6 +74,13 @@ In this subsection, the circuit is simulated when $t=0$. The capacitor is replac
 with its value being equal to de diference between the voltages in nodes $n6$ and $n8$ (or $V_x$ = $V(n6)-
 V(n8)$) obtained in subsection \ref{subsec:task1_s}.
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al2.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+
 Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 
 \begin{table}[ht]
@@ -105,6 +112,13 @@ interval [0;20]$ms$ (Figure \ref{fig:trans-1}).
 
 \begin{figure}[ht]
 	\centering
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al3.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
 	\includegraphics[width=0.55\linewidth]{trans-1.eps}
 	\caption{Transient analysis - 1: natural response on node $n6$}
 \label{fig:trans-1}
@@ -123,6 +137,13 @@ In this subsection, the total (natural and forced) responde on node $n6$ is simu
 conditions used are the same as subsection \ref{subsec:task3_s} and a frequency of 1kHz (f=1KHz) is
 considered for $v_s(t)$. Figure \ref{fig:trans-2} shows the plot. It is worth noting that node $n1$ has
 the same value as the stimulus ($v_s(t)$), so $V(n1)$ is used instead.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al456.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
 
 \begin{figure}[ht]
 	\centering

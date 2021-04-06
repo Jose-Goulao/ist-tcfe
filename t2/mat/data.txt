@@ -1,5 +1,3 @@
-
-
 Units for the values: V, mA, kOhm, mS and uF
 
 
