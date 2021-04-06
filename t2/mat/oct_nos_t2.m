@@ -70,7 +70,16 @@ Vn8 = res(7)
 IH1 = res(8)
 Ib = res(9)
 Ic = res(10)
-Id = G6*Vn7
+
+
+I1 = (Vn1 - Vn2)*G1
+I2 = (Vn3-Vn2)*G2
+I3 = (Vn2-Vn5)*G3
+I4 = (Vn5)*G4
+I5 = (Vn5-Vn6)*G5        %direção corrigida para a foto
+Id = (Vn7)*G6
+I7 = (Vn7-Vn8)*G7
+IVs = I1
 
 #Vb eVd
 
@@ -95,6 +104,31 @@ B = [0;0;0;0;0;0;0;Vx;0;0];
     
     
 res = A\B;
+
+IH1_2 = res(8)
+Ib_2 = res(9)
+Ic_2 = res(10)
+
+
+
+Vn1_2 = res(1)
+Vn2_2 = res(2)
+Vn3_2 = res(3)
+Vn5_2 = res(4)
+Vn6_2 = res(5)
+Vn7_2 = res(6)
+Vn8_2 = res(7)
+
+
+I1_2 = (Vn1_2 - Vn2_2)*G1
+I2_2 = (Vn3_2-Vn2_2)*G2
+I3_2 = (Vn2_2-Vn5_2)*G3
+I4_2 = (Vn5_2)*G4
+I5_2 = (Vn5_2-Vn6_2)*G5        %direção corrigida para a foto
+Id_2 = (Vn7_2)*G6
+I7_2 = (Vn7_2-Vn8_2)*G7
+
+
 
 Ic_i = res(10)
 V6_i = res(5)
@@ -140,6 +174,19 @@ A = [1 0 0 0 0 0 0 0 0 0;...
 B = [1;0;0;0;0;0;0;0;0;0];
 
 res = A\B;
+
+Vn1_3 = abs(res(1))
+Vn2_3 = abs(res(2))
+Vn3_3 = abs(res(3))
+Vn4_3 = 0
+Vn5_3 = abs(res(4))
+Vn6_3 = abs(res(5))
+Vn7_3 = abs(res(6))
+Vn8_3 = abs(res(7))
+
+
+
+
 
 #------------------------------------------------------------
 #task5
@@ -275,40 +322,51 @@ file = fopen("Tbl_oct-1.tex", "w");
 
 	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
 	fprintf(file, "$@I_{c}$ & %e \\\\ \\hline \n", Ic);
+	fprintf(file, "$@I_{R1}$ & %e \\\\ \\hline \n", I1);
+	fprintf(file, "$@I_{R2}$ & %e \\\\ \\hline \n", I2);
+	fprintf(file, "$@I_{R3}$ & %e \\\\ \\hline \n", I3);
+	fprintf(file, "$@I_{R4}$ & %e \\\\ \\hline \n", I4);
+	fprintf(file, "$@I_{R5}$ & %e \\\\ \\hline \n", I5);
 	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id);
-	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline \n", IH1);
+	fprintf(file, "$@I_{R6}$ & %e \\\\ \\hline \n", I7);
+
 fclose(file);
 
 #------------------------------------------------------------
 
 file = fopen("Tbl_oct-2.tex", "w");
-	fprintf(file, "$V_{N1}$ & %e \\\\ \\hline \n", Vn1);
-	fprintf(file, "$V_{N2}$ & %e \\\\ \\hline \n", Vn2);
-	fprintf(file, "$V_{N3}$ & %e \\\\ \\hline \n", Vn3);
-	fprintf(file, "$V_{N5}$ & %e \\\\ \\hline \n", Vn5);
-	fprintf(file, "$V_{N6}$ & %e \\\\ \\hline \n", Vn6);
-	fprintf(file, "$V_{N7}$ & %e \\\\ \\hline \n", Vn7);
-	fprintf(file, "$V_{N8}$ & %e \\\\ \\hline \n", Vn8);
+	fprintf(file, "$V_{N1}$ & %e \\\\ \\hline \n", Vn1_2);
+	fprintf(file, "$V_{N2}$ & %e \\\\ \\hline \n", Vn2_2);
+	fprintf(file, "$V_{N3}$ & %e \\\\ \\hline \n", Vn3_2);
+	fprintf(file, "$V_{N5}$ & %e \\\\ \\hline \n", Vn5_2);
+	fprintf(file, "$V_{N6}$ & %e \\\\ \\hline \n", Vn6_2);
+	fprintf(file, "$V_{N7}$ & %e \\\\ \\hline \n", Vn7_2);
+	fprintf(file, "$V_{N8}$ & %e \\\\ \\hline \n", Vn8_2);
 
-	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
-	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id);
-	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline \n", IH1);
+	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib_2);
+	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id_2);
+	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline \n", IH1_2);
+	
+	fprintf(file, "$@V_{x}$ & %e \\\\ \\hline \n", Vx);
+	fprintf(file, "$@I_{x}$ & %e \\\\ \\hline \n", Ic_i);
+	fprintf(file, "$@R_{eq}$ & %e \\\\ \\hline \n", Req);
+	fprintf(file, "$@\\tau$ & %e \\\\ \\hline \n", t_c);
+	
+
+	
 fclose(file);
 
 #------------------------------------------------------------
 
 file = fopen("Tbl_oct-3.tex", "w");
-	fprintf(file, "$V_{N1}$ & %e \\\\ \\hline \n", Vn1);
-	fprintf(file, "$V_{N2}$ & %e \\\\ \\hline \n", Vn2);
-	fprintf(file, "$V_{N3}$ & %e \\\\ \\hline \n", Vn3);
-	fprintf(file, "$V_{N5}$ & %e \\\\ \\hline \n", Vn5);
-	fprintf(file, "$V_{N6}$ & %e \\\\ \\hline \n", Vn6);
-	fprintf(file, "$V_{N7}$ & %e \\\\ \\hline \n", Vn7);
-	fprintf(file, "$V_{N8}$ & %e \\\\ \\hline \n", Vn8);
+	fprintf(file, "$V_{N1}$ & %e \\\\ \\hline \n", Vn1_3);
+	fprintf(file, "$V_{N2}$ & %e \\\\ \\hline \n", Vn2_3);
+	fprintf(file, "$V_{N3}$ & %e \\\\ \\hline \n", Vn3_3);
+	fprintf(file, "$V_{N5}$ & %e \\\\ \\hline \n", Vn5_3);
+	fprintf(file, "$V_{N6}$ & %e \\\\ \\hline \n", Vn6_3);
+	fprintf(file, "$V_{N7}$ & %e \\\\ \\hline \n", Vn7_3);
+	fprintf(file, "$V_{N8}$ & %e \\\\ \\hline \n", Vn8_3);
 
-	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
-	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id);
-	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline \n", IH1);
 fclose(file);
 
 #############################################################
@@ -389,13 +447,15 @@ file = fopen("Dados_ngs-3.txt", "w");
 	fprintf(file, "R6	0	N7	%f \n", R6);
 	fprintf(file, "R7	N8	N7.	%f \n", R7);
 
-	fprintf(file, "Vs	N1	0	0.0	AC	1.0	sin(0 1 %f) \n", f1);
-	fprintf(file, "C	N8	N6	%f \n", C1);
+	fprintf(file, "Vs	N1	0	0  AC	1.0\n");
+	fprintf(file, "C	N6	N8	%f \n", C1);
 
 	fprintf(file, "Vaux	N7	N7.	0 \n");
 
 	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
 	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
+	
+	fprintf(file, ".ic v(n6)=%f v(n8)=0V\n", Vx);
 	
 fclose(file);
 
@@ -418,6 +478,8 @@ file = fopen("Dados_ngs-4.txt", "w");
 
 	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
 	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
+	
+	fprintf(file, ".ic v(n6)=%f v(n8)=0V\n", Vx);
 	
 fclose(file);
 
