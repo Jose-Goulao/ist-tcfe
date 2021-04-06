@@ -22,20 +22,25 @@ Circuit T2 is presented in Figure \ref{fig:Desenho_t2}. All components, includin
 ($N1$-$N8$) are identified with their respective names (ground is marked with its symbol).
 
 The voltage source $v_s$ obeys the following equations:
+
+
+
+
 \begin{equation}
 	v_s(t) = V_su(-t) + sin(2nfft)u(t)
 \end{equation}
 
-\begin{equation}
-	u(t) = 0, t < 0
-\end{equation}
+\[ 
+u(t)= \left\{
+\begin{array}{ll}
+      0 & t < 0 \\
+      1 & t \geq 0 \\
+\end{array} 
+\right. 
+\]
 
-\begin{equation}
-	u(t) = 1, t \geq 0
-\end{equation}
 
-
-In Section \ref{sec:analysis}, a theoretical analysis (using two distinct methods) of
+In Section \ref{sec:analysis}, a theoretical analysis of
 the circuit is presented. In Section \ref{sec:simulation} , the circuit is analysed by
 simulation, and the results are compared to the theoretical results obtained in Section
 \ref{sec:analysis}. The conclusions of this study are outlined in Section \ref{sec:conclusion}.
