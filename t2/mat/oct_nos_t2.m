@@ -2,6 +2,7 @@
 close all
 clear all
 
+format long
 
 #---------------------------------
 # Values from the Python script
@@ -66,7 +67,7 @@ Vn6 = res(5)
 Vn7 = res(6)
 Vn8 = res(7)
 
-IVs = res(8)
+IH1 = res(8)
 Ib = res(9)
 Ic = res(10)
 Id = G6*Vn7
@@ -275,7 +276,7 @@ file = fopen("Tbl_oct-1.tex", "w");
 	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
 	fprintf(file, "$@I_{c}$ & %e \\\\ \\hline \n", Ic);
 	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id);
-	fprintf(file, "$@I_{Vs}$ & %e \\\\ \\hline \n", IVs);
+	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline \n", IH1);
 fclose(file);
 
 #------------------------------------------------------------
@@ -291,7 +292,7 @@ file = fopen("Tbl_oct-2.tex", "w");
 
 	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
 	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id);
-	fprintf(file, "$@I_{Vs}$ & %e \\\\ \\hline \n", IVs);
+	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline \n", IH1);
 fclose(file);
 
 #------------------------------------------------------------
@@ -307,7 +308,7 @@ file = fopen("Tbl_oct-3.tex", "w");
 
 	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
 	fprintf(file, "$@I_{d}$ & %e \\\\ \\hline \n", Id);
-	fprintf(file, "$@I_{Vs}$ & %e \\\\ \\hline \n", IVs);
+	fprintf(file, "$@I_{H1}$ & %e \\\\ \\hline \n", IH1);
 fclose(file);
 
 #############################################################
@@ -318,17 +319,17 @@ fclose(file);
 #
 #file = fopen("given_vls_m.tex", "w");
 #
-#	fprintf(file, "$R1$ & %d \\\\ \\hline \n", R1);
-#	fprintf(file, "$R2$ & %d \\\\ \\hline \n", R2);
-#	fprintf(file, "$R3$ & %d \\\\ \\hline \n", R3);	
-#	fprintf(file, "$R4$ & %d \\\\ \\hline \n", R4);
-#	fprintf(file, "$R5$ & %d \\\\ \\hline \n", R5);
-#	fprintf(file, "$R6$ & %d \\\\ \\hline \n", R6);
-#	fprintf(file, "$R7$ & %d \\\\ \\hline \n", R7);
-#	fprintf(file, "$V_s$ & %d \\\\ \\hline \n", Vs);
-#	fprintf(file, "$C$ & %d \\\\ \\hline \n", C1);
-#	fprintf(file, "$K_b$ & %d \\\\ \\hline\n", Kb);
-#	fprintf(file, "$K_d$ & %d \\\\ \\hline \n", Kd);
+#	fprintf(file, "$R1$ & %f \\\\ \\hline \n", R1/1000);
+#	fprintf(file, "$R2$ & %f \\\\ \\hline \n", R2);
+#	fprintf(file, "$R3$ & %f \\\\ \\hline \n", R3);	
+#	fprintf(file, "$R4$ & %f \\\\ \\hline \n", R4);
+#	fprintf(file, "$R5$ & %f \\\\ \\hline \n", R5);
+#	fprintf(file, "$R6$ & %f \\\\ \\hline \n", R6);
+#	fprintf(file, "$R7$ & %f \\\\ \\hline \n", R7);
+#	fprintf(file, "$V_s$ & %f \\\\ \\hline \n", Vs);
+#	fprintf(file, "$C$ & %f \\\\ \\hline \n", C1*1000000);
+#	fprintf(file, "$K_b$ & %f \\\\ \\hline\n", Kb);
+#	fprintf(file, "$K_d$ & %f \\\\ \\hline \n", Kd);
 #	
 #fclose(file);
 #
@@ -336,21 +337,21 @@ fclose(file);
 
 file = fopen("Dados_ngs-1.txt", "w");
 
-	fprintf(file, "R1	N2	N1	%d \n", R1);
-	fprintf(file, "R2	N3	N2	%d \n", R2);
-	fprintf(file, "R3 	N5	N2	%d \n", R3);	
-	fprintf(file, "R4	0	N5	%d \n", R4);
-	fprintf(file, "R5	N5	N6	%d \n", R5);
-	fprintf(file, "R6	0	N7	%d \n", R6);
-	fprintf(file, "R7	N8	N7.	%d \n", R7);
+	fprintf(file, "R1	N2	N1	%f \n", R1);
+	fprintf(file, "R2	N3	N2	%f \n", R2);
+	fprintf(file, "R3 	N5	N2	%f \n", R3);	
+	fprintf(file, "R4	0	N5	%f \n", R4);
+	fprintf(file, "R5	N5	N6	%f \n", R5);
+	fprintf(file, "R6	0	N7	%f \n", R6);
+	fprintf(file, "R7	N8	N7.	%f \n", R7);
 
-	fprintf(file, "Vs	N1	0	%d \n", Vs);
-	fprintf(file, "C	N8	N6	%d \n", C1);
+	fprintf(file, "Vs	N1	0	%f \n", Vs);
+	fprintf(file, "C	N8	N6	%f \n", C1);
 
 	fprintf(file, "Vaux	N7	N7.	0 \n");
 
-	fprintf(file, "G1	N6	N3	N2	N5	%d \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%d \n", Kd);
+	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
+	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
 	
 fclose(file);
 
@@ -358,21 +359,21 @@ fclose(file);
 
 file = fopen("Dados_ngs-2.txt", "w");
 
-	fprintf(file, "R1	N2	N1	%d \n", R1);
-	fprintf(file, "R2	N3	N2	%d \n", R2);
-	fprintf(file, "R3 	N5	N2	%d \n", R3);	
-	fprintf(file, "R4	0	N5	%d \n", R4);
-	fprintf(file, "R5	N5	N6	%d \n", R5);
-	fprintf(file, "R6	0	N7	%d \n", R6);
-	fprintf(file, "R7	N8	N7.	%d \n", R7);
+	fprintf(file, "R1	N2	N1	%f \n", R1);
+	fprintf(file, "R2	N3	N2	%f \n", R2);
+	fprintf(file, "R3 	N5	N2	%f \n", R3);	
+	fprintf(file, "R4	0	N5	%f \n", R4);
+	fprintf(file, "R5	N5	N6	%f \n", R5);
+	fprintf(file, "R6	0	N7	%f \n", R6);
+	fprintf(file, "R7	N8	N7.	%f \n", R7);
 
 	fprintf(file, "Vs	N1	0	0 \n");
-	fprintf(file, "Vx	N8	N6	%d \n", Vx);
+	fprintf(file, "Vx	N6	N8	%f \n", Vx);
 
 	fprintf(file, "Vaux	N7	N7.	0 \n");
 
-	fprintf(file, "G1	N6	N3	N2	N5	%d \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%d \n", Kd);
+	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
+	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
 	
 fclose(file);
 
@@ -380,21 +381,21 @@ fclose(file);
 
 file = fopen("Dados_ngs-3.txt", "w");
 
-	fprintf(file, "R1	N2	N1	%d \n", R1);
-	fprintf(file, "R2	N3	N2	%d \n", R2);
-	fprintf(file, "R3 	N5	N2	%d \n", R3);	
-	fprintf(file, "R4	0	N5	%d \n", R4);
-	fprintf(file, "R5	N5	N6	%d \n", R5);
-	fprintf(file, "R6	0	N7	%d \n", R6);
-	fprintf(file, "R7	N8	N7.	%d \n", R7);
+	fprintf(file, "R1	N2	N1	%f \n", R1);
+	fprintf(file, "R2	N3	N2	%f \n", R2);
+	fprintf(file, "R3 	N5	N2	%f \n", R3);	
+	fprintf(file, "R4	0	N5	%f \n", R4);
+	fprintf(file, "R5	N5	N6	%f \n", R5);
+	fprintf(file, "R6	0	N7	%f \n", R6);
+	fprintf(file, "R7	N8	N7.	%f \n", R7);
 
-	fprintf(file, "Vs	N1	0	0	AC	1	sin(0 1 %d) \n", f1);
-	fprintf(file, "C	N8	N6	%d \n", C1);
+	fprintf(file, "Vs	N1	0	0.0	AC	1.0	sin(0 1 %f) \n", f1);
+	fprintf(file, "C	N8	N6	%f \n", C1);
 
 	fprintf(file, "Vaux	N7	N7.	0 \n");
 
-	fprintf(file, "G1	N6	N3	N2	N5	%d \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%d \n", Kd);
+	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
+	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
 	
 fclose(file);
 
@@ -402,21 +403,21 @@ fclose(file);
 
 file = fopen("Dados_ngs-4.txt", "w");
 
-	fprintf(file, "R1	N2	N1	%d \n", R1);
-	fprintf(file, "R2	N3	N2	%d \n", R2);
-	fprintf(file, "R3 	N5	N2	%d \n", R3);	
-	fprintf(file, "R4	0	N5	%d \n", R4);
-	fprintf(file, "R5	N5	N6	%d \n", R5);
-	fprintf(file, "R6	0	N7	%d \n", R6);
-	fprintf(file, "R7	N8	N7.	%d \n", R7);
+	fprintf(file, "R1	N2	N1	%f \n", R1);
+	fprintf(file, "R2	N3	N2	%f \n", R2);
+	fprintf(file, "R3 	N5	N2	%f \n", R3);	
+	fprintf(file, "R4	0	N5	%f \n", R4);
+	fprintf(file, "R5	N5	N6	%f \n", R5);
+	fprintf(file, "R6	0	N7	%f \n", R6);
+	fprintf(file, "R7	N8	N7.	%f \n", R7);
 
-	fprintf(file, "Vs	N1	0	0	AC	1	sin(0 1 %d) \n", f1);
-	fprintf(file, "C	N8	N6	%d \n", C1);
+	fprintf(file, "Vs	N1	0	0.0	AC	1.0	sin(0 1 %f) \n", f1);
+	fprintf(file, "C	N8	N6	%f \n", C1);
 
 	fprintf(file, "Vaux	N7	N7.	0 \n");
 
-	fprintf(file, "G1	N6	N3	N2	N5	%d \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%d \n", Kd);
+	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
+	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
 	
 fclose(file);
 
@@ -424,21 +425,21 @@ fclose(file);
 
 file = fopen("Dados_ngs-5.txt", "w");
 
-	fprintf(file, "R1	N2	N1	%d \n", R1);
-	fprintf(file, "R2	N3	N2	%d \n", R2);
-	fprintf(file, "R3 	N5	N2	%d \n", R3);	
-	fprintf(file, "R4	0	N5	%d \n", R4);
-	fprintf(file, "R5	N5	N6	%d \n", R5);
-	fprintf(file, "R6	0	N7	%d \n", R6);
-	fprintf(file, "R7	N8	N7.	%d \n", R7);
+	fprintf(file, "R1	N2	N1	%f \n", R1);
+	fprintf(file, "R2	N3	N2	%f \n", R2);
+	fprintf(file, "R3 	N5	N2	%f \n", R3);	
+	fprintf(file, "R4	0	N5	%f \n", R4);
+	fprintf(file, "R5	N5	N6	%f \n", R5);
+	fprintf(file, "R6	0	N7	%f \n", R6);
+	fprintf(file, "R7	N8	N7.	%f \n", R7);
 
-	fprintf(file, "Vs	N1	0	0	AC	1	sin(0 1 %d) \n", f1);
-	fprintf(file, "C	N8	N6	%d \n", C1);
+	fprintf(file, "Vs	N1	0	0.0	AC	1.0	sin(0 1 %f) \n", f1);
+	fprintf(file, "C	N8	N6	%f \n", C1);
 
 	fprintf(file, "Vaux	N7	N7.	0 \n");
 
-	fprintf(file, "G1	N6	N3	N2	N5	%d \n", Kb);
-	fprintf(file, "H1	N5	N8	Vaux	%d \n", Kd);
+	fprintf(file, "G1	N6	N3	N2	N5	%f \n", Kb);
+	fprintf(file, "H1	N5	N8	Vaux	%f \n", Kd);
 	
 fclose(file);
 
