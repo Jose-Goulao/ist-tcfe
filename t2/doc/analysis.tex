@@ -39,7 +39,7 @@ passes through the resistor multiplied by its resistance.
 \end{equation}
 
 \begin{equation}
-	V_1(t) = V_2(t) = V_2(\infty) + [V_2(0) - V_2(\infty)]e^{\frac{-t}{\tau}}
+	V_1(t) = V_2(\infty) + [V_2(0) - V_2(\infty)]e^{\frac{-t}{\tau}}
 \end{equation}
 
 
@@ -59,12 +59,7 @@ When performing a DC steady-state analysis on a circuit we can use the fact that
 A node analysis was performed to find the voltage value of each node and the current in each branch.
 
 The node method uses KCL in conjunction with Ohm’s law to define equations that when solved give the voltage value 
-<<<<<<< HEAD
-of each node in relation to ground (Node 0, $V_0 = 0$). In this circuit we defined six equations that equate the 
-currents entering a particular node with the currents leaving said node. 
-=======
 of each nove in relation to ground (Node 4, $V_4 = 0$). 
->>>>>>> 406d41a171fa37743ffd3ada08d1bf50d815e525
 
 In order to have equations that solve for the node’s voltage, a relation between curent and voltage is made using 
 Ohm’s law (given a resistance between two nodes, the current that passes the resistance can be written as 
@@ -272,6 +267,21 @@ The results were organized in Table \ref{tab:node}
 \subsection{Task 2)}
 \label{subsec:task2_a}
 
+In this section the capacitor is replaced with a voltage source $V_x$ with value $V_x = V_6 - V_8$ as shown in figure.... The same type of analysis was made to this circuit but with a slightly modification on some of the rows to represent the modified circuit.
+
+Tabela-------------
+
+
+By performing this analysis we can compute the current $I_x$ that flows trough $V_s$. Using Ohm's law we can calculate the equivente resistance $R_{eq}$:
+
+\[
+R_{eq}=\frac{V_x}{I_x}
+\]
+
+
+This procedure is important to compute the circuit's time constant $\tau$ by using the equation $\tau = CR_{eq}$. The time constant in conjunction with the boundary conditions of the circuit are required to compute the natural solution of the circuit.
+
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al2.pdf}
@@ -286,6 +296,15 @@ The results were organized in Table \ref{tab:node}
 % ----------------------------------------------------------------------
 \subsection{Task 3)}
 \label{subsec:task3_a}
+
+With the circuit's time constant $\tau$ and boundary conditions calculated in the previous task we can use following equation to get the natural solution of the circuit:
+
+\[
+V_{6n}(t) = V_6(\infty) + [V_6(0) - V_6(\infty)]e^{\frac{-t}{\tau}}
+\] 
+
+Since $V_s$ is considered to be null on this circuit, the value of node 6 is 0 at infinity $V_6(\infty) = 0$ 
+
 
 \begin{figure}[ht]
 	\centering
@@ -309,6 +328,17 @@ The results were organized in Table \ref{tab:node}
 \subsection{Task 4)}
 \label{subsec:task4_a}
 
+In this task the forced solution of the circuit is computed. To acomplish this objetive, we do an analysis using a phasor voltage source $V_s=1$ and replacing C with its impedance:
+
+\[
+Z_c = j\frac{1}{C\omega}
+\]
+
+Doing an analysis similar to the previous ones, with a slightly modified matrix we can determine the phasor voltages in all nodes.
+
+The following table shows the phasor magnitudes in each node.
+
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al456.pdf}
@@ -324,6 +354,23 @@ The results were organized in Table \ref{tab:node}
 \subsection{Task 5)}
 \label{subsec:task5_a}
 
+In this task we compute the final total solution $v_6(t)$ with a frequncy of 1000Hz. To achieve the final result the phasors are converted to real time functions and than superimposed with the natural solution found before.
+
+The force solution will have the form:
+
+\[
+V_{6f}(t) = V*sin(\omega t + \phi)
+\]
+
+The constant $\omega$ is the angular frequency of the voltage source, $V$ is the amplitude of the node phasor and $\phi$ is the phase shift of the node phasor.
+
+The final solution will have the form:
+
+\[
+V_6(t) = V_{6n} + V_{6f}
+\]
+
+The following graph plots the results computed by octave in interval [-5, 20]ms.
 
 \begin{figure}[ht]
 	\centering
@@ -339,6 +386,8 @@ The results were organized in Table \ref{tab:node}
 % ----------------------------------------------------------------------
 \subsection{Task 6)}
 \label{subsec:task6_a}
+
+In this task, the frequency response of $v_c(f)= v_6(f) - v_8(f)$ and $v_6(f)$ is determined for a frequency range of 0.1Hz to 1 MHz.
 
 \begin{figure}[ht]
 	\centering
