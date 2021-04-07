@@ -70,7 +70,7 @@ branches: $V_b$ = $v(n5,n2)$ and $V_d$ = $v(n5,n8)$.
 \label{subsec:task2_s}
 
 
-In this subsection, the circuit is simulated when $t=0$. The capacitor is replaced with a voltage source, 
+In this subsection, the circuit is simulated when $t=0$. Since we can assume that enough time has passed for the circuit to reach steady-state, the capacitor is charge and so, at the instant $t=0$ it can replaced with a voltage source, 
 with its value being equal to de diference between the voltages in nodes $n6$ and $n8$ (or $V_x$ = $V(n6)-
 V(n8)$) obtained in subsection \ref{subsec:task1_s}. Vs is also set to 0.
 
@@ -163,7 +163,11 @@ the same value as the stimulus ($v_s(t)$), so $V(n1)$ is used instead.
 \subsection{Task 5)}
 \label{subsec:task5_s}
 
-In this subsection, the frequency response on node $n6$ is simulated.
+In this subsection, the frequency response on $V_s$ and on node $n6$ is computed.
+
+Since the frequency response is made by changing $V_s$ itself, the values of magnitude and phase of $V_s$ aren't dependent on frequency. For this reason the plot lines of these values are constant.
+
+By contrast the magnitude and phase of $V_6$ change with frequency. At low frequencys $V_6$ is in phase with $V_s$ but as the frequency increases, the phase shift also increases. The magnitude starts at a value of around 1.065 than $V_s$ and with increasing value it decreases until it hits a plateau at around -5.275.
 
 \begin{figure}[ht]
 	\centering
