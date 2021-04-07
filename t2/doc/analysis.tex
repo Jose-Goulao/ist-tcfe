@@ -42,7 +42,7 @@ passes through the resistor multiplied by its resistance.
 	V_1(t) = V_2(\infty) + [V_2(0) - V_2(\infty)]e^{\frac{-t}{\tau}}
 \end{equation}
 
-
+\newpage
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
@@ -51,6 +51,13 @@ passes through the resistor multiplied by its resistance.
 % ----------------------------------------------------------------------
 \subsection{Task 1)}
 \label{subsec:task1_a}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al1.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
 
 When $t<0$ the value of $V_s$ is constant and so we can perform DC analysis on the circuit. We can assume that enough time has passed and so it is reasonable to assume that the circuit is in steady-state.
 
@@ -114,58 +121,35 @@ Vs\\
 Figure \ref{fig:Desenho_t2}. In adition, assume $V_{Ni}$ to be the voltage in node $Ni$ (every node position can
 also be found in Figure \ref{fig:Desenho_t2}). \\
 
-\begin{figure}[ht]
+\begin{table}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al1.pdf}
+	\begin{tabular}{|l|r|}
+    		\hline    
+    		{\bf Name} & {\bf Value [A or V]} \\ \hline
+    		\input{Tbl_oct-1}
+  	\end{tabular}
+  	\caption{Values computed by Octave. Variables identified with a '$@$' have a
+  	corresponding value in Ampere (A). The others are expressed in Volts (V).}
+ 
+\label{tab:node}
+\end{table}
+\newpage
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			      task2 - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+\subsection{Task 2)}
+\label{subsec:task2_a}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al2.pdf}
 	\caption{Circuit T2, analysed by Ngspice}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
-
-
-
-
-
-{\footnotesize
-
-$ \begin{bmatrix}
-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-G1 & -(G1+G2+G3) & G2 & G3 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & -G2 & G2 & 0 & 0 & 0 & 0 & 0 & -1 & 0 \\
-0 & G3 & 0 & -(G3+G4+G5) & G5 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & -G5 & G5 & 0 & 0 & 0 & 1 & 1 \\
-0 & 0 & 0 & 0 & 0 & G7 & -G7 & -1 & 0 & 1 \\
-0 & 0 & 0 & 0 & 0 & -(G6+G7) & G7 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 0 & 1 & 0 & G6*K_d & -1 & 0 & 0 & 0 \\
-0 & K_b & 0 & -K_b & 0 & 0 & 0 & 0 & -1 & 0 
-\end{bmatrix}  $
-$ \begin{bmatrix}
-V1 \\
-V2 \\
-V3 \\
-V5 \\
-V6 \\
-V7 \\
-V8 \\
-IH1 \\
-Ib \\
-Ic \\
-\end{bmatrix}  $
-=
-$ \begin{bmatrix}
-V1 \\
-V2 \\
-V3 \\
-V5 \\
-V6 \\
-V7 \\
-V8 \\
-IH1 \\
-Ib \\
-Ic \\
-\end{bmatrix}  $
-}
+In this section the capacitor is replaced with a voltage source $V_x$ with value $V_x = V_6 - V_8$ as shown in figure.... The same type of analysis was made to this circuit but with a slightly modification on some of the rows to represent the modified circuit.
 
 {\footnotesize
 
@@ -195,18 +179,104 @@ Ic_2 \\
 \end{bmatrix}  $
 =
 $ \begin{bmatrix}
-V1 \\
-V2 \\
-V3 \\
-V5 \\
-V6 \\
-V7 \\
-V8 \\
-IH1 \\
-Ib \\
-Ic \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+Vx \\
+0 \\
+0 \\
 \end{bmatrix}  $
+}
 
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|r|}
+    		\hline    
+    		{\bf Name} & {\bf Value [A or V]} \\ \hline
+    		\input{Tbl_oct-2}
+  	\end{tabular}
+  	\caption{Values computed by Octave. Variables identified with a '$@$' have a
+  	corresponding value in Ampere (A). The others are expressed in Volts (V).}
+ 
+\label{tab:node}
+\end{table}
+
+
+By performing this analysis we can compute the current $I_x$ that flows trough $V_s$. Using Ohm's law we can calculate the equivente resistance $R_{eq}$:
+
+\[
+R_{eq}=\frac{V_x}{I_x}
+\]
+
+
+This procedure is important to compute the circuit's time constant $\tau$ by using the equation $\tau = CR_{eq}$. The time constant in conjunction with the boundary conditions of the circuit are required to compute the natural solution of the circuit.
+
+
+
+\newpage
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			      task3 - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+\subsection{Task 3)}
+\label{subsec:task3_a}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{dsnh_oct_t2_al3.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+
+With the circuit's time constant $\tau$ and boundary conditions calculated in the previous task we can use following equation to get the natural solution of the circuit:
+
+\[
+V_{6n}(t) = V_6(\infty) + [V_6(0) - V_6(\infty)]e^{\frac{-t}{\tau}}
+\] 
+
+Since $V_s$ is considered to be null on this circuit, the value of node 6 is 0 at infinity $V_6(\infty) = 0$ 
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{plot1.eps}
+	\caption{Plot oct - 1}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			      task4 - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+\subsection{Task 4)}
+\label{subsec:task4_a}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al456.pdf}
+	\caption{Circuit T2, analysed by Ngspice}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+\newpage
+
+In this task the forced solution of the circuit is computed. To acomplish this objetive, we do an analysis using a phasor voltage source $V_s=1$ and replacing C with its impedance:
+
+\[
+Z_c = j\frac{1}{C\omega}
+\]
+
+Doing an analysis similar to the previous ones, with a slightly modified matrix we can determine the phasor voltages in all nodes.
+
+{\footnotesize
 $ \begin{bmatrix}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 G1 & -(G1+G2+G3) & G2 & G3 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -230,28 +300,28 @@ V8_3 \\
 \end{bmatrix}  $
 =
 $ \begin{bmatrix}
-V1 \\
-V2 \\
-V3 \\
-V5 \\
-V6 \\
-V7 \\
-V8 \\
-IH1 \\
-Ib \\
-Ic \\
+1 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
 \end{bmatrix}  $
+
 }
 
-With these 8 equations it is possible to solve the system using Octave.
-The results were organized in Table \ref{tab:node}
+The following table shows the phasor magnitudes in each node.
 
 \begin{table}[ht]
 	\centering
 	\begin{tabular}{|l|r|}
     		\hline    
     		{\bf Name} & {\bf Value [A or V]} \\ \hline
-    		\input{Tbl_oct-1}
+    		\input{Tbl_oct-3}
   	\end{tabular}
   	\caption{Values computed by Octave. Variables identified with a '$@$' have a
   	corresponding value in Ampere (A). The others are expressed in Volts (V).}
@@ -259,92 +329,6 @@ The results were organized in Table \ref{tab:node}
 \label{tab:node}
 \end{table}
 
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 			      task2 - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
-\subsection{Task 2)}
-\label{subsec:task2_a}
-
-In this section the capacitor is replaced with a voltage source $V_x$ with value $V_x = V_6 - V_8$ as shown in figure.... The same type of analysis was made to this circuit but with a slightly modification on some of the rows to represent the modified circuit.
-
-Tabela-------------
-
-
-By performing this analysis we can compute the current $I_x$ that flows trough $V_s$. Using Ohm's law we can calculate the equivente resistance $R_{eq}$:
-
-\[
-R_{eq}=\frac{V_x}{I_x}
-\]
-
-
-This procedure is important to compute the circuit's time constant $\tau$ by using the equation $\tau = CR_{eq}$. The time constant in conjunction with the boundary conditions of the circuit are required to compute the natural solution of the circuit.
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al2.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
-
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 			      task3 - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
-\subsection{Task 3)}
-\label{subsec:task3_a}
-
-With the circuit's time constant $\tau$ and boundary conditions calculated in the previous task we can use following equation to get the natural solution of the circuit:
-
-\[
-V_{6n}(t) = V_6(\infty) + [V_6(0) - V_6(\infty)]e^{\frac{-t}{\tau}}
-\] 
-
-Since $V_s$ is considered to be null on this circuit, the value of node 6 is 0 at infinity $V_6(\infty) = 0$ 
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al3.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.55\linewidth]{plot1.eps}
-	\caption{Plot oct - 1}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
-
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 			      task4 - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
-\subsection{Task 4)}
-\label{subsec:task4_a}
-
-In this task the forced solution of the circuit is computed. To acomplish this objetive, we do an analysis using a phasor voltage source $V_s=1$ and replacing C with its impedance:
-
-\[
-Z_c = j\frac{1}{C\omega}
-\]
-
-Doing an analysis similar to the previous ones, with a slightly modified matrix we can determine the phasor voltages in all nodes.
-
-The following table shows the phasor magnitudes in each node.
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al456.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
@@ -354,7 +338,7 @@ The following table shows the phasor magnitudes in each node.
 \subsection{Task 5)}
 \label{subsec:task5_a}
 
-In this task we compute the final total solution $v_6(t)$ with a frequncy of 1000Hz. To achieve the final result the phasors are converted to real time functions and than superimposed with the natural solution found before.
+In this task we compute the final total solution $v_6(t)$ with a frequency of 1000Hz. To achieve the final result the phasors are converted to real time functions and than superimposed with the natural solution found before.
 
 The force solution will have the form:
 
@@ -378,7 +362,7 @@ The following graph plots the results computed by octave in interval [-5, 20]ms.
 	\caption{Plot oct - 2}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
-
+\newpage
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
 % 			      task6 - subsec
@@ -390,8 +374,12 @@ The following graph plots the results computed by octave in interval [-5, 20]ms.
 In this task, the frequency response of $v_c(f)= v_6(f) - v_8(f)$ and $v_6(f)$ is determined for a frequency range of 0.1Hz to 1 MHz. For the calculation of the frequecy response a similar analysis to the one in task 4) was made for a multitude of frequencys in the set the frequency range. The following graph shows the achieved results: 
 
 
-Grafico-----------
-
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{plot3.eps}
+	\caption{Plot oct - 3}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
 
 We can see that the value of $v_c(f)$ in dB decreases with increasing frequency. This behaviour is due to the impedance of the capacitor decreasing with larger frequencies and so the phasor voltage difference tends to zero (since the magnitude is ploted in dB, when a voltage approaches 0 the dB values goes to negative values).
 
@@ -399,13 +387,8 @@ The value of $v_c(f)$ also decreases for the same reasons explained in subsectio
 
 
 
+\newpage
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.55\linewidth]{plot3.eps}
-	\caption{Plot oct - 3}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
 
 
 

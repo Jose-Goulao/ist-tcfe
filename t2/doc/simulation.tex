@@ -41,9 +41,10 @@ all values are constant in time.
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
+
 Table \ref{tab:op1} shows the simulated operating point results for Circuit T2.
 
-\begin{table}[ht]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -76,7 +77,7 @@ V(n8)$) obtained in subsection \ref{subsec:task1_s}. Vs is also set to 0.
 
 This step is necessary to find the boundary conditions of the circuit at $t=0$, which will be used in the next section to calculate the natural response of the T2 circuit.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al2.pdf}
 	\caption{Circuit T2, analysed by Ngspice}
@@ -85,7 +86,7 @@ This step is necessary to find the boundary conditions of the circuit at $t=0$, 
 
 Table \ref{tab:op2} shows the simulated operating point results for Circuit T2.
 
-\begin{table}[ht]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -112,19 +113,22 @@ In this subsection, the natural response of the circuit was simulated using the 
 $V(n6)$ and $V(n8)$ calculated in subsection \ref{subsec:task2_s}. Thus, $V_{n6}(t)$ was ploted in the 
 interval [0;20]$ms$ (Figure \ref{fig:trans-1}).
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al3.pdf}
 	\caption{Circuit T2, analysed by Ngspice}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
-\begin{figure}[ht]
+
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.55\linewidth]{trans-1.eps}
+	\includegraphics[width=0.4\linewidth]{trans-1.eps}
 	\caption{Transient analysis - 1: natural response on node $n6$}
 \label{fig:trans-1}
 \end{figure}
+
+
 
 
 %-----------------------------------------------------------------------
@@ -140,14 +144,14 @@ conditions used are the same as subsection \ref{subsec:task3_s} and a frequency 
 considered for $v_s(t)$. Figure \ref{fig:trans-2} shows the plot. It is worth noting that node $n1$ has
 the same value as the stimulus ($v_s(t)$), so $V(n1)$ is used instead.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al456.pdf}
 	\caption{Circuit T2, analysed by Ngspice}
-\label{fig:Dsnh_sim_t2}
+\label{circ_ori}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.55\linewidth]{trans-2.eps}
 	\caption{Transient analysis - 2: total response on node $n6$}
@@ -163,7 +167,21 @@ the same value as the stimulus ($v_s(t)$), so $V(n1)$ is used instead.
 \subsection{Task 5)}
 \label{subsec:task5_s}
 
-In this subsection, the frequency response on $V_s$ and on node $n6$ is computed.
+In this subsection, the frequency response on $V_s$ and on node $n6$ is computed (using the circuit diagram \ref{circ_ori} and shown in the following plots.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.55\linewidth]{ac-1.eps}
+	\caption{Frequency response - 1}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.55\linewidth]{ac-2.eps}
+	\caption{Frequency response - 2}
+\label{fig:Dsnh_sim_t2}
+\end{figure}
 
 Since the frequency response is made by changing $V_s$ itself, the values of magnitude and phase of $V_s$ aren't dependent on frequency. For this reason the plot lines of these values are constant.
 
@@ -171,18 +189,8 @@ By contrast the magnitude and phase of $V_6$ change with frequency. At low frequ
 
 These values are in accordance with the node voltage values one would get if the capacitor was removed or shorted, respectively. This is due to the fact that the impedance value of a capacitor follows the equation $frac{1}{C\omega}$. At low frequencies the impedance is very large and so it's almost like the connection between $N6$ and $N8$ didn't exist. In contrast, at high frequencies the impedance is almost null so the circuit behaves almost as $N6$ and $N8$ were shorted.
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.55\linewidth]{ac-1.eps}
-	\caption{Frequency response - 1}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.55\linewidth]{ac-2.eps}
-	\caption{Frequency response - 2}
-\label{fig:Dsnh_sim_t2}
-\end{figure}
+
+
 
 
