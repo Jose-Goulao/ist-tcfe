@@ -52,8 +52,70 @@ passes through the resistor multiplied by its resistance.
 \subsection{Task 1)}
 \label{subsec:task1_a}
 
+When $t<0$ the value of $V_s$ is constant and so we can perform DC analysis on the circuit. We can assume that enough time has passed and so it is reasonable to assume that the circuit is in steady-state.
 
-Similarly to the previous subsection, for the node method, ground was considered to be where it is identified in
+When performing a DC steady-state analysis on a circuit we can use the fact that the current flowing trough the capacitor is null (the circuit behaves as if the capacitor was removed).
+
+A node analysis was performed to find the voltage value of each node and the current in each branch.
+
+The node method uses KCL in conjunction with Ohm’s law to define equations that when solved give the voltage value 
+<<<<<<< HEAD
+of each node in relation to ground (Node 0, $V_0 = 0$). In this circuit we defined six equations that equate the 
+currents entering a particular node with the currents leaving said node. 
+=======
+of each nove in relation to ground (Node 4, $V_4 = 0$). 
+>>>>>>> 406d41a171fa37743ffd3ada08d1bf50d815e525
+
+In order to have equations that solve for the node’s voltage, a relation between curent and voltage is made using 
+Ohm’s law (given a resistance between two nodes, the current that passes the resistance can be written as 
+$I=\frac{V_2-V_1}{R_1}$)
+
+To simplify the equations it is useful to use the conductance $G_n$ which is the inverse of the resistance $R_n$ 
+($G_n=\frac{1}{R_n}$)
+
+The equations used to solve the circuit were organized in matrix form.
+
+{\footnotesize
+
+$ \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+G1 & -(G1+G2+G3) & G2 & G3 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & -G2 & G2 & 0 & 0 & 0 & 0 & 0 & -1 & 0 \\
+0 & G3 & 0 & -(G3+G4+G5) & G5 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & -G5 & G5 & 0 & 0 & 0 & 1 & 1 \\
+0 & 0 & 0 & 0 & 0 & G7 & -G7 & -1 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & -(G6+G7) & G7 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 1 & 0 & G6*K_d & -1 & 0 & 0 & 0 \\
+0 & K_b & 0 & -K_b & 0 & 0 & 0 & 0 & -1 & 0 
+\end{bmatrix}  $
+$ \begin{bmatrix}
+V1 \\
+V2 \\
+V3 \\
+V5 \\
+V6 \\
+V7 \\
+V8 \\
+IH1 \\
+Ib \\
+Ic \\
+\end{bmatrix}  $
+=
+$ \begin{bmatrix}
+Vs\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}  $
+}
+
 Figure \ref{fig:Desenho_t2}. In adition, assume $V_{Ni}$ to be the voltage in node $Ni$ (every node position can
 also be found in Figure \ref{fig:Desenho_t2}). \\
 
@@ -65,59 +127,9 @@ also be found in Figure \ref{fig:Desenho_t2}). \\
 \end{figure}
 
 
-The node method uses KCL in conjunction with Ohm’s law to define equations that when solved give the voltage value 
-of each node in relation to ground (Node 0, $V_0 = 0$). In this circuit we defined six equations that equate the 
-currents entering a particular node with the currents leaving said node. 
 
-In order to have equations that solve for the node’s voltage, a relation between curent and voltage is made using 
-Ohm’s law (given a resistance between two nodes, the current that passes the resistance can be written as 
-$I=\frac{V_2-V_1}{R_1}$)
 
-To simplify the equations it is useful to use the conductance $G_n$ which is the inverse of the resistance $R_n$ 
-($G_n=\frac{1}{R_n}$)
 
-\begin{equation}
-	G_2(V_1-V_2)+G_1(V_3-V_2) - G3(V_2-V_4) = 0
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G_2(V_1-V_2)+K_b(V_4-V_2) = 0
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G3(V_2-V_4)+G_5(V_5-V_4)-G_4V_4)+I_c=0
-	\label{}
-\end{equation} 
-
-\begin{equation}
-	K_b(V_2-V_4)-G_5(V_5-V_4)=-I_d
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G_7(V_6-V_7)-I_c=I_d
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G_6(-V_6)-G_7(V_6-V_7)=0
-	\label{}
-\end{equation}
-
-In order to solve the circuit two more equations are used to relate the voltage difference between the nodes that 
-are conected to the voltage sources.
-
-\begin{equation}
-	V_3 = V_a
-	\label{}
-\end{equation}
-
-\begin{equation}
-	K_c\frac{(-V_6)}{G_6}-(V_4-V_7)=0
-	\label{}
-\end{equation}
 
 {\footnotesize
 
@@ -158,7 +170,9 @@ IH1 \\
 Ib \\
 Ic \\
 \end{bmatrix}  $
+}
 
+{\footnotesize
 
 $ \begin{bmatrix}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\

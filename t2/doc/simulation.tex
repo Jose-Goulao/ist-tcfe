@@ -167,7 +167,9 @@ In this subsection, the frequency response on $V_s$ and on node $n6$ is computed
 
 Since the frequency response is made by changing $V_s$ itself, the values of magnitude and phase of $V_s$ aren't dependent on frequency. For this reason the plot lines of these values are constant.
 
-By contrast the magnitude and phase of $V_6$ change with frequency. At low frequencys $V_6$ is in phase with $V_s$ but as the frequency increases, the phase shift also increases. The magnitude starts at a value of around 1.065 than $V_s$ and with increasing value it decreases until it hits a plateau at around -5.275.
+By contrast the magnitude and phase of $V_6$ change with frequency. At low frequencys $V_6$ is in phase with $V_s$ but as the frequency increases, the phase shift also increases until it reaches a phase difference of 180º, meaning it's totally out of pahse with the source. The magnitude starts at a value of around 1.065dB than $V_s$ and with increasing value it decreases until it hits a plateau at around -5.275dB. 
+
+These values are in accordance with the node voltage values one would get if the capacitor was removed or shorted, respectively. This is due to the fact that the impedance value of a capacitor follows the equation $frac{1}{C\omega}$. At low frequencies the impedance is very large and so it's almost like the connection between $N6$ and $N8$ didn't exist. In contrast, at high frequencies the impedance is almost null so the circuit behaves almost as $N6$ and $N8$ were shorted.
 
 \begin{figure}[ht]
 	\centering
