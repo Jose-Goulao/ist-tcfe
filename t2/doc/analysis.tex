@@ -10,14 +10,14 @@
 %-------------------------------------------------------------------------------------------------------
 % Intro
 
-In this section, the Circuit T2 is analysed theoretically. In figure \ref{fig:Dsnh_oct_t2},
-appart from all the components being identified, the assumed currents are also shown.
+In this section, the Circuit T2 is analysed theoretically. In figure 2,
+apart from all the components being identified, the assumed currents are also shown.
 Only the node method was used in this section. Each subsection refers to each task.
 
 
-Three important equations were used: both Kirchhoff's laws (Kirchhof's current law (KCL)
-- eq.(\ref{eq:kcl}) and Kirchhoff's voltage law (KVL) - eq.(\ref{eq:kvl})); Ohm's law
-(eq.(\ref{eq:ohm})).
+
+The node method uses KCL in conjunction with Ohm’s law to define equations that when solved give the voltage value 
+of each nove in relation to ground (Node 4, $V_4 = 0$). 
 
 The algebraic sum of all the currents in any given node is zero:
 \begin{equation}
@@ -25,24 +25,12 @@ The algebraic sum of all the currents in any given node is zero:
 	\label{eq:kcl}
 \end{equation}
 
-The algebraic sum of all the voltages in any given closed-loop circuit (mesh) is zero:
-\begin{equation}
-	\sum V_i = 0
-	\label{eq:kvl}
-\end{equation}
+In order to have equations that solve for the node’s voltage, a relation between current and voltage is made using 
+Ohm’s law (given a resistance between two nodes, the current that passes the resistance can be written as 
+$I=\frac{V_2-V_1}{R_1}$)
 
-The potential difference between the two nodes connected to a resistor is equal to the current that 
-passes through the resistor multiplied by its resistance.
-\begin{equation}
-	V_i = R_iI_i
-	\label{eq:ohm}
-\end{equation}
 
-\begin{equation}
-	V_1(t) = V_2(\infty) + [V_2(0) - V_2(\infty)]e^{\frac{-t}{\tau}}
-\end{equation}
 
-\newpage
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
@@ -52,7 +40,7 @@ passes through the resistor multiplied by its resistance.
 \subsection{Task 1)}
 \label{subsec:task1_a}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al1.pdf}
 	\caption{Circuit T2 when $t<0$}
@@ -65,17 +53,11 @@ When performing a DC steady-state analysis on a circuit we can use the fact that
 
 A node analysis was performed to find the voltage value of each node and the current in each branch.
 
-The node method uses KCL in conjunction with Ohm’s law to define equations that when solved give the voltage value 
-of each nove in relation to ground (Node 4, $V_4 = 0$). 
-
-In order to have equations that solve for the node’s voltage, a relation between curent and voltage is made using 
-Ohm’s law (given a resistance between two nodes, the current that passes the resistance can be written as 
-$I=\frac{V_2-V_1}{R_1}$)
 
 To simplify the equations it is useful to use the conductance $G_n$ which is the inverse of the resistance $R_n$ 
 ($G_n=\frac{1}{R_n}$)
 
-The equations used to solve the circuit were organized in matrix form.
+The equations used to solve the circuit were organized in matrix form and were solved using Octave.
 
 {\footnotesize
 
@@ -149,7 +131,7 @@ also be found in Figure \ref{fig:Desenho_t2}). \\
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
-In this section the capacitor is replaced with a voltage source $V_x$ with value $V_x = V_6 - V_8$ as shown in figure.... The same type of analysis was made to this circuit but with a slightly modification on some of the rows to represent the modified circuit.
+In this section the capacitor is replaced with a voltage source $V_x$ with value $V_x = V_6 - V_8$ as shown in figure 3. The same type of analysis was made to this circuit but with a slightly modification on some of the rows to represent the modified circuit.
 
 {\footnotesize
 
@@ -233,6 +215,8 @@ This procedure is important to compute the circuit's time constant $\tau$ by usi
 	\caption{Circuit T2, natural response}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
+
+In this task we computed the natural response of the circuit. For that reason we assume that the voltage source $V_s$ is shorted as shown in figure 4.
 
 With the circuit's time constant $\tau$ and boundary conditions calculated in the previous task we can use following equation to get the natural solution of the circuit:
 
@@ -340,7 +324,7 @@ The following table shows the phasor magnitudes in each node.
 \subsection{Task 5)}
 \label{subsec:task5_a}
 
-In this task we compute the final total solution $v_6(t)$ with a frequency of 1000Hz. To achieve the final result the phasors are converted to real time functions and than superimposed with the natural solution found before.
+In this task we compute the final total solution $v_6(t)$ with a frequency of 1000Hz. To achieve the final result the phasors are converted to real time functions and then superimposed with the natural solution found before.
 
 The force solution will have the form:
 
@@ -364,7 +348,7 @@ The following graph plots the results computed by octave in interval [-5, 20]ms.
 	\caption{Final total response at 1kHz}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
-\newpage
+
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
 % 			      task6 - subsec
@@ -373,19 +357,26 @@ The following graph plots the results computed by octave in interval [-5, 20]ms.
 \subsection{Task 6)}
 \label{subsec:task6_a}
 
-In this task, the frequency response of $v_c(f)= v_6(f) - v_8(f)$ and $v_6(f)$ is determined for a frequency range of 0.1Hz to 1 MHz. For the calculation of the frequecy response a similar analysis to the one in task 4) was made for a multitude of frequencys in the set the frequency range. The following graph shows the achieved results: 
+In this task, the frequency response of $v_c(f)= v_6(f) - v_8(f)$, $v_6(f)$ and $v_s$ is determined for a frequency range of 0.1Hz to 1 MHz. For the calculation of the frequecy response a similar analysis to the one in task 4) was made for a multitude of frequencies in the set frequency range. The following graph shows the achieved results: 
 
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{plot3.eps}
 	\caption{Frequency response analysis}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
+Since the frequency response is made by changing $V_s$ itself, the values of magnitude and phase of $V_s$ aren't dependent on frequency. For this reason the plot lines of these values are constant.
+
+By contrast the magnitude and phase of $V_6$ change with frequency. At low frequencys $V_6$ is in phase with $V_s$ but as the frequency increases, the phase shift also increases until it reaches a phase difference of 180º, meaning it's totally out of pahse with the source. The magnitude starts at a value of around 1.065dB than $V_s$ and with increasing value it decreases until it hits a plateau at around -5.275dB. 
+
+These values are in accordance with the node voltage values one would get if the capacitor was removed or shorted, respectively. This is due to the fact that the impedance value of a capacitor follows the equation $frac{1}{C\omega}$. At low frequencies the impedance is very large and so it's almost like the connection between $N6$ and $N8$ didn't exist. In contrast, at high frequencies the impedance is almost null so the circuit behaves almost as $N6$ and $N8$ were shorted.
+
 We can see that the value of $v_c(f)$ in dB decreases with increasing frequency. This behaviour is due to the impedance of the capacitor decreasing with larger frequencies and so the phasor voltage difference tends to zero (since the magnitude is ploted in dB, when a voltage approaches 0 the dB values goes to negative values).
 
-The value of $v_c(f)$ also decreases for the same reasons explained in subsection 2.5).
+
+
 
 
 
