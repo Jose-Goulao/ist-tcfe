@@ -151,7 +151,8 @@ hf=figure();
 plot(t*1000, V6_t_natural, "g");
 
 xlabel("t(ms)");
-ylabel("V");
+ylabel("Potencial (V)");
+legend( 'V6');
 print(hf, "plot1.eps", "-depsc");
 
 
@@ -209,12 +210,15 @@ V6_t = [V6_t_neg V6_t];
 t_5 = [t_neg t];
 
 hf=figure();
-plot(t_5*1000, V_t, "g");
+plot(t_5*1000, V_t, "b");
 hold on
 plot(t_5*1000, V6_t, "g");
 
+legend( 'Vs', 'V6');
+
 xlabel("t(ms)");
-ylabel("V");
+ylabel("Potencial (V)");
+
 print(hf, "plot2.eps", "-depsc");
 
 
@@ -230,6 +234,9 @@ v6_ph = ones(l,1);
 
 v6_8 = ones(l, 1);
 v6_8_ph = ones(l,1);
+
+vs_ph = zeros(l,1)
+vs = zeros(l,1)
 
 p = 1;
 for t = f
@@ -284,11 +291,18 @@ set(hline1 ,'Color',"g");
 set(hline2 ,'Color',"g", "linestyle", "--");
 %set(ax(1),'Color',"k");
 
+[ax,hline1,hline2] = plotyy (f, vs, f, vs_ph, @semilogx)
+hold on 
+set(hline1 ,'Color',"k");
+set(hline2 ,'Color',"k", "linestyle", "--");
+
 
 [ax,hline1,hline2] = plotyy (f, v6_8, f, v6_8_ph, @semilogx); 
 set(hline1 ,'Color',"b");
 set(hline2 ,'Color',"b", "linestyle", "--");
 set(ax,{'ycolor'},{'k';'k'})
+
+
 
 
 
@@ -305,7 +319,10 @@ set(ax(2), 'YLim', ylim_ph);
 
 xlabel("Frequency(HZ)")
 ylabel(ax(1), 'Magnitude (Db)');
-ylabel(ax(2), 'Phase angle (º)');
+ylabel(ax(2), 'Phase angle (degrees)');
+
+legend( 'V6', 'Vc', "V6 - Phase", "Vc - Phase");
+
 print(hf, "plot3.eps", "-depsc");
 
 #############################################################
@@ -324,8 +341,6 @@ file = fopen("Tbl_oct-1.tex", "w");
 	fprintf(file, "$V_{N7}$ & %e \\\\ \\hline \n", Vn7);
 	fprintf(file, "$V_{N8}$ & %e \\\\ \\hline \n", Vn8);
 	
-	#fprintf(file, "$V_{b}$ & %e \\\\ \\hline \n", Vb);
-	#fprintf(file, "$V_{d}$ & %e \\\\ \\hline \n", Vd);
 
 	fprintf(file, "$@I_{b}$ & %e \\\\ \\hline \n", Ib);
 	fprintf(file, "$@I_{c}$ & %e \\\\ \\hline \n", Ic);
@@ -356,8 +371,8 @@ file = fopen("Tbl_oct-2.tex", "w");
 	
 	fprintf(file, "$@V_{x}$ & %e \\\\ \\hline \n", Vx);
 	fprintf(file, "$@I_{x}$ & %e \\\\ \\hline \n", Ic_i);
-	fprintf(file, "$@R_{eq}$ & %e \\\\ \\hline \n", Req);
-	fprintf(file, "$@\\tau$ & %e \\\\ \\hline \n", t_c);
+	fprintf(file, "$R_{eq}$ & %e \\\\ \\hline \n", Req);
+	fprintf(file, "$\\tau$ & %e \\\\ \\hline \n", t_c);
 	
 
 	

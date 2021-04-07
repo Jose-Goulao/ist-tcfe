@@ -55,7 +55,7 @@ passes through the resistor multiplied by its resistance.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al1.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Circuit T2 when $t<0$}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
@@ -145,7 +145,7 @@ also be found in Figure \ref{fig:Desenho_t2}). \\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al2.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Circuit T2 at $t=0$}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
@@ -201,7 +201,7 @@ Vx \\
     		\input{Tbl_oct-2}
   	\end{tabular}
   	\caption{Values computed by Octave. Variables identified with a '$@$' have a
-  	corresponding value in Ampere (A). The others are expressed in Volts (V).}
+  	corresponding value in Ampere (A). The others are expressed in Volts (V), Ohm and time (s).}
  
 \label{tab:node}
 \end{table}
@@ -229,8 +229,8 @@ This procedure is important to compute the circuit's time constant $\tau$ by usi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{dsnh_oct_t2_al3.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al3.pdf}
+	\caption{Circuit T2, natural response}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
@@ -246,8 +246,8 @@ Since $V_s$ is considered to be null on this circuit, the value of node 6 is 0 a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{plot1.eps}
-	\caption{Plot oct - 1}
+	\includegraphics[width=0.8\linewidth]{plot1.eps}
+	\caption{Natural response}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
@@ -263,7 +263,7 @@ Since $V_s$ is considered to be null on this circuit, the value of node 6 is 0 a
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al456.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Circuit T2}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 \newpage
@@ -290,13 +290,16 @@ G1 & -(G1+G2+G3) & G2 & G3 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & K_b & 0 & -K_b & 0 & 0 & 0 & 0 & -1 & 0 
 \end{bmatrix}  $
 $ \begin{bmatrix}
-V1_3 \\
-V2_3 \\
-V3_3 \\
-V5_3 \\
-V6_3 \\
-V7_3 \\
-V8_3 \\
+V1 \\
+V2 \\
+V3 \\
+V5 \\
+V6 \\
+V7 \\
+V8 \\
+IH1 \\
+Ib\\
+Ic\\
 \end{bmatrix}  $
 =
 $ \begin{bmatrix}
@@ -320,11 +323,10 @@ The following table shows the phasor magnitudes in each node.
 	\centering
 	\begin{tabular}{|l|r|}
     		\hline    
-    		{\bf Name} & {\bf Value [A or V]} \\ \hline
+    		{\bf Name} & {\bf Value [V]} \\ \hline
     		\input{Tbl_oct-3}
   	\end{tabular}
-  	\caption{Values computed by Octave. Variables identified with a '$@$' have a
-  	corresponding value in Ampere (A). The others are expressed in Volts (V).}
+  	\caption{Values computed by Octave.}
  
 \label{tab:node}
 \end{table}
@@ -358,8 +360,8 @@ The following graph plots the results computed by octave in interval [-5, 20]ms.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.55\linewidth]{plot2.eps}
-	\caption{Plot oct - 2}
+	\includegraphics[width=0.8\linewidth]{plot2.eps}
+	\caption{Final total response at 1kHz}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 \newpage
@@ -376,8 +378,8 @@ In this task, the frequency response of $v_c(f)= v_6(f) - v_8(f)$ and $v_6(f)$ i
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{plot3.eps}
-	\caption{Plot oct - 3}
+	\includegraphics[width=0.9\linewidth]{plot3.eps}
+	\caption{Frequency response analysis}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
@@ -386,8 +388,6 @@ We can see that the value of $v_c(f)$ in dB decreases with increasing frequency.
 The value of $v_c(f)$ also decreases for the same reasons explained in subsection 2.5).
 
 
-
-\newpage
 
 
 

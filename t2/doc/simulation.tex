@@ -37,7 +37,7 @@ all values are constant in time.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al1.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Circuit T2 when $t<0$}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
@@ -80,7 +80,7 @@ This step is necessary to find the boundary conditions of the circuit at $t=0$, 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al2.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Circuit T2 at $t=0$}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
@@ -116,15 +116,15 @@ interval [0;20]$ms$ (Figure \ref{fig:trans-1}).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al3.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Circuit T2, natural response}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\linewidth]{trans-1.eps}
-	\caption{Transient analysis - 1: natural response on node $n6$}
+	\includegraphics[width=0.7\linewidth]{trans-1.eps}
+	\caption{Transient analysis - Natural response on node $n6$}
 \label{fig:trans-1}
 \end{figure}
 
@@ -147,14 +147,14 @@ the same value as the stimulus ($v_s(t)$), so $V(n1)$ is used instead.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{dsnh_oct_t2_al456.pdf}
-	\caption{Circuit T2, analysed by Ngspice}
+	\caption{Circuit T2}
 \label{circ_ori}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.55\linewidth]{trans-2.eps}
-	\caption{Transient analysis - 2: total response on node $n6$}
+	\includegraphics[width=0.7\linewidth]{trans-2.eps}
+	\caption{Transient analysis: final total response on node $n6$}
 \label{fig:trans-2}
 \end{figure}
 
@@ -171,15 +171,15 @@ In this subsection, the frequency response on $V_s$ and on node $n6$ is computed
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.55\linewidth]{ac-1.eps}
-	\caption{Frequency response - 1}
+	\includegraphics[width=0.7\linewidth]{ac-1.eps}
+	\caption{Frequency response - Magnitude (dB)}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.55\linewidth]{ac-2.eps}
-	\caption{Frequency response - 2}
+	\includegraphics[width=0.7\linewidth]{ac-2.eps}
+	\caption{Frequency response - Phase shift (degrees)}
 \label{fig:Dsnh_sim_t2}
 \end{figure}
 
