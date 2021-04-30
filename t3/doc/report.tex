@@ -1,0 +1,105 @@
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Doc class
+
+\documentclass[11pt,a4paper,twoside]{article}
+
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Define external packages, language, margins, fonts and new commands
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{notoccite}
+\usepackage[skip=0.5\baselineskip]{caption}
+\hyphenation{GTKWave}
+\usepackage{listings}
+\usepackage[all]{nowidow}
+
+\usepackage{graphicx}
+\graphicspath{ {./} {../../figlib/} }
+\def\FontLn{% 16 pt normal
+  \usefont{T1}{phv}{m}{n}\fontsize{16pt}{16pt}\selectfont}
+\def\FontLb{% 16 pt bold
+  \usefont{T1}{phv}{b}{n}\fontsize{16pt}{16pt}\selectfont}
+\def\FontMn{% 14 pt normal
+  \usefont{T1}{phv}{m}{n}\fontsize{14pt}{14pt}\selectfont}
+\def\FontMb{% 12 pt bold
+  \usefont{T1}{phv}{b}{n}\fontsize{12pt}{12pt}\selectfont}
+\def\FontSn{% 12 pt normal
+  \usefont{T1}{phv}{m}{n}\fontsize{12pt}{12pt}\selectfont}
+
+
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+\usepackage{geometry}	
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+
+
+\usepackage[pdftex]{hyperref} % enhance documents that are to be
+                              % output as HTML and PDF
+\hypersetup{colorlinks,       % color text of links and anchors,
+                              % eliminates borders around links
+%            linkcolor=red,    % color for normal internal links
+            linkcolor=black,  % color for normal internal links
+            anchorcolor=black,% color for anchor text
+%            citecolor=green,  % color for bibliographical citations
+            citecolor=black,  % color for bibliographical citations
+%            filecolor=magenta,% color for URLs which open local files
+            filecolor=black,  % color for URLs which open local files
+%            menucolor=red,    % color for Acrobat menu items
+            menucolor=black,  % color for Acrobat menu items
+%            pagecolor=red,    % color for links to other pages
+%            pagecolor=black,  % color for links to other pages
+%            urlcolor=cyan,    % color for linked URLs
+            urlcolor=black,   % color for linked URLs
+	          bookmarks=true,         % create PDF bookmarks
+	          bookmarksopen=false,    % don't expand bookmarks
+	          bookmarksnumbered=true, % number bookmarks
+	          pdftitle={report},
+            pdfauthor={Andre C. Marta},
+%            pdfsubject={Thesis Title},
+%            pdfkeywords={Thesis Keywords},
+            pdfstartview=FitV,
+            pdfdisplaydoctitle=true}
+
+% References in numbered list [1],[2],...
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{subcaption} 
+\usepackage{mdframed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     			    Begin Document                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\pagestyle{plain}
+
+
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+%  Cover page
+
+\input{frontcover}
+
+
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Contents & Body
+
+\tableofcontents
+
+	\vspace{2cm}
+	\input{intro}
+
+	\input{analysis}
+
+	\input{simulation}
+
+	\input{conclusion}
+
+
+\end{document}
+

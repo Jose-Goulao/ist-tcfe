@@ -1,0 +1,104 @@
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Sec & Label
+
+\section{Simulation Analysis}
+\label{sec:simulation}
+
+
+%-------------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------
+% Intro
+
+In this section, Circuit T1 is reproduced with the help of Ngspice.
+
+Firstly, the outcome of the simulation is shown, as well as a brief explanation
+on how it was achived. Afterwards, a comparison is done between those values and
+the ones attained in Section \ref{sec:analysis}.
+
+
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			     Results - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+
+\subsection{Simulated results}
+\label{subsec:sim_res}
+
+
+% ----------------------------------------------------------------------
+% Text
+
+Ngspice is a simulator for eletronic circuits that can output a variety of results.
+This emulator computes the voltages in every node, as well as the potential difference
+between two given nodes. Apart from that, the group made use of the command
+{\em .options savecurrents} which also enables the output of the currents that pass
+through all branches.
+
+With the limitation that Ngspice only provides the current in the components and not through
+the nodes, an aditional voltage source ($Vaux$) was added so that the current in $R_6$ ($I_c$)
+is known. This source (not displayed in Figure \ref{fig:Desenho_t1}) has a voltage of 0V and it 
+was implemented between $R_6$ and $R_7$. Therefore an aditional node had to be added (node $N7$).
+
+As previously stated, $I_b$ is refered to as $G_1$. This is because, in Ngspice, a
+voltage-controlled current source is identified with capital 'g' ($G$). In the case of
+$V_c$, all current-controlled voltage source are identified with $H$.
+
+Table \ref{tab:op} shows the simulated operating point results for Circuit T1.
+
+
+% ----------------------------------------------------------------------
+% Table - OP
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value [A or V]} \\ \hline
+    		\input{op_tab}
+	\end{tabular}
+	
+	\caption{Values from Ngspice. Variables identified with a '$@$' or are of the type
+	$i(...)$ have a corresponding value in Ampere (A). The others are expressed in Volts (V).}
+    
+\label{tab:op}
+\end{table}
+
+The results are time-independent, therefore it is not necessary to do a transient analysis.  
+This is do to the fact that the circuit is only composed of resistors and time-independent voltage
+and currents sources.
+
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 			     Comp - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+
+\subsection{Comparison}
+
+
+% ----------------------------------------------------------------------
+% Text
+
+By comparing both Tables, we confirm that all the absolute values displayed in Table \ref{tab:op}
+are identical to the ones shown in Section \ref{sec:analysis}, including all decimal digits.
+
+All the voltages in every node match with high precision. Moreover, $V_b$ and $V_c$ are
+equal to the simulated values, which are presented in Table \ref{tab:op} as $v(n2,n4)$ and
+$v(n4,n8)$, respectively. Finally, theoretical $I_d$ is also the same as the one obtained
+via Ngspice ('$@g1[i]$'). \\
+
+Aditionaly, the theoretical results achieved are in acordance with the simulation, because
+Circuit T1 is only composed by linear components. This characteristic is necessary for the mesh and
+node methods to give satisfactory values. 
+
+It is also worth noting that all theoretical calculations consider every element of the
+circuit to be ideal (without energy loss nor self-inductance nor any other phenomena that could
+alter the results). Similarly, Ngspice also considers all components to be ideal. Therefore
+every source of discrepancies between theoretical and simulated results are removed (apart from
+the small limitations concerning calculations and the rounding of values).
+
+
