@@ -17,6 +17,8 @@
 \usepackage{listings}
 \usepackage[all]{nowidow}
 
+\usepackage{float}
+
 \usepackage{graphicx}
 \graphicspath{ {./} {../../figlib/} }
 \def\FontLn{% 16 pt normal
@@ -68,6 +70,7 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{subcaption} 
 \usepackage{mdframed}
+\usepackage{amsmath}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     			    Begin Document                              %
@@ -91,9 +94,10 @@
 
 \tableofcontents
 
-	\vspace{2cm}
+	\newpage
 	\input{intro}
 
+	\newpage
 	\input{analysis}
 
 	\input{simulation}

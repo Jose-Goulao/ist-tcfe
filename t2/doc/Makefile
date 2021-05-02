@@ -80,7 +80,7 @@ ngs5.log: ../sim/ngs_t2_5.cir
 #############################################################
 #------------------------------------------------------------
 #############################################################
-#convert libreoffice draw figures to pdf
+#convert libreoffice draw figures to pdf and sets clean
 
 %.pdf: %.odg
 	soffice --headless --convert-to pdf $<
