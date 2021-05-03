@@ -10,42 +10,43 @@ CIRCUIT_T3
 
 *Source + Transformers
 
-V1 N004 N001 dc 0 SIN(0 230 50 0 0 0)
+V1	N004	N001	dc 0 SIN(0 230 50 0 0 0)
 
 *L1 N003 0 368m
 *L2 N001 N004 300m
-*K L1 L2 1
+*K L1 L2 0.99999999999999
 
 *Envelope Dectetor Circuit
 
-D1 N001 N002 Default
-D2 N004 N002 Default
-D3 0 N001 Default
-D4 0 N004 Default
+D1	N001	N002 Default
+D2	N004	N002 Default
+D3	0	N001 Default
+D4	0	N004 Default
 
-C1 N002 0 10u
+C1	N002	0	10u
+
 
 *Voltage Regulator Circuit
 
-R1 P001 N002 1k
+R1	P001	N002	1k
 
-D5 P001 P002 Default
-D6 P002 P003 Default
-D7 P003 P004 Default
-D8 P004 P005 Default
-D9 P005 P006 Default
-D10 P006 P007 Default
-D11 P007 P008 Default
-D12 P008 P009 Default
-D13 P009 P010 Default
-D14 P010 P011 Default
-D15 P011 P012 Default
-D16 P012 P013 Default
-D17 P013 P014 Default
-D18 P014 P015 Default
-D19 P015 P016 Default
-D20 P016 P017 Default
-D21 P017 0 Default
+D5	P001	P002	Default
+D6	P002	P003	Default
+D7	P003	P004	Default
+D8	P004	P005	Default
+D9	P005	P006	Default
+D10	P006	P007	Default
+D11	P007	P008	Default
+D12	P008	P009	Default
+D13	P009	P010	Default
+D14	P010	P011	Default
+D15	P011	P012	Default
+D16	P012	P013	Default
+D17	P013	P014	Default
+D18	P014	P015	Default
+D19	P015	P016	Default
+D20	P016	P017	Default
+D21	P017	0	Default
 
 .model Default D
 
@@ -70,10 +71,11 @@ set color6=rgb:4/0/0
 *	    trans & plot & table
 *********************************************
 
-tran 0.00017 205m 0
+tran 0.00017 50m 0
 
-plot v(p001)
-hardcopy trans-Vout_VR_all.ps v(p001)
+plot v(p001) 12
+hardcopy trans-Vout_VR_all.eps v(p001) 12
+
 
 *---------------------
 *---------------------
@@ -82,13 +84,13 @@ tran 0.00017 205m 5m
 
 
 plot v(n002)
-hardcopy trans-Vout_ED.ps v(n002)
+hardcopy trans-Vout_ED.eps v(n002)
 
-plot v(p001)
-hardcopy trans-Vout_VR.ps v(p001)
+plot v(p001) 12
+hardcopy trans-Vout_VR.eps v(p001) 12
 
-plot v(p001)-12
-hardcopy trans-Vout_(ac+dc).ps v(p001)-12
+plot v(p001)-12 0
+hardcopy trans-Vout_(ac+dc).eps v(p001)-12 0
 
 *---------------------
 echo''
@@ -107,6 +109,18 @@ let Ripple(Vout) = Vout(MAX) - Vout(MIN)
 *---------------------
 echo''
 
+let Cost(resistor) = 1
+let Cost(capacitor) = 10
+let Cost(diode) = 0.1*16
+let Cost = Cost(resistor) + Cost(capacitor) + Cost(diode)
+
+
+let Merit = 1/(Ripple(Vout) + (Vout(AVG)-12) + 1u)/(Cost)
+
+
+*---------------------
+echo''
+
 echo "trans_TAB"
 
 print Vout(AVG)
@@ -115,7 +129,22 @@ print Vout(MIN)
 print Ripple(Vout)
 
 echo "trans_END"
+
+*---------------------
 echo''
+
+echo "cost_TAB"
+
+print Cost(resistor)
+print Cost(capacitor)
+print Cost(diode)
+print Cost
+echo ' -------------------- & -------------------- '
+print Merit
+
+echo "cost_END"
+echo ''
+
 
 *********************************************
 *		    close

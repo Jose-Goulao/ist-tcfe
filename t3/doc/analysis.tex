@@ -12,188 +12,31 @@
 
 In this section, the circuit in Figure \ref{fig:Desenho_t1} is analysed theoretically.
 
-Two methods were used and both will be explained and presented. In Subsection \ref{subsec:mesh_met}
-the aplication of the mesh method and its results are shown. In Subsection \ref{subsec:node_met} the
-same is done with the node method. \\
-
-
-For both methods, ground was considered to be where it is identified in Figure \ref{fig:Desenho_t1}.
-In adition, assume $V_{Ni}$ to be the voltage in node $Ni$ (every node position can also be found in
-Figure \ref{fig:Desenho_t1}). Furthermore, assume $V_{N7}$ is equal to $V_{N6}$, the full explanation
-can be found in Subsection \ref{subsec:sim_res}. \\
-
-In both of these methods, three important equations were used: both Kirchhoff's laws (Kirchhof's
-current law (KCL) - eq.(\ref{eq:kcl}) and Kirchhoff's voltage law (KVL) - eq.(\ref{eq:kvl}));
-Ohm's law (eq.(\ref{eq:ohm})).
-
-The algebraic sum of all the currents in any given node is zero:
-\begin{equation}
-	\sum I_i = 0
-	\label{eq:kcl}
-\end{equation}
-
-The algebraic sum of all the voltages in any given closed-loop circuit (mesh) is zero:
-\begin{equation}
-	\sum V_i = 0
-	\label{eq:kvl}
-\end{equation}
-
-The potential difference between the two nodes connected to a resistor is equal to the current that 
-passes through the resistor multiplied by its resistance.
-\begin{equation}
-	V_i = R_iI_i
-	\label{eq:ohm}
-\end{equation}
-
+To begin, the optimization of the values for each component is presented. Afterwards,
+the theoretical analysis with those results is shown, with all the plots and tables.
 
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
-% 		     	    Mesh - subsec
+% 		     	    Optim - subsec
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 
-\subsection{Mesh method}
-\label{subsec:mesh_met}
+\subsection{Optimization}
+\label{subsec:optim}
 
-To correclty use the mesh method, firstly, four currents must be considered, one for each simple mesh.
-They were identified as follows: $I_1$ - associated with the top left mesh; $I_2$ - associated with
-the top right mesh; $I_3$ - associated with the bottom left mesh; $I_4$ - associated with the bottom
-right mesh. Each one of these currents is assumed to run counterclockwise. \\
-
-Afterwards, eq.(\ref{eq:kvl}) needs to be applied in the meshes not containing any type of current
-sources (eq.(\ref{eq:kvl_m1}) and eq.(\ref{eq:kvl_m3})) . Moreover, it is essential to relate the
-remaining mesh current with those created by the current sources (eq.(\ref{eq:rel_cur1}) and
-eq.(\ref{eq:rel_cur2})). Likewise, eq.(\ref{eq:rel_cur3}) is also obtained.
-
-\begin{equation}
-	V_a = I_1(R_1+R_3+R_4)-I_2(R_3)-I_3(R_4)
-	\label{eq:kvl_m1}
-\end{equation}
-
-\begin{equation}
-	-V_c = I_3(R_4+R_6+R_7)-I_1(R_4)
-	\label{eq:kvl_m3}
-\end{equation}
-
-\begin{equation}
-	I_2 = -I_b
-	\label{eq:rel_cur1}
-\end{equation}
-
-\begin{equation}
-	I_4 = -I_d
-	\label{eq:rel_cur2}
-\end{equation}
-
-\begin{equation}
-	I_3 = -I_c
-	\label{eq:rel_cur3}
-\end{equation}
-
-Further relations need to be composed in order to solve the circuit. We must not forget the two equations
-from the linear dependent sources (eq.(\ref{eq:depsrc1}) and eq.(\ref{eq:depsrc2})). In adition, by
-making use of eq.(\ref{eq:ohm}), one more equation is acquired, eq.(\ref{eq:rel_ohm1}).
-
-\begin{equation}
-	I_b = K_bV_b
-	\label{eq:depsrc1}
-\end{equation}
-
-\begin{equation}
-	V_c = K_cI_b
-	\label{eq:depsrc2}
-\end{equation}
-
-\begin{equation}
-	I_1(R_3)-I_2(R_3) = V_b
-	\label{eq:rel_ohm1}
-\end{equation}
-
-With eight equations and eight unknown variables, the system can be solved.
-The results were computed by Octave and organized in Table \ref{tab:mesh}
-
-%\begin{table}[h]
-%	\centering
-%	\begin{tabular}{|l|r|}
-%   		\hline    
-%    		{\bf Name} & {\bf Value [A or V]} \\ \hline
-%   		\input{Table_Malhas-OCT}
-%  	\end{tabular}
-%  	\caption{Values computed by Octave. Variables identified with a '$@$' have a
-%  	corresponding value in Ampere (A). The others are expressed in Volts (V).}
-% 
-%\label{tab:mesh}
-%\end{table}
-
+As a consequence of not being given any values, the group had to optimize the values
+for each component in order to obtain tha highest Merit possible. Thus, an Octave script
+was written to give us the optimal values.
 
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
-% 			     Node - subsec
+% 			     Results - subsec
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 
-\subsection{Node method}
-\label{subsec:node_met}
-
-The node method uses KCL (eq.(\ref{eq:kcl})) in conjunction with Ohm’s law (eq.(\ref{eq:ohm})) to define
-equations that when solved give the voltage value of each node in relation to ground (Node 0, $V_0 = 0$).
-In this circuit we defined six equations that equate the currents entering a particular node with the
-currents leaving said node. 
-
-In order to have equations that solve for the node’s voltage, a relation between current and voltage is made using 
-Ohm’s law (given a resistance between two nodes, the current that passes the resistance can be written as 
-$I=\frac{V_2-V_1}{R_1}$)
-
-To simplify the equations it is useful to use the conductance $G_n$ which is the inverse of the resistance $R_n$ 
-($G_n=\frac{1}{R_n}$)
-
-\begin{equation}
-	G_2(V_1-V_2)+G_1(V_3-V_2) - G3(V_2-V_4) = 0
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G_2(V_1-V_2)+K_b(V_4-V_2) = 0
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G3(V_2-V_4)+G_5(V_5-V_4)-G_4V_4)+I_c = 0
-	\label{}
-\end{equation} 
-
-\begin{equation}
-	K_b(V_2-V_4)-G_5(V_5-V_4) = -I_d
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G_7(V_6-V_8)-I_c = I_d
-	\label{}
-\end{equation}
-
-\begin{equation}
-	G_6(-V_6)-G_7(V_6-V_8) = 0
-	\label{}
-\end{equation}
-
-In order to solve the circuit two more equations are used to relate the voltage difference between
-the nodes that are conected to the voltage sources.
-
-\begin{equation}
-	V_3 = V_a
-	\label{}
-\end{equation}
-
-\begin{equation}
-	K_c\frac{(-V_6)}{G_6}-(V_4-V_8) = 0
-	\label{}
-\end{equation}
-
-
-With these eight equations it is possible to solve the system using Octave.
-The results were organized in Table \ref{tab:node}
+\subsection{Theoretical Results}
+\label{subsec:res_the}
 
 

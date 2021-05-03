@@ -18,11 +18,11 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS) ngspice
 #OCTAVE
 
 #octave.log
-octave.log:
-	octave ../mat/oct_t3.m > octave.log
-
-octave.log:
-	octave ../mat/oct_malhas_t3.m > octave.log
+#octave.log:
+#	octave ../mat/oct_t3.m > octave.log
+#
+#octave.log:
+#	octave ../mat/oct_malhas_t3.m > octave.log
 
 
 
