@@ -23,12 +23,14 @@ D2	N004	N002 Default
 D3	0	N001 Default
 D4	0	N004 Default
 
-C1	N002	0	10u
+C1	N002	0	15u
+
+R2	N002	0	2k
 
 
 *Voltage Regulator Circuit
 
-R1	P001	N002	1k
+R1	P001	N002	4.70335k
 
 D5	P001	P002	Default
 D6	P002	P003	Default
@@ -45,8 +47,8 @@ D16	P012	P013	Default
 D17	P013	P014	Default
 D18	P014	P015	Default
 D19	P015	P016	Default
-D20	P016	P017	Default
-D21	P017	0	Default
+D20	P016	0	Default
+*D21	P017	0	Default
 
 .model Default D
 
@@ -109,13 +111,13 @@ let Ripple(Vout) = Vout(MAX) - Vout(MIN)
 *---------------------
 echo''
 
-let Cost(resistor) = 1
-let Cost(capacitor) = 10
-let Cost(diode) = 0.1*16
+let Cost(resistor) = 6.7033
+let Cost(capacitor) = 15
+let Cost(diode) = 0.1*15
 let Cost = Cost(resistor) + Cost(capacitor) + Cost(diode)
 
 
-let Merit = 1/(Ripple(Vout) + (Vout(AVG)-12) + 1u)/(Cost)
+let Merit = 1/((Ripple(Vout) + (Vout(AVG)-12) + 1u)*(Cost))
 
 
 *---------------------
