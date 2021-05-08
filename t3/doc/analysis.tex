@@ -10,24 +10,47 @@
 %-------------------------------------------------------------------------------------------------------
 % Intro
 
-In this section, the circuit in Figure \ref{fig:Desenho_t3} is analysed theoretically. Firstly we will analyse the envelope detector and the voltage regulator circuits on the AC/DC converter.
+In this section we will explain the inner workings of the AC/DC converter created and perform a theoretical analysis of each component. For the analysis it was assumed that each component only affects the components that come after it and so does not interfere with the previous analysis.
+The common Kirchoff laws and diode equations (simplified in some cases) were used to perform the analysis.
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
-% 		     	    Envdec - subsec
+% 		     	    Transf - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+
+\subsection{Transformer}
+\label{subsec:transf}
+
+The transformer is the component that steps down the supplied voltage. This step is necessary to approximate the supplied 230V to the 12V required. Since it was assumed that the transformer was ideal, its response can me modeled as a simples change in amplitude, that is related with the number of windings by the following equation:
+V_out=V_in/n
+
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 		     	    EnvDet - subsec
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 
 \subsection{Envelope Detector}
-\label{subsec:envelope}
+\label{subsec:envdet}
 
-As we can check in figure ASDNADNJAS, this part of the circuit consists on a full wave bridge rectifier, a capacitor(C) and a resistor(R_ef). In order to achieve the
+The envelope detector is comprised of two sub-components: The rectifier and a filter.
+The chosen rectifier for our application was the Full-Wave Bridge Rectifier. The purpose of a rectifier is to turn the AC component of the supply to a DC current. To accomplish this objective the rectifier uses four diodes positioned in a way as to only allow the current to pass one way (shown in diagram).
+This behavior was achieved in octave by performing the abs() function to the signal and subtracting 2 times the diode’s V_on voltage (simulating the two diodes the current has to pass through using the V_on model).
+The filter is comprised of a series resistor and parallel capacitor. Its objective is to stabilize the signal and decrease the voltage ripples caused by the rectifier. This behavior was computed in matlab by comparing the signal voltage at each moment with the equivalent RC circuit voltage, the larger of the two was chosen to be the signal.
 
+%-----------------------------------------------------------------------
+%-----------------------------------------------------------------------
+% 		     	    Optim - subsec
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
 
+\subsection{Voltage Reg}
+\label{subsec:voltreg}
 
-To begin, the optimization of the values for each component is presented. Afterwards,
-the theoretical analysis with those results is shown, with all the plots and tables.
-
+This component has the objective of limiting the voltage to the desired value and at the same time, by using the non-linear behavior of a diode to decrease oscillations in the signal.
+The component is comprised of 17 diodes in series to achieve the desired voltage.
+Incremental analysis performed to find the final output signal.
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
