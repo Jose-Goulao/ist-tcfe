@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.2)  8 MAY 2021 23:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.2)  8 MAY 2021 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -650,10 +650,10 @@ Package pdftex.def Info: dsnh_t3.pdf  used on input line 50.
 (pdftex.def)             Requested size: 386.96027pt x 273.60788pt.
 ) [2 <./dsnh_t3.pdf>] (./analysis.tex [3]
 Package epstopdf Info: Source file: <envelope_detector.eps>
-(epstopdf)                    date: 2021-05-08 22:58:44
+(epstopdf)                    date: 2021-05-08 23:02:26
 (epstopdf)                    size: 43488 bytes
 (epstopdf)             Output file: <envelope_detector-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-08 23:00:07
+(epstopdf)                    date: 2021-05-08 23:02:29
 (epstopdf)                    size: 13615 bytes
 (epstopdf)             Command: <repstopdf --outfile=envelope_detector-eps-conv
 erted-to.pdf envelope_detector.eps>
@@ -666,10 +666,10 @@ Package pdftex.def Info: envelope_detector-eps-converted-to.pdf  used on input
 line 93.
 (pdftex.def)             Requested size: 455.24411pt x 341.43124pt.
 Package epstopdf Info: Source file: <voltage_regulator.eps>
-(epstopdf)                    date: 2021-05-08 22:58:45
+(epstopdf)                    date: 2021-05-08 23:02:27
 (epstopdf)                    size: 43989 bytes
 (epstopdf)             Output file: <voltage_regulator-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-08 23:00:08
+(epstopdf)                    date: 2021-05-08 23:02:30
 (epstopdf)                    size: 13538 bytes
 (epstopdf)             Command: <repstopdf --outfile=voltage_regulator-eps-conv
 erted-to.pdf voltage_regulator.eps>
@@ -686,10 +686,10 @@ LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 18.
  [4 <./envelope_detector-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <trans-vout_vr_all.eps>
-(epstopdf)                    date: 2021-05-08 22:58:45
+(epstopdf)                    date: 2021-05-08 23:02:27
 (epstopdf)                    size: 19410 bytes
 (epstopdf)             Output file: <trans-vout_vr_all-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-08 23:00:09
+(epstopdf)                    date: 2021-05-08 23:02:31
 (epstopdf)                    size: 7295 bytes
 (epstopdf)             Command: <repstopdf --outfile=trans-vout_vr_all-eps-conv
 erted-to.pdf trans-vout_vr_all.eps>
@@ -702,10 +702,10 @@ Package pdftex.def Info: trans-vout_vr_all-eps-converted-to.pdf  used on input
 line 52.
 (pdftex.def)             Requested size: 227.62206pt x 227.62248pt.
 Package epstopdf Info: Source file: <trans-vout_ed.eps>
-(epstopdf)                    date: 2021-05-08 22:58:45
+(epstopdf)                    date: 2021-05-08 23:02:27
 (epstopdf)                    size: 20616 bytes
 (epstopdf)             Output file: <trans-vout_ed-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-08 23:00:09
+(epstopdf)                    date: 2021-05-08 23:02:32
 (epstopdf)                    size: 9329 bytes
 (epstopdf)             Command: <repstopdf --outfile=trans-vout_ed-eps-converte
 d-to.pdf trans-vout_ed.eps>
@@ -718,10 +718,10 @@ Package pdftex.def Info: trans-vout_ed-eps-converted-to.pdf  used on input line
  67.
 (pdftex.def)             Requested size: 273.14923pt x 273.15723pt.
 Package epstopdf Info: Source file: <trans-vout_vr.eps>
-(epstopdf)                    date: 2021-05-08 22:58:45
+(epstopdf)                    date: 2021-05-08 23:02:27
 (epstopdf)                    size: 28138 bytes
 (epstopdf)             Output file: <trans-vout_vr-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-08 23:00:10
+(epstopdf)                    date: 2021-05-08 23:02:33
 (epstopdf)                    size: 9681 bytes
 (epstopdf)             Command: <repstopdf --outfile=trans-vout_vr-eps-converte
 d-to.pdf trans-vout_vr.eps>
@@ -734,10 +734,10 @@ Package pdftex.def Info: trans-vout_vr-eps-converted-to.pdf  used on input line
  74.
 (pdftex.def)             Requested size: 273.14923pt x 273.15723pt.
 Package epstopdf Info: Source file: <trans-vout_(ac+dc).eps>
-(epstopdf)                    date: 2021-05-08 22:58:45
+(epstopdf)                    date: 2021-05-08 23:02:27
 (epstopdf)                    size: 28518 bytes
 (epstopdf)             Output file: <trans-vout_(ac+dc)-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-08 23:00:11
+(epstopdf)                    date: 2021-05-08 23:02:34
 (epstopdf)                    size: 9552 bytes
 (epstopdf)             Command: <repstopdf --outfile=trans-vout_(ac+dc)-eps-con
 verted-to.pdf trans-vout_(ac+dc).eps>
@@ -760,13 +760,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 06D1B1B29F1A6A3D7A46AB3608681ACF;613.
+(rerunfilecheck)             Checksum: 3271638D2C0DFEB9BDE4508D5798A755;619.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 108.
  ) 
 Here is how much of TeX's memory you used:
  11516 strings out of 481239
  182553 string characters out of 5920378
- 484493 words of memory out of 5000000
+ 484499 words of memory out of 5000000
  26517 multiletter control sequences out of 15000+600000
  557892 words of font info for 61 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -783,7 +783,7 @@ m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 /usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on report.pdf (8 pages, 306184 bytes).
+Output written on report.pdf (8 pages, 306183 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  187 compressed objects within 2 object streams

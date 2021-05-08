@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {2}Theoretical Analysis}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Transformer}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Envelope Detector}{3}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Voltage Reg}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Voltage Regulator}{3}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Theoretical Results}{4}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Simulation Analysis}{4}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Simulated results}{5}{subsection.3.1}%
