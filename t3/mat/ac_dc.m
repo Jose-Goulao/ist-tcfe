@@ -81,14 +81,14 @@ A = 230
 
 %% Parâmetros do Diodo
 v_in = 0.7;
-n = 17;
+n = 18;
 Is  = 1e-14;
 VT  = 26e-3;
 
 %% Parâmetros do filtro
-C = 1e-5
+C = 1e-4
 R1 = 1e3
-R2 = 6884.5
+R2 = 4884.5
 
 
 
@@ -97,7 +97,7 @@ dt = (t_f-t_i)/step;
 
 v = v_source(f, A, t);
 
-v = transformer(v, 3.241334);
+v = transformer(v, 12);
 
 v = Full_Bridge_Rectifier(v, v_in);
 
@@ -110,7 +110,7 @@ plot(t, 12*ones(1,size(t,2)));
 
 legend( 'Envelope Detector Output', '12V');
 
-ylim([0 15])
+ylim([0 40])
 xlabel("t(ms)");
 ylabel("Potencial (V)");
 
