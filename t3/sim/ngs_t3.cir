@@ -112,7 +112,7 @@ echo''
 
 let Cost(resistor) = 7.8845
 let Cost(capacitor) = 10
-let Cost(diode) = 0.1*17
+let Cost(diode) = 0.1*(4+17)
 let Cost = Cost(resistor) + Cost(capacitor) + Cost(diode)
 
 
