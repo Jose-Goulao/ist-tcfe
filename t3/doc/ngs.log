@@ -1,0 +1,110 @@
+
+Circuit: circuit_t3
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+n001                              -8.75663e-16
+n005                              -8.75663e-16
+n004                              -1.75267e-15
+n002                              -1.75267e-15
+p001                              -1.75267e-15
+p002                              -1.65529e-15
+p003                              -1.55794e-15
+p004                               -1.4606e-15
+p005                              -1.36323e-15
+p006                              -1.26586e-15
+p007                              -1.16849e-15
+p008                              -1.07111e-15
+p009                              -9.73755e-16
+p010                               -8.7641e-16
+p011                              -7.79065e-16
+p012                              -6.81665e-16
+p013                              -5.84266e-16
+p014                              -4.86877e-16
+p015                              -3.89488e-16
+p016                              -2.92088e-16
+p017                              -1.94688e-16
+p018                               -9.7344e-17
+v1#branch                          3.58732e-43
+
+
+No. of Data Rows : 954
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+The file "trans-vout_vr_all.eps" may be printed on a postscript printer.
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+n001                              -8.75663e-16
+n005                              -8.75663e-16
+n004                              -1.75267e-15
+n002                              -1.75267e-15
+p001                              -1.75267e-15
+p002                              -1.65529e-15
+p003                              -1.55794e-15
+p004                               -1.4606e-15
+p005                              -1.36323e-15
+p006                              -1.26586e-15
+p007                              -1.16849e-15
+p008                              -1.07111e-15
+p009                              -9.73755e-16
+p010                               -8.7641e-16
+p011                              -7.79065e-16
+p012                              -6.81665e-16
+p013                              -5.84266e-16
+p014                              -4.86877e-16
+p015                              -3.89488e-16
+p016                              -2.92088e-16
+p017                              -1.94688e-16
+p018                               -9.7344e-17
+v1#branch                          3.58732e-43
+
+
+No. of Data Rows : 1177
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+The file "trans-vout_ed.eps" may be printed on a postscript printer.
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+The file "trans-vout_vr.eps" may be printed on a postscript printer.
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+The file "trans-vout_(ac+dc).eps" may be printed on a postscript printer.
+
+yavg                =  1.200000e+01 from=  1.000000e-02 to=  2.101395e-01
+ymax                =  1.201992e+01 at=  2.065695e-01
+ymin                =  1.197959e+01 at=  1.531895e-01
+
+
+trans_TAB
+vout(avg) = 1.200000e+01
+vout(max) = 1.201992e+01
+vout(min) = 1.197959e+01
+ripple(vout) = 4.033000e-02
+trans_END
+
+cost_TAB
+cost(resistor) = 7.884500e+00
+cost(capacitor) = 1.000000e+01
+cost(diode) = 2.100000e+00
+cost = 1.998450e+01
+ -------------------- & -------------------- 
+merit = 1.240703e+00
+cost_END
+
+ngspice-31 done

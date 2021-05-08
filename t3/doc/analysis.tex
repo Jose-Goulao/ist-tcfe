@@ -38,7 +38,7 @@ V_{out}=\frac{V_{in}}{n}
 
 The envelope detector is comprised of two sub-components: The rectifier and a filter.
 The chosen rectifier for our application was the Full-Wave Bridge Rectifier. The purpose of a rectifier is to turn the AC component of the supply to a DC current. To accomplish this objective the rectifier uses four diodes positioned in a way as to only allow the current to pass one way (shown in diagram).
-This behavior was achieved in octave by performing the abs() function to the signal and subtracting 2 times the diode’s V_on voltage (simulating the two diodes the current has to pass through using the V_on model).
+This behavior was achieved in octave by performing the abs() function to the signal and subtracting 2 times the diode’s $V_{on}$ voltage (simulating the two diodes the current has to pass through using the $V_{on}$ model).
 
 The filter is comprised of a series resistor and parallel capacitor. Its objective is to stabilize the signal and decrease the voltage ripples caused by the rectifier. This behavior was computed in matlab by comparing the signal voltage at each moment with the equivalent RC circuit voltage, the larger of the two was chosen to be the signal.
 
