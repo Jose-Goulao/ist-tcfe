@@ -23,7 +23,9 @@ The common Kirchoff laws and diode equations (simplified in some cases) were use
 \label{subsec:transf}
 
 The transformer is the component that steps down the supplied voltage. This step is necessary to approximate the supplied 230V to the 12V required. Since it was assumed that the transformer was ideal, its response can me modeled as a simples change in amplitude, that is related with the number of windings by the following equation:
-V_out=V_in/n
+\[
+V_{out}=\frac{V_{in}}{n}
+\]
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
@@ -37,7 +39,12 @@ V_out=V_in/n
 The envelope detector is comprised of two sub-components: The rectifier and a filter.
 The chosen rectifier for our application was the Full-Wave Bridge Rectifier. The purpose of a rectifier is to turn the AC component of the supply to a DC current. To accomplish this objective the rectifier uses four diodes positioned in a way as to only allow the current to pass one way (shown in diagram).
 This behavior was achieved in octave by performing the abs() function to the signal and subtracting 2 times the diode’s V_on voltage (simulating the two diodes the current has to pass through using the V_on model).
+
 The filter is comprised of a series resistor and parallel capacitor. Its objective is to stabilize the signal and decrease the voltage ripples caused by the rectifier. This behavior was computed in matlab by comparing the signal voltage at each moment with the equivalent RC circuit voltage, the larger of the two was chosen to be the signal.
+
+\[
+V_{out}=V_{t_{off}}\cdot{}e^{-\frac{t-t_{off}}{\tau}}
+\]
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
@@ -52,19 +59,25 @@ This component has the objective of limiting the voltage to the desired value an
 The component is comprised of 17 diodes in series to achieve the desired voltage.
 Incremental analysis performed to find the final output signal.
 
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 		     	    Optim - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
+By solving the following equation using the Newton-Raphson iterative method we can find the operating point voltage.
+\[
+V_0 + R\cdot I_s \cdot (e^{\frac{v}{N\cdot VT}}-1)-V_env = 0
+\]
 
-\subsection{Optimization}
-\label{subsec:optim}
+Using this result we can find the equivelent resistance for the diodes using the following equation.
 
-As a consequence of not being given any values, the group had to optimize the values
-for each component in order to obtain tha highest Merit possible. Thus, an Octave script
-was written to give us the optimal values.
+\[
+r_d=\frac{n\eta V_t}{I_se^{\frac{V_D}{n\eta V_x}}}
+\]
+With this information we can calculate by how much the ripple is decreased.
 
+\[
+v_0 = \frac{r_d}{r_d+R}\cdot v
+\]
+The output signal is the sum of the DC operating point calculated before and the ripple.
+\[
+V_{out}=N \cdot V_{on} + v_0
+\]
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
