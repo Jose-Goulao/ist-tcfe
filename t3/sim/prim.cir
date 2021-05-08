@@ -10,24 +10,24 @@ CIRCUIT_T3
 
 *Source
 
-V1	N001	N005	dc 0 SINE(0 30 50)
+V1	N004	N001	dc 0 SIN(0 230 50 0 0 0)
 
 
 *Envelope Dectetor Circuit
 
-D1	N001	N004	Default
-D2	N005	N004	Default
+D1	N001	N002	Default
+D2	N004	N002	Default
 D3	0	N001	Default
-D4	0	N005	Default
+D4	0	N004	Default
 
-C1	N002	0	10u
+C1	N002	0	15u
 
-R2	N002	N004	1k
+R2	N002	0	2k
 
 
 *Voltage Regulator Circuit
 
-R1	P001	N002	6.8845k
+R1	P001	N002	4.70335k
 
 D5	P001	P002	Default
 D6	P002	P003	Default
@@ -44,10 +44,8 @@ D16	P012	P013	Default
 D17	P013	P014	Default
 D18	P014	P015	Default
 D19	P015	P016	Default
-D20	P016	P017	Default
-D21	P017	P018	Default
-D22	P018	0	Default
-
+D20	P016	0	Default
+*D21	P017	0	Default
 
 .model Default D
 
@@ -72,7 +70,7 @@ set color6=rgb:4/0/0
 *	    trans & plot & table
 *********************************************
 
-tran 0.00017 160m 0
+tran 0.00017 50m 0
 
 plot v(p001) 12
 hardcopy trans-Vout_VR_all.eps v(p001) 12
@@ -81,7 +79,7 @@ hardcopy trans-Vout_VR_all.eps v(p001) 12
 *---------------------
 *---------------------
 
-tran 0.00017 350m 150m
+tran 0.00017 205m 5m
 
 
 plot v(n002)
@@ -110,9 +108,9 @@ let Ripple(Vout) = Vout(MAX) - Vout(MIN)
 *---------------------
 echo''
 
-let Cost(resistor) = 7.8845
-let Cost(capacitor) = 10
-let Cost(diode) = 0.1*17
+let Cost(resistor) = 6.7033
+let Cost(capacitor) = 15
+let Cost(diode) = 0.1*15
 let Cost = Cost(resistor) + Cost(capacitor) + Cost(diode)
 
 
