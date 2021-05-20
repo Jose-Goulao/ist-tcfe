@@ -53,42 +53,34 @@ the Octave script.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\linewidth]{vo1f.eps}
+	\includegraphics[width=0.5\linewidth]{vo1f.eps}
 	\caption{Envelope Detector Circuit $v_{out}$}
 \label{fig:EV_vout}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\linewidth]{vo2f.eps}
+	\includegraphics[width=0.5\linewidth]{vo2f.eps}
 	\caption{Voltage Regulator Circuit $v_{out}$}
 \label{fig:VR_vout}
 \end{figure}
 
 
-As mentioned before, function to determine the minimum, maximum and average of the
-plots were also used. Table \ref{tab:trans} shows the average, maximum and minimum
-of the plot in Figure \ref{fig:VR_vout}, in that order. In adition, the Ripple
-(Vout(MAX) - Vout(MIN)) is also presented.
 
+Lastly, the group also used Ngspice to compute the Merit. Table \ref{tab:merit} shows all the 
+values necessary to compute the Merit, as well as the Merit itself.
 
-
-Lastly, the group also used Ngspice to compute the Merit. This was done, only to confirm
-the value obtained in Subsection \ref{subsec:res_the}.
-
-
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 			     Comp - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
-
-\subsection{Comparison}
-
-
-% ----------------------------------------------------------------------
-% Text
-
-
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value} \\ \hline
+    		\input{merit_tab}
+	\end{tabular}
+	
+	\caption{Values from Ngspice.}
+    
+\label{tab:merit}
+\end{table}
 
 

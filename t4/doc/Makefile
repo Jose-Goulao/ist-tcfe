@@ -9,7 +9,7 @@ LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 all: $(FILE).pdf
 	evince $< &
 
-$(FILE).pdf: $(wildcard *.tex) $(LODFIGS)  ngspice
+$(FILE).pdf: $(wildcard *.tex) $(LODFIGS)  ngspice ngso.log
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
@@ -25,16 +25,18 @@ octave.log:
 #------------------------------------------------------------
 #NGSPICE
 
-ngspice: ngs.log
+ngspice: ngsi.log
 	$(eval NGSFIGS=$(shell grep _FIG $< | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	$(eval NGSFIGPS=$(addsuffix .ps, $(NGSFIGS)))
 	$(eval NGSTABS=$(shell grep _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
 	$(foreach i, $(NGSFIGPS), ps2pdf $i;)
 
-ngs.log: ../sim/ngs_t4.cir
+ngsi.log: ../sim/ngs_t4_in.cir
 	ngspice -b $< -o $@
-
+	
+ngso.log: ../sim/ngs_t4_out.cir
+	ngspice -b $< -o $@
 
 
 #############################################################
