@@ -59,6 +59,7 @@ ac dec 10 10 100MEG
 
 *let OUTPUTimped = -v(out)/i(Vn)
 let OUTPUTimped = -v(out)[40]/i(Vn)[40]
+*let OUTPUTimped = v(out)/Vn#branch[40]/(-1000)
 print OUTPUTimped
 
 
