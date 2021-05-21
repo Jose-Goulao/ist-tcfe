@@ -57,11 +57,12 @@ Vn out 0 0 ac 1.0 sin(0 10m 1k)
 ac dec 10 10 100MEG
 
 
-*let OUTPUTimped = -v(out)/i(Vn)
 let OUTPUTimped = -v(out)[40]/i(Vn)[40]
-*let OUTPUTimped = v(out)/Vn#branch[40]/(-1000)
-print OUTPUTimped
+*let OUTPUTimped = v(out)[40]/Vn#branch[40]/(-1000)
 
+echo "Outimp_TAB"
+print OUTPUTimped
+echo "Outimp_END"
 
 *********************************************
 *		    close

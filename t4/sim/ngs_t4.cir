@@ -41,7 +41,7 @@ RL out 0 {rl_v}
 
 
 *********************************************
-*		 op & setgraph
+*	    	     setup
 *********************************************
 
 .op
@@ -60,9 +60,22 @@ set color6=rgb:4/0/0
 
 
 *********************************************
+*	    	      op
+*********************************************
+op
+
+echo "geral_TAB"
+
+print v(coll)
+print v(emit)
+print v(coll)-v(base)
+
+echo "geral_END"
+
+
+*********************************************
 *	  	trans & plot
 *********************************************
-
 tran 1e-5 1e-2
 
 plot v(coll)
@@ -72,7 +85,6 @@ hardcopy vo1.eps vdb(coll)
 *********************************************
 *	        freq & plot
 *********************************************
-
 ac dec 10 10 100MEG
 
 plot vdb(coll)
@@ -97,11 +109,16 @@ meas ac UCOF WHEN vdb(out) = aux CROSS=LAST
 
 let Bandw = UCOF-LCOF
 
+*---------------------
+echo''
+
 plot abs(v(in2)[40]/vin#branch[40]/(-1000))
 let INPUTimped = v(in2)[40]/vin#branch[40]/(-1000)
 *let INPUTimped = v(in2)[40]/(v(in)[40]-v(in2)[40])/100*1000
-print INPUTimped
 
+echo "INPUTimp_TAB"
+print INPUTimped 
+echo "INPUTimp_END"
 
 *---------------------
 echo''
@@ -111,9 +128,10 @@ let Cost(capacitor) = {ci_v} + {cb_v} + {co_v}
 let Cost(transistor) = 0.1*(2)
 let Cost = Cost(resistor) + Cost(capacitor) + Cost(transistor)
 
-
 let Merit = (Vgain*Bandw)/(Cost*LCOF)
-*let Merit = (1*Bandw)/(Cost*LCOF)
+
+*---------------------
+echo''
 
 echo "merit_TAB"
 
@@ -121,7 +139,7 @@ print Vgain
 print Bandw
 print Cost
 print LCOF
-echo ' -------------------- & -------------------- '
+echo ' ---------- & -------------------- '
 print Merit
 
 echo "merit_END"
