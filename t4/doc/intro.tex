@@ -9,11 +9,8 @@
 %-------------------------------------------------------------------------------------------------------
 
 
-The objective of this laboratory assignment is to optimize and study an AC/DC converter
-circuit. We were given total freedom to choose the architecture of the Envelope Detector
-and Voltage Regulator circuits. Our goal is to achieve the highest Merit ($M$) possibe. This
-value is obtained with the following equations:
-	
+The objective of this laboratory assignment is to create an audio amplifier circuit by choosing the architecture of the Gain and Output amplifier stages whilst optimizing the circuit on its Merit ($M$), that is given by the equation:
+
 \[
 M = \frac{voltageGain\times bandwidth}{cost\times lowerCutoffFreq}
 \]
@@ -28,21 +25,19 @@ $cost_{diodes} = 0.1MU/transistor$ \\
 For reasons explained later, our circuit, shown in figure \ref{fig:Desenho_t3}, contains,
 in total:
 
+We ended up choosing the circuit displayed in figure POR REFERENCIA utilizing the following components:
+
 \begin{itemize}
-	\item one voltage source ($V_1$)
-	\item two inductors ($L_1$,$L_2$)
-	\item one resistor ($R_1$)
-	\item one capacitor ($C_1$)
-	\item twentyt two diodes ($D_1$-$D_{22}$)
+	\item two voltage sources ($V_1$ and $V_cc$)
+	\item two transistors ($Q_1$,$Q_2$)
+	\item six resistors ($R_1$, $R_2$, $R_e$, $R_c$, $R_in$, $R_out$)
+	\item three capacitors ($C_i$, $C_b$, $C_o$,)
 \end{itemize}
 
-The circuit can be divided in three parts. The source, the Envelope Detector Circuit and the
-Voltage Regulator Circuit (Figure \ref{fig:Desenho_t3}).
 
-In Section \ref{sec:analysis}, a theoretical analysis of the circuit is presented. In
-Section \ref{sec:simulation} , the circuit is analysed by simulation, and the results are
-compared to the theoretical results obtained in Section \ref{sec:analysis}. The conclusions
-of this study are outlined in Section \ref{sec:conclusion}.
+Theoretical and simulation analysis are presented in Section \ref{sec:analysis} and Section \ref{sec:simulation}, respectively, and the results of each are then compared.
+Finally, in Section \ref{sec:conclusion} the conclusions of the laboratory assignment are outlined. 
+
 
 
 %\begin{figure}[h]
