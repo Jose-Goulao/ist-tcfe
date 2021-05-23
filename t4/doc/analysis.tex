@@ -10,8 +10,8 @@
 %-------------------------------------------------------------------------------------------------------
 % Intro
 
-In this section we will explain the inner workings of the AC/DC converter created and perform a theoretical analysis of each component. For the analysis it was assumed that each component only affects the components that come after it and so does not interfere with the previous analysis.
-The common Kirchoff laws and diode equations (simplified in some cases) were used to perform the analysis.
+In this section we will explain the inner workings of the class A audio amplifier created and perform a theoretical analysis of each component. 
+The common Kirchoff laws and the simplified BJT equation were used to perform the analysis.
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
@@ -19,65 +19,74 @@ The common Kirchoff laws and diode equations (simplified in some cases) were use
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
 
-\subsection{Transformer}
+\subsection{Gain stage - Degenerated Common Emitter Amplifier}
 \label{subsec:transf}
 
-The transformer is the component that steps down the supplied voltage. This step is necessary to approximate the supplied 230V to the 12V required. Since it was assumed that the transformer was ideal, its response can me modeled as a simples change in amplitude, that is related with the number of windings by the following equation:
+
+
+It is in this stage of the amplifier that most of the signal amplification takes place. This stage is comprised of a NPN tansistor, two capacitors (coupling and bypass) and four resistors (two for the voltage divider, R1 and R2, one for the temperature stabilization RE and another to set the no signal current, RC).
+
+The base voltage of the transistor needs to be forward biased in order for the NPN transistor to work in the forward-active region. For that reason, a voltage divider is added to make sure that the base voltage is always larger than 0.7V. A coupling capacitor is added between the voltage divider and the signal source in order to add the input AC signal to the voltage divider DC signal (this will be explained in more detail in the simulation section).
+
+The resistor RC is used to set the zero signal current that passes trough the BJT.
+
+The resistance RE adds temperature stabilization and removes the temperature dependency of the gain in the circuit but has the drawback of decreasing the AC gain of the amplifier. A bypass capacitor is used to decrease the gain degenerating effects of RE on higher frequencies (this will be explained in more detail in the simulation section).
+
+
+
+By analysis of the circuit using the mesh method, it is possible to find expressions for the input and output impedances of this stage. The derivation of these equations was performed in lecture 16.
+
+
+Input impedance:
 \[
-V_{out}=\frac{V_{in}}{n}
+Z_i=\frac{(r_0+R_c+R_E)(R_B+r_{\pi}+R_E) + g_mR_Er_0r_{\pi}-R_E^2}{r_o + R - R_E}
 \]
 
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 		     	    EnvDet - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
 
-\subsection{Envelope Detector}
+Output impedance:
+\[
+Z_o=Z_x||R
+\]
+
+\[
+Z_x=r_0\frac{\frac{1}{R_E}+\frac{1}{r_{pi}+R_B}+\frac{1}{r_o}+\frac{g_mr_{\pi}}{r_{pi}+R_B}}{\frac{1}{R_E}+\frac{1}{r_{pi}+R_B}}
+\]
+
+The Common Emitter has the drawback of having high output impedance. For that reason the Output stage is added as way of reducing the output impedance and to suplly more current to the load.
+
+\subsection{Output stage - Common Collector Amplifier}
 \label{subsec:envdet}
 
-The envelope detector is comprised of two sub-components: The rectifier and a filter.
-The chosen rectifier for our application was the Full-Wave Bridge Rectifier. The purpose of a rectifier is to turn the AC component of the supply to a DC current. To accomplish this objective the rectifier uses four diodes positioned in a way as to only allow the current to pass one way (shown in diagram).
-This behavior was achieved in octave by performing the abs() function to the signal and subtracting 2 times the diode’s $V_{on}$ voltage (simulating the two diodes the current has to pass through using the $V_{on}$ model).
+The output stage is comprised of a PNP transistor, a resistor and a capacitor.
 
-The filter is comprised of a series resistor and parallel capacitor. Its objective is to stabilize the signal and decrease the voltage ripples caused by the rectifier. This behavior was computed in matlab by comparing the signal voltage at each moment with the equivalent RC circuit voltage, the larger of the two was chosen to be the signal.
 
+This stage has a gain level of almost unity so it is not responsible for the amplification. The main purpose is to decrease the output impedance to work better with the 8 ohm load and allow larger currents to flow.
+
+
+The capacitor is used to remove the DC component of the signal and only allow for the AC signal to reach the output terminals.
+
+
+By analysis of the circuit using the node methos, it is possible to find expressions for the input and output impedances of this stage. The derivation of these equations was performed in lecture 17.
+
+
+Input impedance:
 \[
-V_{out}=V_{t_{off}}\cdot{}e^{-\frac{t-t_{off}}{\tau}}
+Z_i = \frac{g_{\pi}+g_E+g_o+g_m}{g_{\pi}(g_{\pi}+g_E+g_o)}
 \]
 
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 		     	    Optim - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
+This value is high so it can be connected to the gain stage efficiently.
 
-\subsection{Voltage Regulator}
-\label{subsec:voltreg}
-
-This component has the objective of limiting the voltage to the desired value and at the same time, by using the non-linear behavior of a diode to decrease oscillations in the signal.
-The component is comprised of 17 diodes in series to achieve the desired voltage.
-Incremental analysis performed to find the final output signal.
-
-By solving the following equation using the Newton-Raphson iterative method we can find the operating point voltage.
-\[
-V_0 + R\cdot I_s \cdot (e^{\frac{v}{N\cdot VT}}-1)-V_env = 0
-\]
-
-Using this result we can find the equivelent resistance for the diodes using the following equation.
+Output impedance:
 
 \[
-r_d=\frac{n\eta V_t}{I_se^{\frac{V_D}{n\eta V_x}}}
+Z_o = \frac{1}{g_{pi}+g_E+g_o+g_m}
 \]
-With this information we can calculate by how much the ripple is decreased.
 
-\[
-v_0 = \frac{r_d}{r_d+R}\cdot v
-\]
-The output signal is the sum of the DC operating point calculated before and the ripple.
-\[
-V_{out}=N \cdot V_{on} + v_0
-\]
+This value is low so it can be connected to the load efficiently.
+
+
+
+
 
 %-----------------------------------------------------------------------
 %-----------------------------------------------------------------------
