@@ -1,0 +1,74 @@
+CIRCUIT_T4_OUT
+
+.options savecurrents
+
+
+*********************************************
+*	declaracion of components
+*********************************************
+
+.include valores.txt
+
+Vcc vcc 0 12.0
+Vin in 0 0
+Rin in in2 {rin_v}
+
+* input coupling capacitor
+Ci in2 base {ci_v}
+
+* bias circuit
+R1 vcc base {r1_v}
+R2 base 0 {r2_v}
+
+* gain stage
+Q1 coll base emit BC547A
+Rc vcc coll {rc_v}
+Re emit 0 {re_v}
+
+* bypass capacitor
+Cb emit 0 {cb_v}
+
+
+* output stage
+Q2 0 coll emit2 BC557A
+Rout emit2 vcc {rout_v}
+
+* output coupling capacitor
+Co emit2 out {co_v}
+
+
+* new source
+Vn out 0 0 ac 1.0 sin(0 10m 1k)
+
+
+*********************************************
+*		     op
+*********************************************
+
+.op
+.end
+
+.control
+
+
+*********************************************
+*	        freq & imp
+*********************************************
+ac dec 10 10 100MEG
+
+
+let OUTPUTimped = -v(out)[40]/i(Vn)[40]
+*let OUTPUTimped = v(out)[40]/Vn#branch[40]/(-1000)
+
+echo "Outimp_TAB"
+print OUTPUTimped
+echo "Outimp_END"
+
+*********************************************
+*		    close
+*********************************************
+
+quit
+.endc
+
+
