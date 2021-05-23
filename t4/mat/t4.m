@@ -106,9 +106,10 @@ gain_final_db = 20*log10(abs(gain_final));
 hf=figure();
 semilogx(f, gain_final_db);
 
-title("Frequency Response Vo/Vi")
+%title("Frequency Response Vo/Vi")
 xlabel("Frequency (Hz)")
 ylabel("Gain (dB)")
+print(hf, "plot1.eps", "-depsc");
 
 
 file = fopen("Tbl_oct-imp.tex", "w");
