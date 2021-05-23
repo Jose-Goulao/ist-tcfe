@@ -10,7 +10,7 @@
 %-------------------------------------------------------------------------------------------------------
 % Intro
 
-In this section, Circuit T3 is reproduced with the help of Ngspice.
+In this section, Circuit T4 is reproduced with the help of Ngspice.
 
 Ngspice is a simulator for eletronic circuits that can output a variety of results.
 This emulator computes the voltages in every node, as well as the potential difference
@@ -35,7 +35,19 @@ the ones attained in Section \ref{sec:analysis}.
 \subsection{Simulated results}
 \label{subsec:sim_res}
 
+\subsubsection{Coupling Capacitors}
 
+The purpose of the coupling capacitors on the audio amplifier circuit is to eliminate the DC component of a signal and only pass the AC component, which in the case of an audio amplifier is what carries the sound information.
+
+This arrangement of capacitors is normally used to link/couple (that’s where it´s name comes from) only the AC signal of one circuit to another.
+
+\subsubsection{Bypass capacitor}
+
+A bypass capacitor’s purpose is to remove the AC component of a signal by shorting it to ground.
+For this to work, the bypass is placed in parallel with a resistance. Since the capacitor’s impedance follows the equation |Z_c |=1/wC , for DC signals (w=0) the impedance is infinite and so all the current flows trough the resistor. When the frequency increases, the capacitor’s impedance decreases and so a larger part of the signal passes trough the capacitor directly to ground. This way, the DC signal is the main contributor to the voltage difference between the components, while the AC signal directed to ground without any resistance.
+In our application, the bypass capacitor is used to allow to have the resistance RE without degenerating the gain. The resistance RE adds temperature stabilization and removes the temperature dependency of the gain in the circuit has the drawback of decreasing the AC gain of the amplifier. For this purpose, only the DC component needs to be affected by the resistance RE and for this reason, the bypass capacitor is used so that higher frequencies aren’t affected by RE. This way we can achieve the best of temperature stabilization without gain degeneration.
+
+\subsubsection{Effect of Resistace }
 % ----------------------------------------------------------------------
 % Text
 
