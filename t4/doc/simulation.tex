@@ -44,7 +44,7 @@ This arrangement of capacitors is normally used to link/couple (that’s where i
 \subsubsection{Bypass capacitor}
 
 A bypass capacitor’s purpose is to remove the AC component of a signal by shorting it to ground.
-For this to work, the bypass is placed in parallel with a resistance. Since the capacitor’s impedance follows the equation |Z_c |=1/wC , for DC signals (w=0) the impedance is infinite and so all the current flows trough the resistor. When the frequency increases, the capacitor’s impedance decreases and so a larger part of the signal passes trough the capacitor directly to ground. This way, the DC signal is the main contributor to the voltage difference between the components, while the AC signal directed to ground without any resistance.
+For this to work, the bypass is placed in parallel with a resistance. Since the capacitor’s impedance follows the equation $|Z_c|=1/wC$ , for DC signals (w=0) the impedance is infinite and so all the current flows trough the resistor. When the frequency increases, the capacitor’s impedance decreases and so a larger part of the signal passes trough the capacitor directly to ground. This way, the DC signal is the main contributor to the voltage difference between the components, while the AC signal directed to ground without any resistance.
 In our application, the bypass capacitor is used to allow to have the resistance RE without degenerating the gain. The resistance RE adds temperature stabilization and removes the temperature dependency of the gain in the circuit has the drawback of decreasing the AC gain of the amplifier. For this purpose, only the DC component needs to be affected by the resistance RE and for this reason, the bypass capacitor is used so that higher frequencies aren’t affected by RE. This way we can achieve the best of temperature stabilization without gain degeneration.
 
 \subsubsection{Effect of Resistace }
@@ -59,21 +59,21 @@ the Octave script.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.6\linewidth]{vo1.eps}
-	\caption{Inicial $v_{out}$}
+	\caption{$v_{out}$}
 \label{fig:graph_global}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.6\linewidth]{vo1f.eps}
-	\caption{Envelope Detector Circuit $v_{out}$}
+	\caption{$v_{coll}$ in dB}
 \label{fig:EV_vout}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.6\linewidth]{vo2f.eps}
-	\caption{Voltage Regulator Circuit $v_{out}$}
+	\caption{$v_{out}$ in dB}
 \label{fig:VR_vout}
 \end{figure}
 
@@ -90,7 +90,7 @@ values necessary to compute the Merit, as well as the Merit itself.
     		\input{geral_tab}
 	\end{tabular}
 	
-	\caption{Values from Ngspice.}
+	\caption{Checking values for F.A.R.}
     
 \label{tab:op_sim}
 \end{table}
@@ -104,7 +104,7 @@ values necessary to compute the Merit, as well as the Merit itself.
     		\input{Outimp_tab}
 	\end{tabular}
 	
-	\caption{Values from Ngspice.}
+	\caption{Total impedance values from Ngspice.}
     
 \label{tab:imp_sim}
 \end{table}
@@ -117,7 +117,7 @@ values necessary to compute the Merit, as well as the Merit itself.
     		\input{merit_tab}
 	\end{tabular}
 	
-	\caption{Values from Ngspice.}
+	\caption{Merit and other variables.}
     
 \label{tab:merit}
 \end{table}

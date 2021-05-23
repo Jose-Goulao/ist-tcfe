@@ -114,8 +114,11 @@ ylabel("Gain (dB)")
 file = fopen("Tbl_oct-imp.tex", "w");
 	fprintf(file, "$Z1_{In}$ & %e \\\\ \\hline \n", ZI1);
 	fprintf(file, "$Z1_{Out}$ & %e \\\\ \\hline \n", ZO1);
+	fprintf(file, " -------- & -------------------- \\\\ \\hline \n");
 	fprintf(file, "$Z2_{In}$ & %e \\\\ \\hline \n", ZI2);
 	fprintf(file, "$Z2_{Out}$ & %e \\\\ \\hline \n", ZO2);
+	fprintf(file, " -------- & -------------------- \\\\ \\hline \n");
+	fprintf(file, "$Zt_{In}$ & %e \\\\ \\hline \n", ZI);
 	fprintf(file, "$Zt_{Out}$ & %e \\\\ \\hline \n", ZO);
 
 fclose(file);
