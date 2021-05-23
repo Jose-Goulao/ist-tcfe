@@ -74,7 +74,7 @@ Input impedance:
 Z_i = \frac{g_{\pi}+g_E+g_o+g_m}{g_{\pi}(g_{\pi}+g_E+g_o)}
 \]
 
-This value is high so it can be connected to the gain stage efficiently.
+This value is higher than the output impedance of the gain stage. Since both the stages are connected in series, they follow the voltage divider law. For that reason, to achive as large as possible gain, it is important that the output impedance of the gain stage is smaller than the input impedance of the output stage.
 
 Output impedance:
 
@@ -84,7 +84,8 @@ Z_o = \frac{1}{g_{pi}+g_E+g_o+g_m}
 
 This value is low so it can be connected to the load efficiently.
 
-
+\subsection {Circuit frequency response}
+Due to the use of capacitors in the circuit, the gain is dependent on the frenquecy of the imput. This response was achieved by calculating the equivelent impedance of the braches with capacitors for a set of frequencies.
 
 
 
