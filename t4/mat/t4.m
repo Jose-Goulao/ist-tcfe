@@ -66,11 +66,11 @@ gain_f_db = 20*log10(abs(gain_f));
 
 
 
-
+%{
 RE1=0
 ZI1 = 1/(1/RB+1/(((ro1+RC1+RE1)*(rpi1+RE1)+gm1*RE1*ro1*rpi1 - RE1^2)/(ro1+RC1+RE1)))
 ZO1 = 1/(1/ro1+1/RC1)
-
+%}
 %ouput stage
 BFP = 227.3
 VAFP = 37.2
@@ -109,3 +109,21 @@ semilogx(f, gain_final_db);
 title("Frequency Response Vo/Vi")
 xlabel("Frequency (Hz)")
 ylabel("Gain (dB)")
+
+
+file = fopen("Tbl_oct-imp.tex", "w");
+	fprintf(file, "$Z1_In$ & %e \\\\ \\hline \n", ZI1);
+	fprintf(file, "$Z1_Out$ & %e \\\\ \\hline \n", ZO1);
+	fprintf(file, "$Z2_In$ & %e \\\\ \\hline \n", ZI2);
+	fprintf(file, "$Z2_Out$ & %e \\\\ \\hline \n", ZO2);
+  fprintf(file, "$Zt_Out$ & %e \\\\ \\hline \n", ZO);
+
+fclose(file);
+
+file = fopen("Tbl_oct-op.tex", "w");
+	fprintf(file, "$Ve$ & %e \\\\ \\hline \n", VE1);
+	fprintf(file, "$Vc$ & %e \\\\ \\hline \n", VO1);
+	fprintf(file, "$Vce$ & %e \\\\ \\hline \n", VCE);
+	fprintf(file, "$Vec2$ & %e \\\\ \\hline \n", VO2);
+
+fclose(file);
