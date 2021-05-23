@@ -62,7 +62,7 @@ let Zout = -v(out)[40]/i(Vn)[40]
 
 echo ''
 echo "Outimp_TAB"
-print Zout
+echo "Zout = $&Zout"
 echo "Outimp_END"
 echo ''
 

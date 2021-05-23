@@ -83,7 +83,6 @@ echo "geral_END"
 tran 1e-5 1e-2
 
 plot v(coll)
-hardcopy vocoll.eps vdb(coll)
 hardcopy vo1.eps v(out)
 
 
@@ -106,7 +105,8 @@ echo''
 
 meas ac max MAX vdb(out) from=10 to=100MEG
 
-let Vgain = abs(max)
+let VgainDb = abs(max)
+let Vgain = 10^(VgainDb/20)
 
 let aux = max - 3 
 
@@ -125,14 +125,14 @@ let Zin = -v(in2)[40]/vin#branch[40]
 *let Zin = v(in2)[40]/(v(in)[40]-v(in2)[40])/100*1000
 
 echo "INPUTimp_TAB"
-print Zin
+echo "Zin = $&Zin"
 echo "INPUTimp_END"
 
 *---------------------
 echo''
 
-let Cost(resistor) = {rin_v} + {r1_v} + {r2_v} + {rc_v} + {re_v} + {rout_v} + {rl_v}
-let Cost(capacitor) = {ci_v} + {cb_v} + {co_v}
+let Cost(resistor) = ({rin_v} + {r1_v} + {r2_v} + {rc_v} + {re_v} + {rout_v} + {rl_v})/1k
+let Cost(capacitor) = ({ci_v} + {cb_v} + {co_v})*1MEG
 let Cost(transistor) = 0.1*(2)
 let Cost = Cost(resistor) + Cost(capacitor) + Cost(transistor)
 

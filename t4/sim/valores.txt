@@ -9,7 +9,7 @@
 *-----------------------------------------------
 * 1m = 1000u
 
-.param rin_v = 100
+.param rin_v = 0.100k
 .csparam rin_v = {rin_v}
 
 .param ci_v = 54.1102u
@@ -21,21 +21,21 @@
 .param r2_v = 20k
 .csparam r2_v = {r2_v}
 
-.param rc_v = 384.0001
+.param rc_v = 0.3840001k
 .csparam rc_v = {rc_v}
 
-.param re_v = 200.0242
+.param re_v = 0.2000242k
 .csparam re_v = {re_v}
 
 .param cb_v = 5000u
 .csparam cb_v = {cb_v}
 
-.param rout_v = 15
+.param rout_v = 0.015k
 .csparam rout_v = {rout_v}
 
 .param co_v = 3000u
 .csparam co_v = {co_v}
 
-.param rl_v = 8
+.param rl_v = 0.008k
 .csparam rl_v = {rl_v}
 

@@ -25,7 +25,7 @@ IC1=BFN*IB1;
 IE1=(1+BFN)*IB1;
 VE1=RE1*IE1;
 VO1=VCC-RC1*IC1;
-VCE=VO1-VE1
+VCE=VO1-VE1;
 
 
 gm1=IC1/VT;
@@ -66,11 +66,11 @@ gain_f_db = 20*log10(abs(gain_f));
 
 
 
-%{
-RE1=0
-ZI1 = 1/(1/RB+1/(((ro1+RC1+RE1)*(rpi1+RE1)+gm1*RE1*ro1*rpi1 - RE1^2)/(ro1+RC1+RE1)))
-ZO1 = 1/(1/ro1+1/RC1)
-%}
+
+RE1=0;
+ZI1 = 1/(1/RB+1/(((ro1+RC1+RE1)*(rpi1+RE1)+gm1*RE1*ro1*rpi1 - RE1^2)/(ro1+RC1+RE1)));
+ZO1 = 1/(1/ro1+1/RC1);
+
 %ouput stage
 BFP = 227.3;
 VAFP = 37.2;
@@ -79,7 +79,7 @@ VEBON = 0.7;
 VI2 = VO1;
 IE2 = (VCC-VEBON-VI2)/RE2;
 IC2 = BFP/(BFP+1)*IE2;
-VO2 = VCC - RE2*IE2
+VO2 = VCC - RE2*IE2;
 
 gm2 = IC2/VT;
 go2 = IC2/VAFP;
