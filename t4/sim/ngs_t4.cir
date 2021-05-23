@@ -69,7 +69,10 @@ echo "geral_TAB"
 print v(coll)
 print v(emit)
 print v(emit2)
+print v(emit2)-v(coll)
 print v(coll)-v(base)
+print v(coll)-v(emit)
+print v(base)-v(emit)
 
 echo "geral_END"
 
@@ -80,7 +83,8 @@ echo "geral_END"
 tran 1e-5 1e-2
 
 plot v(coll)
-hardcopy vo1.eps vdb(coll)
+hardcopy vocoll.eps vdb(coll)
+hardcopy vo1.eps v(out)
 
 
 *********************************************
@@ -94,7 +98,7 @@ hardcopy vo1f.eps vdb(coll)
 
 plot vdb(out)
 plot vp(out)
-hardcopy vo2f.eps vdb(out)
+*hardcopy vo2f.eps vdb(out)
 
 
 *---------------------
@@ -105,6 +109,9 @@ meas ac max MAX vdb(out) from=10 to=100MEG
 let Vgain = abs(max)
 
 let aux = max - 3 
+
+hardcopy vo2f.eps vdb(out) max-3
+
 meas ac LCOF WHEN vdb(out) = aux RISE=1
 meas ac UCOF WHEN vdb(out) = aux CROSS=LAST
 
