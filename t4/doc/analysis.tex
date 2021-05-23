@@ -24,13 +24,13 @@ The common Kirchoff laws and the simplified BJT equation were used to perform th
 
 
 
-It is in this stage of the amplifier that most of the signal amplification takes place. This stage is comprised of a NPN tansistor, two capacitors (coupling and bypass) and four resistors (two for the voltage divider, R1 and R2, one for the temperature stabilization RE and another to set the no signal current, RC).
+It is in this stage of the amplifier that most of the signal amplification takes place. This stage is comprised of a NPN tansistor, two capacitors (coupling and bypass) and four resistors (two for the voltage divider, $R_1$ and $R_2$, one for the temperature stabilization $R_E$ and another to set the no signal current, $R_C$).
 
-The base voltage of the transistor needs to be forward biased in order for the NPN transistor to work in the forward-active region. For that reason, a voltage divider is added to make sure that the base voltage is always larger than 0.7V. A coupling capacitor is added between the voltage divider and the signal source in order to add the input AC signal to the voltage divider DC signal (this will be explained in more detail in the simulation section).
+The base voltage of the transistor needs to be forward biased in order for the NPN transistor to work in the forward-active region. For that reason, a voltage divider is added to make sure that the base voltage is always larger than $0.7V$. A coupling capacitor is added between the voltage divider and the signal source in order to add the input AC signal to the voltage divider DC signal (this will be explained in more detail in the simulation section).
 
-The resistor RC is used to set the zero signal current that passes trough the BJT.
+The resistor $R_C$ is used to set the zero signal current that passes trough the BJT.
 
-The resistance RE adds temperature stabilization and removes the temperature dependency of the gain in the circuit but has the drawback of decreasing the AC gain of the amplifier. A bypass capacitor is used to decrease the gain degenerating effects of RE on higher frequencies (this will be explained in more detail in the simulation section).
+The resistance $R_E$ adds temperature stabilization and removes the temperature dependency of the gain in the circuit but has the drawback of decreasing the AC gain of the amplifier. A bypass capacitor is used to decrease the gain degenerating effects of $R_E$ on higher frequencies (this will be explained in more detail in the simulation section).
 
 
 
@@ -60,7 +60,7 @@ The Common Emitter has the drawback of having high output impedance. For that re
 The output stage is comprised of a PNP transistor, a resistor and a capacitor.
 
 
-This stage has a gain level of almost unity so it is not responsible for the amplification. The main purpose is to decrease the output impedance to work better with the 8 ohm load and allow larger currents to flow.
+This stage has a gain level of almost unity so it is not responsible for the amplification. The main purpose is to decrease the output impedance to work better with the $8${\emph {Ohm}} load and allow larger currents to flow.
 
 
 The capacitor is used to remove the DC component of the signal and only allow for the AC signal to reach the output terminals.
@@ -98,7 +98,7 @@ Due to the use of capacitors in the circuit, the gain is dependent on the frenqu
 \subsection{Theoretical Results}
 \label{subsec:res_the}
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -111,7 +111,7 @@ Due to the use of capacitors in the circuit, the gain is dependent on the frenqu
 \label{tab:op_teo}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    

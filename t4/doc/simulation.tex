@@ -15,10 +15,9 @@ In this section, Circuit T4 is reproduced with the help of Ngspice.
 Ngspice is a simulator for eletronic circuits that can output a variety of results.
 This emulator computes the voltages in every node, as well as the potential difference
 between two given nodes. Apart from that, the group made use of the command
-{\em .options savecurrents} which also enables the output of the currents that pass
-through all branches. Moreover, function to help determine de minimum, maximum and average
+{\em .options savecurrents} which also enables the use of the currents that pass
+through all branches. Moreover, function to help determine the maximum and interception
 of the plots were also used.
-
 
 Firstly, the outcome of the simulation is shown, as well as a brief explanation
 on how it was achived. Afterwards, a comparison is done between those values and
@@ -44,8 +43,9 @@ This arrangement of capacitors is normally used to link/couple (that’s where i
 \subsubsection{Bypass capacitor}
 
 A bypass capacitor’s purpose is to remove the AC component of a signal by shorting it to ground.
-For this to work, the bypass is placed in parallel with a resistance. Since the capacitor’s impedance follows the equation $|Z_c|=1/wC$ , for DC signals (w=0) the impedance is infinite and so all the current flows trough the resistor. When the frequency increases, the capacitor’s impedance decreases and so a larger part of the signal passes trough the capacitor directly to ground. This way, the DC signal is the main contributor to the voltage difference between the components, while the AC signal directed to ground without any resistance.
-In our application, the bypass capacitor is used to allow to have the resistance RE without degenerating the gain. The resistance RE adds temperature stabilization and removes the temperature dependency of the gain in the circuit has the drawback of decreasing the AC gain of the amplifier. For this purpose, only the DC component needs to be affected by the resistance RE and for this reason, the bypass capacitor is used so that higher frequencies aren’t affected by RE. This way we can achieve the best of temperature stabilization without gain degeneration.
+For this to work, the bypass is placed in parallel with a resistance. Since the capacitor’s impedance follows the equation $|Z_c|=1/wC$ , for DC signals ($w=0$) the impedance is infinite and so all the current flows trough the resistor. When the frequency increases, the capacitor’s impedance decreases and so a larger part of the signal passes trough the capacitor directly to ground. This way, the DC signal is the main contributor to the voltage difference between the components, while the AC signal directed to ground without any resistance.
+
+In our application, the bypass capacitor is used to allow to have the resistance $R_E$ without degenerating the gain. The resistance $R_E$ adds temperature stabilization and removes the temperature dependency of the gain in the circuit has the drawback of decreasing the AC gain of the amplifier. For this purpose, only the DC component needs to be affected by the resistance $R_E$ and for this reason, the bypass capacitor is used so that higher frequencies are not affected by $R_E$. This way we can achieve the best of temperature stabilization without gain degeneration.
 
 \subsubsection{Effect of Resistace }
 % ----------------------------------------------------------------------
@@ -82,7 +82,7 @@ the Octave script.
 Lastly, the group also used Ngspice to compute the Merit. Table \ref{tab:merit} shows all the 
 values necessary to compute the Merit, as well as the Merit itself.
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -95,7 +95,7 @@ values necessary to compute the Merit, as well as the Merit itself.
 \label{tab:op_sim}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
@@ -109,7 +109,7 @@ values necessary to compute the Merit, as well as the Merit itself.
 \label{tab:imp_sim}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline    
