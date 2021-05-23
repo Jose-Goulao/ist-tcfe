@@ -68,6 +68,7 @@ echo "geral_TAB"
 
 print v(coll)
 print v(emit)
+print v(emit2)
 print v(coll)-v(base)
 
 echo "geral_END"
@@ -76,7 +77,7 @@ echo "geral_END"
 *********************************************
 *	  	trans & plot
 *********************************************
-tran 1e-5 1e-2
+tran 1e-5 0.5e-2
 
 plot v(coll)
 hardcopy vo1.eps vdb(coll)
@@ -101,7 +102,7 @@ echo''
 
 meas ac max MAX vdb(out) from=10 to=100MEG
 
-let Vgain = max
+let Vgain = abs(max)
 
 let aux = max - 3 
 meas ac LCOF WHEN vdb(out) = aux RISE=1
@@ -113,11 +114,11 @@ let Bandw = UCOF-LCOF
 echo''
 
 plot abs(v(in2)[40]/vin#branch[40]/(-1000))
-let INPUTimped = v(in2)[40]/vin#branch[40]/(-1000)
-*let INPUTimped = v(in2)[40]/(v(in)[40]-v(in2)[40])/100*1000
+let Zin = v(in2)[40]/vin#branch[40]/(-1000)
+*let Zin = v(in2)[40]/(v(in)[40]-v(in2)[40])/100*1000
 
 echo "INPUTimp_TAB"
-print INPUTimped 
+print Zin 
 echo "INPUTimp_END"
 
 *---------------------
