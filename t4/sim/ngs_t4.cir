@@ -83,7 +83,8 @@ echo "geral_END"
 tran 1e-5 1e-2
 
 plot v(coll)
-hardcopy vo1.eps vdb(coll)
+hardcopy vocoll.eps vdb(coll)
+hardcopy vo1.eps v(out)
 
 
 *********************************************

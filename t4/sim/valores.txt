@@ -12,7 +12,7 @@
 .param rin_v = 100
 .csparam rin_v = {rin_v}
 
-.param ci_v = 44u
+.param ci_v = 54.1102u
 .csparam ci_v = {ci_v}
 
 .param r1_v = 85k
@@ -21,16 +21,16 @@
 .param r2_v = 20k
 .csparam r2_v = {r2_v}
 
-.param rc_v = 384
+.param rc_v = 384.0001
 .csparam rc_v = {rc_v}
 
-.param re_v = 200.006
+.param re_v = 200.0242
 .csparam re_v = {re_v}
 
 .param cb_v = 5000u
 .csparam cb_v = {cb_v}
 
-.param rout_v = 200
+.param rout_v = 15
 .csparam rout_v = {rout_v}
 
 .param co_v = 3000u
