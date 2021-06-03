@@ -18,7 +18,7 @@ $(FILE).pdf: $(wildcard *.tex) $(LODFIGS) octave.log ngs1 ngso
 #OCTAVE
 
 octave.log:
-	octave ../mat/t4.m > octave.log
+	octave ../mat/t5.m > octave.log
 
 
 #------------------------------------------------------------
@@ -31,7 +31,7 @@ ngs1: ngs1.log
 	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
 	$(foreach i, $(NGSFIGPS), ps2pdf $i;)
 
-ngs1.log: ../sim/ngs_t4.cir
+ngs1.log: ../sim/t5.cir
 	ngspice -b $< -o $@
 
 ngso: ngso.log
@@ -41,7 +41,7 @@ ngso: ngso.log
 	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
 	$(foreach i, $(NGSFIGPS), ps2pdf $i;)
 
-ngso.log: ../sim/ngs_t4_out.cir
+ngso.log: ../sim/t5_out.cir
 	ngspice -b $< -o $@
 
 

@@ -147,7 +147,7 @@ print Bandw
 print Cost
 print LCOF
 echo ' ---------- & -------------------- '
-print Merit
+echo "Merit = $&Merit"
 
 echo "merit_END"
 echo ''
