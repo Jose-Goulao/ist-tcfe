@@ -34,52 +34,29 @@ the ones attained in Section \ref{sec:analysis}.
 \subsection{Simulated results}
 \label{subsec:sim_res}
 
-In this laboratory assignament, the Ngspice script made use of the sames values considered for
-the Octave script.
+In this laboratory assignament, the Ngspice script made use of the sames values considered for the Octave script.
 
-Figure \ref{fig:Vout} displays $v_{out}$. This voltage signal has no visible distortion of the input sine waves.
+Figure \ref{fig:Vout} displays $vdb_{out}$ (in decibels) from 10Hz to 100MHz, as well as a constant ($max-3$) - this helps to better visualize the passband.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\linewidth]{vo1.eps}
-	\caption{$v_{out}$}
+	\includegraphics[width=0.6\linewidth]{acvout.eps}
+	\caption{$vdb_{out}$ }
 \label{fig:Vout}
 \end{figure}
 
-Figure \ref{fig:VcollDB} shows $v_{coll}$.
+This graph is of particular importance because it allows us to obtain the Gain, wich is the maximum of said graph. Its deviation is simply given by the absolute value of ($Gain - 40$), 40db being the Gain at central frequency. Therefore, the closest the Gain is to 40db, the lower its deviation is and the higher the Merit will be. 
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.6\linewidth]{vo1f.eps}
-	\caption{$v_{coll}$ in dB}
-\label{fig:VcollDB}
-\end{figure}
+Moreover, with the plot in Figure \ref{fig:Vout}, we were able to measure the Central frequency. This variable is given by: 
 
-Figure \ref{fig:Vout} displays $v_{out}$.
+\[
+CentralFreq = \sqrt(LowerFreq\times UpperFreq) 
+\]
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.6\linewidth]{vo2f.eps}
-	\caption{$v_{out}$ in dB}
-\label{fig:VoutDB}
-\end{figure}
+The {\emph LowerFreq} and {\emph UpperFreq} are the frequencies of the intersection points of the $vdb_{out}$ curve and its max minus $3$. Its deviation is {\emph CentralFreq}$-1000$.
 
-Table \ref{tab:op_sim} shows important values to make sure the BJTs operate in the F.A.R.
 
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|r|}
-		\hline    
-		{\bf Name} & {\bf Value} \\ \hline
-    		\input{geral_tab}
-	\end{tabular}
-	
-	\caption{Checking values for F.A.R.}
-    
-\label{tab:op_sim}
-\end{table}
-
-Table \ref{tab:imp_sim} dislpays the total impedances od the circuit (In and Out).
+Table \ref{tab:imp_sim} dislpays the total impedances of the circuit (Input and Output). These are attained by dividing the potencial difference of the sinusoidal voltage source by the current that passes through it at a reasonble instant. For the Outup impedance a small change in the circuit was done. The load (equal to a 8Ohm resistance) was replaced by the sinusoidal voltage source, and in its inicial position is now a short-circuit.
 
 \begin{table}[ht]
 	\centering
@@ -110,27 +87,4 @@ values necessary to compute the Merit, as well as the Merit itself.
     
 \label{tab:merit}
 \end{table}
-
-
-%-----------------------------------------------------------------------
-%-----------------------------------------------------------------------
-% 			     Analise - subsec
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
-
-\subsection{Simulated analysis}
-\label{subsec:sim_an}
-
-\subsubsection{Coupling Capacitors}
-
-The purpose of the coupling capacitors on the audio amplifier circuit is to eliminate the DC component of a signal and only pass the AC component, which in the case of an audio amplifier is what carries the sound information.
-
-This arrangement of capacitors is normally used to link/couple (that’s where it´s name comes from) only the AC signal of one circuit to another.
-
-\subsubsection{Bypass capacitor}
-
-A bypass capacitor’s purpose is to remove the AC component of a signal by shorting it to ground.
-For this to work, the bypass is placed in parallel with a resistance. Since the capacitor’s impedance follows the equation $|Z_c|=1/wC$ , for DC signals ($w=0$) the impedance is infinite and so all the current flows trough the resistor. When the frequency increases, the capacitor’s impedance decreases and so a larger part of the signal passes trough the capacitor directly to ground. This way, the DC signal is the main contributor to the voltage difference between the components, while the AC signal directed to ground without any resistance.
-
-In our application, the bypass capacitor is used to allow to have the resistance $R_E$ without degenerating the gain. The resistance $R_E$ adds temperature stabilization and removes the temperature dependency of the gain in the circuit has the drawback of decreasing the AC gain of the amplifier. For this purpose, only the DC component needs to be affected by the resistance $R_E$ and for this reason, the bypass capacitor is used so that higher frequencies are not affected by $R_E$. This way we can achieve the best of temperature stabilization without gain degeneration.
 

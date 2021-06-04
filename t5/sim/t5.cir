@@ -10,12 +10,16 @@ CIRCUIT_T4
 
 Vcc vcc 0 5.0
 Vee vee 0 -5.0
-Vin in 0 0 ac 1.0 sin(0 10m 1k)
+Vin N1 0 0 ac 1.0 sin(0 10m 1k)
 
-X1 0 inv_in vcc vee out uA741
+X1 N2 inv_in vcc vee out uA741
 
-R1 in inv_in 1k
-R2 inv_in out 10k
+C1 N1 inv_in 220n
+
+R1 N2 0 1k
+R2 N2 out 100k
+R3 inv_in 0 1k
+
 
 * load
 RL out 0 8
@@ -67,15 +71,38 @@ ac dec 10 10 100MEG
 
 plot vdb(out)
 plot vp(out)
-hardcopy ACVout.eps vdb(out)
-
 
 
 *---------------------
 echo''
 
+let aux = vecmax(vdb(out)) - 3
 
-let Zin = -v(in)[40]/vin#branch[40]/1000
+meas ac LCOF WHEN vdb(out) = aux RISE=1
+meas ac UCOF WHEN vdb(out) = aux CROSS=LAST
+
+let CentralFreq = sqrt(LCOF*UCOF)
+print CentralFreq
+
+let CentralFreqDev = abs(CentralFreq - 1000)
+
+*---------------------
+echo''
+
+let Gain = vecmax(vdb(out))
+print Gain
+
+let GainDev = abs(Gain - 40)
+
+
+
+hardcopy ACVout.eps vdb(out) aux
+
+
+*---------------------
+echo''
+
+let Zin = -v(N1)[40]/vin#branch[40]/1000
 
 echo "INPUTimp_TAB"
 echo "Zin = $&Zin"
@@ -86,13 +113,13 @@ echo "INPUTimp_END"
 *	           Merit
 *********************************************
 
-let Cost(resistor) = (1*1 + 1*10 + 1*100)/1k
-let Cost(capacitor) = (1*1 + 1*0.22)*1MEG
+let Cost(resistor) = (1*1 + 1*10 + 1*100 + 0.008 + 13322.592)
+let Cost(capacitor) = (1*1 + 1*0.22 + 38E-6)
 let Cost(transistor) = 0.1*(2)
 let Cost = Cost(resistor) + Cost(capacitor) + Cost(transistor)
 
-*let Merit = 1/(Cost*GainDev*CentralFreqDev)
-let Merit = 1/Cost
+let Merit = 1/(Cost*GainDev*CentralFreqDev)
+*let Merit = 1/Cost
 
 *---------------------
 echo''
@@ -100,8 +127,8 @@ echo''
 echo "merit_TAB"
 
 print Cost
-*print GainDev
-*print CentralFreqDev
+print GainDev
+print CentralFreqDev
 echo ' ---------- & -------------------- '
 echo "Merit = $&Merit"
 

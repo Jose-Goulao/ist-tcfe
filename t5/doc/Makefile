@@ -9,14 +9,14 @@ LODFIGS = $(patsubst %.odg,%.pdf,$(wildcard *.odg))
 all: $(FILE).pdf
 	evince $< &
 
-$(FILE).pdf: $(wildcard *.tex) $(LODFIGS) octave.log ngs1 ngso
+$(FILE).pdf: $(wildcard *.tex) $(LODFIGS)  ngs1 ngso
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
 	pdflatex  $(FILE).tex
 	
 #------------------------------------------------------------
 #OCTAVE
-
+#octave.log
 octave.log:
 	octave ../mat/t5.m > octave.log
 
