@@ -36,27 +36,9 @@ the ones attained in Section \ref{sec:analysis}.
 
 In this laboratory assignament, the Ngspice script made use of the sames values considered for the Octave script.
 
-Figure \ref{fig:Vout} displays $vdb_{out}$ (in decibels) from 10Hz to 100MHz, as well as a constant ($max-3$) - this helps to better visualize the passband.
+Table \ref{tab:imp_sim} dislpays the total impedances of the circuit (Input and Output). These are attained by dividing the potencial difference of the sinusoidal voltage source by the current that passes through it at a reasonble instant.
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.6\linewidth]{acvout.eps}
-	\caption{$vdb_{out}$ }
-\label{fig:Vout}
-\end{figure}
-
-This graph is of particular importance because it allows us to obtain the Gain, wich is the maximum of said graph. Its deviation is simply given by the absolute value of ($Gain - 40$), 40db being the Gain at central frequency. Therefore, the closest the Gain is to 40db, the lower its deviation is and the higher the Merit will be. 
-
-Moreover, with the plot in Figure \ref{fig:Vout}, we were able to measure the Central frequency. This variable is given by: 
-
-\[
-CentralFreq = \sqrt(LowerFreq\times UpperFreq) 
-\]
-
-The {\emph LowerFreq} and {\emph UpperFreq} are the frequencies of the intersection points of the $vdb_{out}$ curve and its max minus $3$. Its deviation is {\emph CentralFreq}$-1000$.
-
-
-Table \ref{tab:imp_sim} dislpays the total impedances of the circuit (Input and Output). These are attained by dividing the potencial difference of the sinusoidal voltage source by the current that passes through it at a reasonble instant. For the Outup impedance a small change in the circuit was done. The load (equal to a 8Ohm resistance) was replaced by the sinusoidal voltage source, and in its inicial position is now a short-circuit.
+For the Outup impedance a small change in the circuit was done. The original sinusoidal voltage source is connected to the "out" node of the OP-AMP and Ground,a nd in its inicial position is now a short-circuit. Optimally this value should be as close to zero as possible, such is not verified because of the need to improve the Merit. 
 
 \begin{table}[ht]
 	\centering
@@ -72,8 +54,35 @@ Table \ref{tab:imp_sim} dislpays the total impedances of the circuit (Input and 
 \label{tab:imp_sim}
 \end{table}
 
+Figure \ref{fig:Vout} displays $vdb_{out}$ (in decibels) from 10Hz to 100MHz, as well as a constant ($max-3(dB)$) - this helps to better visualize the passband. The $vdb_{out}$ curve is characteristic of a band pass filter (cutting high and low frequencies).
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{acvout.eps}
+	\caption{$vdb_{out}$}
+\label{fig:Vout}
+\end{figure}
+
+This graph is of particular importance because it allows us to obtain the GainDeviation. This is simply given by the absolute value of ($Maximum - 100$), 40db or 100 (linearly) being the Gain at central frequency. Therefore, the closest the maximum of said graph is to 40dB, the lower its deviation is and the higher the Merit will be. This variable has no units.
+
+Moreover, with the plot in Figure \ref{fig:Vout}, we were able to measure the Central frequency. This variable is given by: 
+
+\[
+CentralFreq = \sqrt(LowerFreq\times UpperFreq) 
+\]
+
+The {\emph LowerFreq} and {\emph UpperFreq} are the frequencies of the intersection points of the $vdb_{out}$ curve and its max minus $3$. Its deviation is {\emph CentralFreq}$-1000$. This variable is given in Hertz (Hz).
+
+%\begin{figure}[ht]
+%	\centering
+%	\includegraphics[width=0.6\linewidth]{phasevout.eps}
+%	\caption{$vdb_{out}$}
+%\label{fig:Vout}
+%\end{figure}
+
 Lastly, the group also used Ngspice to compute the Merit. Table \ref{tab:merit} shows all the 
-values necessary to compute the Merit, as well as the Merit itself.
+values necessary to compute the Merit, as well as the Merit itself. Note that the total cost is the sum 
+of the costs of resistors, capacitors and transistors of the total circuit (including de OP-AMP).
 
 \begin{table}[ht]
 	\centering

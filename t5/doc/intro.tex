@@ -9,32 +9,42 @@
 %-------------------------------------------------------------------------------------------------------
 
 
-The objective of this laboratory assignment is to create an audio amplifier circuit by choosing the architecture of the Gain and Output amplifier stages whilst optimizing the circuit on its Merit ($M$), that is given by the equation:
+The objective of this laboratory assignment is to create a BandPass Filter (BPF) circuit using one OP-AMP with a gain at central frequency of 40db and a central frequency of 1000Hz. The goal is then to attain the maximum value for the Merit (M) by modifying the circuit and its components with some restricted. The expression for M is as follows:
 
 \[
-M = \frac{voltageGain\times bandwidth}{cost\times lowerCutoffFreq}
+M = \frac{1}{cost\times CentralfFreqDev\times GainDev + 1E-6}
 \]
 
 \[
- cost = cost_{resistors} + cost_{capacitors} + cost_{transistors} 
+ cost = cost_{resistors} + cost_{capacitors} + cost_{transistors} + cost_{diodes} 
 \]
 
 $cost_{resistors} = 1MU/kOhm$; $cost_{capacitors} = 1MU/\mu F$;
-$cost_{diodes} = 0.1MU/transistor$ \\
+$cost_{diodes} = 0.1MU/diode$; $cost_{transistors} = 0.1MU/transistor$ \\
 
-The circuit studied, displayed in figure \ref{fig:Desenho_t4} utilizes the following components:
+The final circuit, displayed in figure \ref{fig:Desenho_t4}, utilizes the following components:
 
 \begin{itemize}
-	\item two voltage sources ($V_1$ and $V_{cc}$)
-	\item two transistors ($Q_1$,$Q_2$)
-	\item six resistors ($R_1$, $R_2$, $R_e$, $R_c$, $R_{in}$, $R_{out}$)
-	\item three capacitors ($C_i$, $C_b$, $C_o$)
+	\item three voltage sources ($V_{in}$ - sinusoidal, $V_{cc}$ and $V_{ee}$)
+	\item one 741 OP-AMP
+	\item three resistors ($R_1$, $R_2$ and $R_3$)
+	\item one capacitors ($C_1$)
 \end{itemize}
 
+The values associated with each component is displayed on Table \ref{tab:vlr}. The OP-AMP used was already provided as well as the voltage source $V_{in}$.
 
-Theoretical and simulation analysis are presented in Section \ref{sec:analysis} and Section \ref{sec:simulation}, respectively, and the results of each are then compared.
-Finally, in Section \ref{sec:conclusion} the conclusions of the laboratory assignment are outlined. 
-
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline    
+		{\bf Name} & {\bf Value} \\ \hline
+    		\input{valores.tex}
+	\end{tabular}
+	
+	\caption{Components' values.}
+    
+\label{tab:vlr}
+\end{table}
 
 
 \begin{figure}[ht]
@@ -44,4 +54,6 @@ Finally, in Section \ref{sec:conclusion} the conclusions of the laboratory assig
 \label{fig:Desenho_t4}
 \end{figure}
 
+Theoretical and simulation analysis are presented in Section \ref{sec:analysis} and Section \ref{sec:simulation}, respectively, and the results of each are then compared.
+Finally, in Section \ref{sec:conclusion} the conclusions of the laboratory assignment are outlined.
 

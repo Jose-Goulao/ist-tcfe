@@ -18,11 +18,9 @@ C1 N1 inv_in 220n
 
 R1 N2 0 1k
 R2 N2 out 100k
-R3 inv_in 0 1k
+R3 inv_in 0 10k
 
 
-* load
-RL out 0 8
 
 
 *********************************************
@@ -48,20 +46,16 @@ set color6=rgb:4/0/0
 *********************************************
 op
 
-echo "geral_TAB"
-
-print all
-
-echo "geral_END"
+*print all
 
 
 *********************************************
 *	  	trans & plot
 *********************************************
-tran 1e-5 1e-2
+*tran 1e-5 1e-2
 
-plot v(out)
-hardcopy transVout.eps v(out)
+*plot v(out)
+*hardcopy transVout.eps v(out)
 
 
 *********************************************
@@ -89,23 +83,27 @@ let CentralFreqDev = abs(CentralFreq - 1000)
 *---------------------
 echo''
 
-let Gain = vecmax(vdb(out))
-print Gain
+let Gain = 10^(vecmax(vdb(out))/20)
 
-let GainDev = abs(Gain - 40)
-
+let GainDev = abs(Gain - 100)
 
 
 hardcopy ACVout.eps vdb(out) aux
+hardcopy PhaseVout.eps 180/pi*vp(out)
+*hardcopy gain.eps db(v(out)/v(N1)) aux
 
 
 *---------------------
 echo''
 
 let Zin = -v(N1)[40]/vin#branch[40]/1000
+let ReZin = Re(Zin)
+let ImZin = Im(Zin)
+let AbsZin = Abs(Zin)
 
 echo "INPUTimp_TAB"
-echo "Zin = $&Zin"
+echo "Zin = $&ReZin + $&ImZin j"
+echo "Abs(Zin) = $&AbsZin"
 echo "INPUTimp_END"
 
 
@@ -113,13 +111,13 @@ echo "INPUTimp_END"
 *	           Merit
 *********************************************
 
-let Cost(resistor) = (1*1 + 1*10 + 1*100 + 0.008 + 13322.592)
-let Cost(capacitor) = (1*1 + 1*0.22 + 38E-6)
-let Cost(transistor) = 0.1*(2)
-let Cost = Cost(resistor) + Cost(capacitor) + Cost(transistor)
+let Cost(resistor) = (1*1 + 1*10 + 1*100)
+let Cost(capacitor) = (0*1 + 1*0.22)
+let Cost(OPAMP) = 0.1*(2+5) + 13322.592 + 38.661E-6 
+let Cost = Cost(resistor) + Cost(capacitor) + Cost(OPAMP)
 
-let Merit = 1/(Cost*GainDev*CentralFreqDev)
-*let Merit = 1/Cost
+let Merit = 1/(Cost*GainDev*CentralFreqDev + 1E-6)
+
 
 *---------------------
 echo''
@@ -127,10 +125,12 @@ echo''
 echo "merit_TAB"
 
 print Cost
+print Gain
 print GainDev
+print CentralFreq
 print CentralFreqDev
 echo ' ---------- & -------------------- '
-echo "Merit = $&Merit"
+print Merit
 
 echo "merit_END"
 echo ''

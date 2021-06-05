@@ -10,15 +10,19 @@ CIRCUIT_T4_OUT
 
 Vcc vcc 0 5.0
 Vee vee 0 -5.0
-Vin in 0 0
+Vin N1 0 0
 
-X1 0 inv_in vcc vee out uA741
+X1 N2 inv_in vcc vee out uA741
 
-R1 in inv_in 1000
-R2 inv_in out 10000
+C1 N1 inv_in 220n
+
+R1 N2 0 1k
+R2 N2 out 100k
+R3 inv_in 0 10k
 
 * new source
 Vn out 0 0 ac 1.0 sin(0 10m 1k)
+
 
 
 *********************************************
@@ -37,10 +41,15 @@ ac dec 10 10 100MEG
 
 
 let Zout = -v(out)[40]/i(Vn)[40]
+let ReZout = Re(Zout)
+let ImZout = Im(Zout)
+let AbsZout = Abs(Zout)
+
 
 echo ''
 echo "Outimp_TAB"
-echo "Zout = $&Zout"
+echo "Zout = $&ReZout + $&ImZout j"
+echo "Abs(Zout) = $&AbsZout"
 echo "Outimp_END"
 echo ''
 
