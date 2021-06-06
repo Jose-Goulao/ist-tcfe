@@ -12,15 +12,14 @@
 The objective of this laboratory assignment is to create a BandPass Filter (BPF) circuit using one OP-AMP with a gain at central frequency of 40db and a central frequency of 1000Hz. The goal is then to attain the maximum value for the Merit (M) by modifying the circuit and its components with some restricted. The expression for M is as follows:
 
 \[
-M = \frac{1}{cost\times CentralfFreqDev\times GainDev + 1E-6}
+M = \frac{1}{Cost\times (CentralfFreqDev + GainDev + 10^{-6})}
 \]
 
 \[
- cost = cost_{resistors} + cost_{capacitors} + cost_{transistors} + cost_{diodes} 
-\]
+ Cost = Cost_{resistors} + Cost_{capacitors} + Cost_{transistors} + Cost_{diodes} 
+\] \\
 
-$cost_{resistors} = 1MU/kOhm$; $cost_{capacitors} = 1MU/\mu F$;
-$cost_{diodes} = 0.1MU/diode$; $cost_{transistors} = 0.1MU/transistor$ \\
+$Cost_{resistors} = 1MU/kOhm$; $Cost_{capacitors} = 1MU/\mu F$; $Cost_{diodes} = 0.1MU/diode$; $Cost_{transistors} = 0.1MU/transistor$ \\
 
 The final circuit, displayed in figure \ref{fig:Desenho_t4}, utilizes the following components:
 

@@ -116,7 +116,7 @@ let Cost(capacitor) = (0*1 + 1*0.22)
 let Cost(OPAMP) = 0.1*(2+5) + 13322.592 + 38.661E-6 
 let Cost = Cost(resistor) + Cost(capacitor) + Cost(OPAMP)
 
-let Merit = 1/(Cost*GainDev*CentralFreqDev + 1E-6)
+let Merit = 1/(Cost*(GainDev + CentralFreqDev + 1E-6))
 
 
 *---------------------
