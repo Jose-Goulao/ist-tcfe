@@ -1,0 +1,15 @@
+
+Circuit: circuit_t4_out
+
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 71
+
+Outimp_TAB
+Zout = 522.442 + -316.233 j
+Abs(Zout) = 610.695
+Outimp_END
+
+ngspice-31 done

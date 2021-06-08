@@ -1,0 +1,43 @@
+
+Circuit: circuit_t4
+
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 71
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+lcof                =  7.238796e+01
+ucof                =  9.926558e+03
+centralfreq = 8.476811e+02
+
+
+The file "acvout.eps" may be printed on a postscript printer.
+
+The file "phasevout.eps" may be printed on a postscript printer.
+
+INPUTimp_TAB
+Zin = 9.9022 + 0.00223195 j
+Abs(Zin) = 9.9022
+INPUTimp_END
+
+merit_TAB
+cost = 1.343451e+04
+gain = 1.003168e+02
+gaindev = 3.167835e-01
+centralfreq = 8.476811e+02
+centralfreqdev = 1.523189e+02
+ ---------- & -------------------- 
+merit = 4.876656e-07
+merit_END
+
+ngspice-31 done
