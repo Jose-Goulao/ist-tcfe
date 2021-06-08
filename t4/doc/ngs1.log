@@ -1,0 +1,79 @@
+
+Circuit: circuit_t4
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+geral_TAB
+v(coll) = 1.005359e+01
+v(emit) = 1.117079e+00
+v(emit2) = 1.086574e+01
+v(emit2)-v(coll) = 8.121456e-01
+v(coll)-v(base) = 8.244599e+00
+v(coll)-v(emit) = 8.936511e+00
+v(base)-v(emit) = 6.919123e-01
+geral_END
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vcc                                         12
+in                                           0
+in2                                          0
+base                                   1.80899
+coll                                   10.0536
+emit                                   1.11708
+emit2                                  10.8657
+out                                          0
+vin#branch                                   0
+vcc#branch                          -0.0808063
+
+
+No. of Data Rows : 1008
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+The file "vo1.eps" may be printed on a postscript printer.
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 71
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+The file "vo1f.eps" may be printed on a postscript printer.
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+
+max                 =  3.027194e+01 at=  5.011872e+03
+
+The file "vo2f.eps" may be printed on a postscript printer.
+lcof                =  7.972204e+00
+ucof                =  3.118619e+06
+
+ERROR: (internal)  This operation is not defined for display type printf.
+Can't open viewport for graphics.
+INPUTimp_TAB
+Zin = 923.912
+INPUTimp_END
+
+
+merit_TAB
+vgain = 3.262849e+01
+bandw = 3.118611e+06
+cost = 8.160017e+03
+lcof = 7.972204e+00
+ ---------- & -------------------- 
+Merit = 1564.19
+merit_END
+
+ngspice-31 done

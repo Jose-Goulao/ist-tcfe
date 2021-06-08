@@ -1,0 +1,13 @@
+
+Circuit: circuit_t4_out
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 71
+
+Outimp_TAB
+Zout = 3.49807
+Outimp_END
+
+ngspice-31 done
